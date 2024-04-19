@@ -49,7 +49,7 @@ export default function Index() {
               <li>Вспышка номера</li>
             </ul> 
             <div className={styles.CardBottom}>
-              <Link to="/cash" className={styles.AboutLink}>Прочитать подробнее</Link>
+              <Link to="/find" className={styles.AboutLink}>Прочитать подробнее</Link>
               <a href="/" className={styles.Communication}>Связь</a>
             </div>
          </div>

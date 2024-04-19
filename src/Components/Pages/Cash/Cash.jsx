@@ -40,7 +40,7 @@ export default function Cash() {
             </ul>
             <h3>Сделаем интернет магазин, инвойс, эквайринг, под ваше направление.</h3>
             <h3>Мы действительно знаем что такое обнал, поможем в разных ситуациях, как не столкнуться с 115 ФЗ, как вывести из страны или внутри страны.</h3>
-            <a href="/" className={styles.Communication}>Связь</a>
+            <a href="https://t.me/Money_Chimera" className={styles.Communication}>Связь</a>
          </div>
         </div>
       </div> 

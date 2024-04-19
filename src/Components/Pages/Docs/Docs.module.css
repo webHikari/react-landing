@@ -1,0 +1,161 @@
+.Hero {
+
+    min-height: 100vh;
+    width: 100%;
+    background: url('./public/mountain.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+  }
+  
+  .HeroLogo {
+    background: #1a1d2380;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    max-width: 400px;
+    width: 100%;
+    height: 100px;
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border: 1px solid #ffffff50;
+  
+    position: absolute;
+    top: 0;
+    
+    cursor: pointer;
+  }
+  
+  .HeroLogo h1 {
+    letter-spacing: 6px;
+    font-weight: 600;
+    
+  }
+  
+  .HeroOptions {
+    display: flex;
+    justify-content: center; 
+    max-width: 1280px;
+    width: 100%;
+    margin-top: 100px;
+  }
+  
+
+  .FullOption {
+    background: #1a1d2380;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    max-width: 1000px;
+    width: 100%;
+    min-height: 600px;
+    margin: 10px;
+    font-family: "Montserrat";
+    color: #FFFFFF;
+    border-radius: 4px;
+  }
+  
+  .FullOption h1, .FullOption h2,.FullOption h3,h4,h5,h6 {
+    font-family: "Montserrat";
+    font-weight: 400;
+    margin: 20px;
+  }
+  
+  .FullOption p {
+    margin: 20px;
+  }
+  
+  .FullOption ul {
+    padding: 0 20px;
+    margin: 0px 0;
+  }
+
+  .CardBottom {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .CardBottom > * {
+    margin: 10px;
+  }
+  
+  .AboutLink {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px 0;
+    width: 230px;
+    border-radius: 10px;
+    border: 1px solid #FFF;
+    color: #FFF;
+    transition: .3s ease;
+    margin-right: 5px;
+  }
+  
+  .AboutLink:hover {
+    background: #FFFFFF;
+    color: #1a1d23;
+  }
+  
+  .Communication {
+    display: block;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid #FFF;
+    color: #1A1D23;
+    background: #FFFFFF;
+    transition: .3s ease;
+    margin: 20px;
+    text-align: center;
+  }
+  
+  .Communication:hover {
+    background: transparent;
+    color: #FFFFFF;
+  }
+  
+  .FullOption ul {
+    list-style: none;
+  }
+  
+  .FullOption ul li {
+    margin: 4px 0;
+  }
+  
+  .HalfOption {
+    display: flex;
+  }
+
+  ul li::before {
+    content: attr(data-icon);
+  }
+  
+  @media screen and (max-width: 400px) {
+    .FullOption {
+      margin: 0 !important;
+    }
+    .HeroOptions {
+      margin-top: 300px;
+    }
+  }
+  
+  @media screen and (max-width: 1000px) {
+    .HeroOptions {
+      padding: 10px;
+      margin-top: 50px;
+    }
+    .HeroOptions {
+      margin-top: 100px;
+    }
+  }
+  
