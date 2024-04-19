@@ -1,0 +1,122 @@
+.Hero {
+
+  min-height: 100vh;
+  width: 100%;
+  background: url('./public/mountain.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+ 
+}
+
+.HeroLogo {
+  background: #1a1d2360;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  max-width: 400px;
+  width: 100%;
+  height: 100px;
+  color: #FFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border: 1px solid #ffffff50;
+
+  position: absolute;
+  top: 0;
+}
+
+.HeroLogo h1 {
+  letter-spacing: 6px;
+  font-weight: 600;
+}
+
+.HeroOptions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1280px;
+  width: 100%;
+}
+
+.Option {
+  background: #1a1d2370;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  max-width: 400px;
+  width: 100%;
+  min-height: 300px;
+  font-family: "Montserrat";
+  color: #FFFFFF;
+}
+
+.Option h1 {
+  font-family: "Montserrat";
+  font-weight: 400;
+  margin: 10px;
+  text-align: center;
+}
+
+.Option p {
+  margin: 10px;
+}
+
+.CardBottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.CardBottom > * {
+  margin: 10px;
+}
+
+.AboutLink {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px 0;
+  width: 230px;
+  border-radius: 10px;
+  border: 1px solid #FFF;
+  color: #FFF;
+  transition: .3s ease;
+  margin-right: 5px;
+}
+
+.AboutLink:hover {
+  background: #FFFFFF;
+  color: #1a1d23;
+}
+
+.Communication {
+  display: block;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 1px solid #FFF;
+  color: #1A1D23;
+  background: #FFFFFF;
+  transition: .3s ease;
+  margin-left: 5px;
+  text-align: center;
+}
+
+.Communication:hover {
+  background: transparent;
+  color: #FFFFFF;
+}
+
+@media screen and (max-width: 1220px) {
+  .HeroOptions {
+    flex-direction: column;
+    margin-top: 250px;
+    gap: 20px;
+  }
+}
