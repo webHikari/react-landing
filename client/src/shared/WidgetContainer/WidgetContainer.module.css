@@ -1,0 +1,11 @@
+.Container {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    width: 100%;
+    min-height: 300px;
+    background: var(--projects-section);
+    border-radius: 30px;
+    padding: 16px;
+    margin: 16px;
+}
