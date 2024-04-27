@@ -1,46 +1,32 @@
-input {
-    outline: none;
-    padding: 6px 12px;
-    border-radius: 4px;
-    background: var(--link-color-hover);
-}
-
 .Container {
     position: relative;
 }
 
-.Label {
-    position: absolute;
-    color: #80868b;
+.Input {
+    border: 1px solid var(--link-color-hover);
+    outline: none;
+    background: var(--link-color-active);
+    padding: 8px 12px;
+    color: var(--main-color);
+    border-radius: 4px;
     font-size: 16px;
-    font-weight: 400;
-    max-width: calc(100% - (2 * 8px));
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    left: 8px;
-    top: 13px;
-    padding: 0 8px;
-    transition: 250ms;
-    user-select: none;
-    pointer-events: none;
-}
-.Input1:focus .Label{
-    transform: translateY(10px);
 }
 
-.Input1 {
-    box-sizing: border-box;
-    height: 50px;
-    width: 100%;
-    border-radius: 4px;
-    color: #202124;
-    border: 1px solid #dadce0;
-    padding: 13px 15px;
-    transition: 250ms;
-  }
-  .Input1:focus {
-    outline: none;
-    border: 2px solid #1a73e8;
-    transition: 250ms;
-  }
+.Label {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    cursor: auto;
+    transition: all 0.3s ease-in-out;
+}
+
+.Active {
+    top: -14px;
+    font-size: 12px;
+    color: var(--purple);
+
+}
+
+.ActiveInput {
+    border: 1px solid var(--purple);
+}

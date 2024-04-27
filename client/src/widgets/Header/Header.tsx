@@ -15,22 +15,6 @@ export default function Header() {
                     Main page
                 </NavLink>
                 <NavLink
-                    className={({ isActive }) =>
-                        isActive ? styles.ActiveLink : styles.DefaultLink
-                    }
-                    to="/login"
-                >
-                    Sign in
-                </NavLink>
-                <NavLink
-                    to="/register"
-                    className={({ isActive }) =>
-                        isActive ? styles.ActiveLink : styles.DefaultLink
-                    }
-                >
-                    Sign up
-                </NavLink>
-                <NavLink
                     to="/tutorial"
                     className={({ isActive }) =>
                         isActive ? styles.ActiveLink : styles.DefaultLink
@@ -45,6 +29,22 @@ export default function Header() {
                     }
                 >
                     Dashboard
+                </NavLink>
+                <NavLink
+                    className={({ isActive }) =>
+                        isActive ? styles.ActiveLink : styles.DefaultLink
+                    }
+                    to="/login"
+                >
+                    Sign in
+                </NavLink>
+                <NavLink
+                    to="/register"
+                    className={({ isActive }) =>
+                        isActive ? styles.ActiveLink : styles.DefaultLink
+                    }
+                >
+                    Sign up
                 </NavLink>
             </header>
         </div>
