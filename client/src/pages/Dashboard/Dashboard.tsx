@@ -8,8 +8,7 @@ export default function Dashboard() {
             <Input value={"Insert some text"} styleType={"Input1"} />
             <Header />
             <WidgetContainer>
-                <p>123
-                </p>
+                <p>123</p>
             </WidgetContainer>
         </>
     );
