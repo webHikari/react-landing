@@ -1,0 +1,46 @@
+input {
+    outline: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    background: var(--link-color-hover);
+}
+
+.Container {
+    position: relative;
+}
+
+.Label {
+    position: absolute;
+    color: #80868b;
+    font-size: 16px;
+    font-weight: 400;
+    max-width: calc(100% - (2 * 8px));
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    left: 8px;
+    top: 13px;
+    padding: 0 8px;
+    transition: 250ms;
+    user-select: none;
+    pointer-events: none;
+}
+.Input1:focus .Label{
+    transform: translateY(10px);
+}
+
+.Input1 {
+    box-sizing: border-box;
+    height: 50px;
+    width: 100%;
+    border-radius: 4px;
+    color: #202124;
+    border: 1px solid #dadce0;
+    padding: 13px 15px;
+    transition: 250ms;
+  }
+  .Input1:focus {
+    outline: none;
+    border: 2px solid #1a73e8;
+    transition: 250ms;
+  }

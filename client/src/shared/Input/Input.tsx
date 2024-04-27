@@ -6,8 +6,11 @@ const Input: React.FC<InputProps> = ({ value, styleType }) => {
     const inputClassName = styleType ? styles[styleType] : styles.Input1;
     const inputPlaceholder = value ? value : "Enter some text";
 
-    return(
-        <input className={inputClassName} placeholder={inputPlaceholder}></input>
+    return (
+        <div className={styles.Container}>
+            <label className={styles.Label}>{inputPlaceholder}</label>
+            <input className={inputClassName}></input>
+        </div>
     );
 };
 

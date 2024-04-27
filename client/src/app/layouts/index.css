@@ -119,6 +119,7 @@ h6 {
     min-width: 100vw;
     max-width: 900px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
