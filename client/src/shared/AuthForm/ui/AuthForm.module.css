@@ -1,0 +1,22 @@
+.Container {
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    border-radius: 16px;
+    background: var(--projects-section);
+}
+
+.Container h1 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.Container > div {
+    margin-top: 10px;
+}
+
+.Container > button {
+    margin-top: 30px;
+}

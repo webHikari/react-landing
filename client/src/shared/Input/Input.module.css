@@ -10,18 +10,21 @@
     color: var(--main-color);
     border-radius: 4px;
     font-size: 16px;
+    width: 100%;
 }
 
 .Label {
     position: absolute;
-    top: 8px;
+    top: 6px;
     left: 10px;
     cursor: auto;
     transition: all 0.3s ease-in-out;
+    background: var(--link-color-active);
+    padding: 0 2px;
 }
 
 .Active {
-    top: -14px;
+    top: -10px;
     font-size: 12px;
     color: var(--purple);
 

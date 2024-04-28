@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 
-
 button {
     display: flex;
     justify-content: center;
@@ -9,18 +8,17 @@ button {
     border-radius: 4px;
     border: none;
     padding: 6px 12px;
-    background: var(--main-color);
+    background: var(--button-bg);
     font-size: 17px;
     font-weight: 500;
     height: 40px;
     cursor: pointer;
-    transition: .2s ease;
-    border: 2px solid var(--main-color);
+    transition: 0.2s ease;
+    border: 2px solid transparent;
 }
 
 .Button1:hover {
-    background: transparent;
-    color: var(--main-color);
+    background: var(--link-color-hover);
 }
 
 .Button2 {

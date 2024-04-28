@@ -86,6 +86,12 @@
     --message-btn: rgba(195, 207, 244, 0.1);
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 a {
     font-weight: 500;
     color: #646cff;

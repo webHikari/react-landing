@@ -1,53 +1,53 @@
-import { InputProps } from "./Input.props";
-import { useId, useState } from "react";
-
+import React, { useState, useId } from "react";
 import styles from "./Input.module.css";
 
-const Input: React.FC<InputProps> = ({ value, styleType }) => {
-  const [isActive, setIsActive] = useState(false);
-  const [inputValue, setInputValue] = useState("");
+import { InputProps } from "./Input.props";
 
-  const handleFocus = () => {
-    setIsActive(true);
-  };
+const Input: React.FC<InputProps> = ({
+    placeholderValue,
+    type = "text",
+    value,
+    onChange,
+}) => {
+    const [isFocused, setIsFocused] = useState(false);
 
-  const handleBlur = () => {
-    setIsActive(inputValue !== "");
-  };
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        onChange?.(e.target.value);
+    };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value);
-  };
+    const handleFocus = () => {
+        setIsFocused(true);
+    };
 
-  const id = useId();
-  const labelId = useId();
+    const handleBlur = () => {
+        setIsFocused(value !== "");
+    };
 
-  const inputClassName = !!styleType ? styles[styleType] : styles.Input1;
+	const id = useId()
 
-  return (
-    <div className={styles.Container}>
-      <label
-        htmlFor={id}
-        id={labelId}
-        className={`${styles.Label} ${
-          isActive || inputValue !== "" ? styles.Active : ""
-        }`}
-      >
-        {value || "Enter some text"}
-      </label>
-      <input
-        id={id}
-        value={inputValue}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        onChange={handleInputChange}
-        className={`${inputClassName} 
-                ${styles.Input} ${
-                  isActive || inputValue !== "" ? styles.ActiveInput : ""
+    return (
+        <div className={styles.Container}>
+            <label
+                className={`${styles.Label} ${
+                    isFocused || value !== "" ? styles.Active : ""
                 }`}
-      />
-    </div>
-  );
+				htmlFor={id}
+            >
+                {placeholderValue}
+            </label>
+            <input
+                type={type}
+                value={value}
+                onChange={handleChange}
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+				id={id}
+                className={`${styles.Input} ${
+                    isFocused || value !== "" ? styles.ActiveInput : ""
+                }`}
+            />
+        </div>
+    );
 };
 
 export default Input;
