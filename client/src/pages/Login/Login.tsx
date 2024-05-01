@@ -5,7 +5,7 @@ export default function Login({setAuth}: any) {
     return (
         <>
             <Header />
-            <LoginForm />
+            <LoginForm setAuth={setAuth}/>
         </>
     );
 }
