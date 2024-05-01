@@ -14,28 +14,33 @@
     height: 40px;
     padding: 0 12px;
     color: var(--main-color);
-    transition: .2s background ease;
+    transition: 0.2s ease;
     border-radius: 4px;
 }
 
 .DefaultLink:hover {
+    color: var(--link-color-active-bg);
     background: var(--link-color-hover);
-    color: var(--link-color-active);
 }
 
 .HeaderWrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0; left: 0;
-  margin: 0;
-  z-index: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0;
+    z-index: 0;
 }
 
 .ActiveLink {
-  color: var(--link-color-active) !important;
-  background: var(--link-color-active-bg);
-  border-radius: 4px;
+    background: var(--link-color-active-bg);
+    color: var(--link-color-active) !important;
+    border-radius: 4px;
+}
+
+.ActiveLink:hover {
+  color: var(--link-color);
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AuthForm from "@shared/AuthForm/AuthForm";
 import Input from "@shared/Input/Input";
 import Button from "@shared/Button/Button";
@@ -6,9 +6,15 @@ import Button from "@shared/Button/Button";
 export default function RegisterForm({ setAuth }: any) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [repeatPassword, setRepeatPassword] = useState("");
     const [isLoading, setIsLoading] = useState(false);
 
+    const [isEqual, setIsEqual] = useState(true);
     const [isEmailCorrect, setIsEmailCorrect] = useState(true);
+
+    useEffect(() => {
+        setIsEqual(password === repeatPassword);
+    }, [repeatPassword]);
 
     const handleEmailChange = (value: string) => {
         setEmail(value);
@@ -31,19 +37,30 @@ export default function RegisterForm({ setAuth }: any) {
         setPassword(value);
     };
 
+    const handleRepeatPasswordChange = (value: string) => {
+        setRepeatPassword(value);
+        setIsEqual(() => {
+            const isEqual = value === password;
+            return isEqual;
+        });
+    };
+
     const handleSubmit = async () => {
         setIsLoading(true);
         console.log(email);
         console.log(password);
         try {
             console.log("Loading...");
-            const response = await fetch("http://localhost:3000/auth/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ email, password }),
-            });
+            const response = await fetch(
+                "http://localhost:3000/auth/register",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ email, password }),
+                }
+            );
 
             if (response.ok) {
                 const parseRes = await response.json();
@@ -61,7 +78,7 @@ export default function RegisterForm({ setAuth }: any) {
 
     return (
         <AuthForm>
-            <h1>Login</h1>
+            <h1>Register</h1>
             {isLoading ? (
                 <p>Loading...</p>
             ) : (
@@ -81,6 +98,15 @@ export default function RegisterForm({ setAuth }: any) {
                         value={password}
                         type="password"
                         onChange={handlePasswordChange}
+                        required
+                    />
+                    {!isEqual ? <p>Not Equal </p> : null}
+                    <Input
+                        styleType="Input1"
+                        placeholderValue="Repeat your password"
+                        value={repeatPassword}
+                        type="password"
+                        onChange={handleRepeatPasswordChange}
                         required
                     />
                     <Button styleType="Button1" onClick={handleSubmit} />

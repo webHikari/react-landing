@@ -1,15 +1,18 @@
 import Header from "@widgets/Header/Header";
-import WidgetContainer from "@shared/WidgetContainer/WidgetContainer";
-import Input from "@shared/Input/Input";
+import Button from "@shared/Button/Button";
 
-export default function Dashboard() {
+export default function Dashboard({setAuth}: any) {
+
+    const logout = () => {
+        localStorage.removeItem('token');
+        setAuth(false);
+    };
+
     return (
         <>
-            <Input value={"Insert some text"} styleType={"Input1"} />
             <Header />
-            <WidgetContainer>
-                <p>123</p>
-            </WidgetContainer>
+            <p>Dashboard.</p>
+            <Button value="Log out" onClick={() =>logout()} styleType="Button1"/>
         </>
     );
 }
