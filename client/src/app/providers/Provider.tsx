@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Route, Routes, Navigate} from "react-router-dom";
+import {
+    BrowserRouter as Router,
+    Route,
+    Routes,
+    Navigate,
+} from "react-router-dom";
 import { useState, useEffect } from "react";
 // Pages importation
 import Login from "@pages/Login/Login";
@@ -11,7 +16,8 @@ import Dashboard from "@pages/Dashboard/Dashboard";
 export default function Provider() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-    const setAuth = (boolean: boolean) => {
+    type SetAuthFunction = (isAuthenticated: boolean) => void;
+    const setAuth: SetAuthFunction = (boolean: boolean) => {
         setIsAuthenticated(boolean);
     };
 
@@ -41,7 +47,7 @@ export default function Provider() {
     return (
         <Router>
             <Routes>
-            <Route
+                <Route
                     path="/login"
                     element={
                         !isAuthenticated ? (
