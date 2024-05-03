@@ -1,0 +1,44 @@
+.Sidebar {
+  min-width: 220px;
+  max-width: 220px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  background: var(--main-container);
+  border-right: 1px solid #434443;
+}
+
+.Sidebar a {
+  display: flex;
+  width: 100%;
+
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border-radius: 4px;
+
+  margin: 4px 0;
+  transition: 0.3s ease;
+}
+
+.Active {
+  color: var(--link-color-active);
+  background: var(--link-color-active-bg);
+}
+
+.Active:hover {
+  background: var(--button-hover-bg);
+  color: var(--link-color-active);
+}
+
+.Default {
+  color: var(--link-color);
+}
+
+.Default:hover {
+  background: var(--link-color-hover);
+  color: var(--button-hover-bg);
+}

@@ -5,12 +5,9 @@ import Sidebar from "@widgets/Sidebar/Sidebar";
 
 import styles from "./ui/Dashboard.module.css";
 
-export default function Dashboard({ setAuth }: any) {
-    const logout = () => {
-        localStorage.removeItem("token");
-        setAuth(false);
-    };
+import Logout from "@features/Logout/Logout";
 
+export default function Dashboard({ setAuth }: any) {
     const [name, setName] = useState("");
 
     // Fetch data for variables
@@ -35,14 +32,17 @@ export default function Dashboard({ setAuth }: any) {
 
     return (
         <div className={styles.Container}>
-            <p>{name}</p>
             <Sidebar />
-            <p>Dashboard.</p>
-            <Button
-                value="Log out"
-                onClick={() => logout()}
-                styleType="Button1"
-            />
+            <div className={styles.Main}>
+                <p>{name}</p>
+
+                <Button
+                    value="Log out"
+                    onClick={() => Logout({setAuth})}
+                    styleType="Button1"
+                />
+            </div>
+            {/* <div className={styles.Secondary}></div> */}
         </div>
     );
 }
