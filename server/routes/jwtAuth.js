@@ -93,7 +93,7 @@ router.post("/login", validinfo, async (req, res) => {
         }
 
         // 4. give user the jwt token
-        const token = jwtGenerator(user.login);
+        const token = jwtGenerator(user.id);
         res.json({ token });
     } catch (err) {
         console.log(err);

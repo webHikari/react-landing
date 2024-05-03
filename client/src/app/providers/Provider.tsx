@@ -78,8 +78,16 @@ export default function Provider() {
                     }
                 />
                 <Route path="/tutorial" element={<Tutorial />} />
-                <Route path="/" element={<Main />} />
-                <Route path="/*" element={<Error404 />} />
+                <Route
+                    path="/*"
+                    element={
+                        !isAuthenticated ? (
+                            <Navigate to="/login" />
+                        ) : (
+                            <Dashboard setAuth={setAuth} />
+                        )
+                    }
+                />
             </Routes>
         </Router>
     );
