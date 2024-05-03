@@ -8,6 +8,7 @@ const Input: React.FC<InputProps> = ({
     type = "text",
     value,
     onChange,
+    required,
 }) => {
     const [isFocused, setIsFocused] = useState(false);
 
@@ -23,7 +24,7 @@ const Input: React.FC<InputProps> = ({
         setIsFocused(value !== "");
     };
 
-	const id = useId()
+    const id = useId();
 
     return (
         <div className={styles.Container}>
@@ -31,7 +32,7 @@ const Input: React.FC<InputProps> = ({
                 className={`${styles.Label} ${
                     isFocused || value !== "" ? styles.Active : ""
                 }`}
-				htmlFor={id}
+                htmlFor={id}
             >
                 {placeholderValue}
             </label>
@@ -41,10 +42,11 @@ const Input: React.FC<InputProps> = ({
                 onChange={handleChange}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
-				id={id}
+                id={id}
                 className={`${styles.Input} ${
                     isFocused || value !== "" ? styles.ActiveInput : ""
                 }`}
+                {...(required && { required: true })}
             />
         </div>
     );

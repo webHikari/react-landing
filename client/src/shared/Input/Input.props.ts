@@ -1,4 +1,5 @@
 export interface InputProps {
+    required: boolean
     styleType: string
     placeholderValue: string;
     type?: "password" | "text" | "email";

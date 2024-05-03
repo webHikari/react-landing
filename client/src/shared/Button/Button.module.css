@@ -13,12 +13,13 @@ button {
     font-weight: 500;
     height: 40px;
     cursor: pointer;
-    transition: 0.2s ease;
-    border: 2px solid transparent;
+    transition: 0.2s ease-out;
+    color: var(--app-container);
 }
 
 .Button1:hover {
-    background: var(--link-color-hover);
+    background: var(--button-hover-bg);
+
 }
 
 .Button2 {

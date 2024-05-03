@@ -16,8 +16,8 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 
 @font-face {
-  font-family: "DM Sans";
-  src: url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+    font-family: "DM Sans";
+    src: url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 }
 
 :root {
@@ -34,20 +34,21 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    --app-container: #f3f6fd;
-    --main-color: #1f1c2e;
+    --app-container: #000000;
+    --main-color: #ffffff;
     --secondary-color: #4a4a4a;
-    --link-color: #1f1c2e;
-    --link-color-hover: #c3cff4;
-    --link-color-active: #fff;
-    --link-color-active-bg: #1f1c2e;
-    --projects-section: #fff;
+    --link-color: #fafafa;
+    --link-color-hover: #34c47150;
+    --link-color-active: #1f1f1f;
+    --link-color-active-bg: #34c471;
+    --projects-section: #1f1f1f;
     --message-box-hover: #fafcff;
     --message-box-border: #e9ebf0;
     --more-list-bg: #fff;
     --more-list-bg-hover: #f6fbff;
     --more-list-shadow: rgba(209, 209, 209, 0.4);
-    --button-bg: #1f1c24;
+    --button-bg: #34c471;
+    --button-hover-bg: #00e35f;
     --search-area-bg: #ffffff;
     --star: #1f1c2e;
     --message-btn: #fff;
@@ -110,6 +111,7 @@ body {
     width: 100vw;
     min-height: 100vh;
     background: var(--app-container);
+    color: var(--main-color);
 }
 
 h1,
