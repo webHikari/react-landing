@@ -1,27 +1,7 @@
-@font-face {
-    font-family: "Poppins-SemiBold";
-    src: url("./fonts/Poppins-SemiBold.ttf");
-}
-
-@font-face {
-    font-family: "Poppins-Bold";
-    src: url("./fonts/Poppins-Bold.ttf");
-}
-
-@font-face {
-    font-family: "Poppins-Regular";
-    src: url("./fonts/Poppins-Regular.ttf");
-}
-
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
-
-@font-face {
-    font-family: "DM Sans";
-    src: url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 :root {
-    font-family: "DM Sans", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
     font-weight: 400;
 
@@ -36,6 +16,7 @@
     --app-container: #101010;
     --main-color: #ffffff;
     --secondary-color: #4a4a4a;
+    --thirdary-color: #434443;
     --link-color: #fafafa;
     --link-color-hover: #34c47150;
     --link-color-active: #1f1f1f;
@@ -90,6 +71,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Inter";
 }
 
 a {

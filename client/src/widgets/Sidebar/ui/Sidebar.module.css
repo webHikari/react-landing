@@ -9,6 +9,7 @@
   flex-direction: column;
   background: var(--main-container);
   border-right: 1px solid #434443;
+  justify-content: space-between;
 }
 
 .Sidebar a {
@@ -22,6 +23,10 @@
 
   margin: 4px 0;
   transition: 0.3s ease;
+}
+
+.Sidebar p {
+  margin: 4px;
 }
 
 .Active {
@@ -42,3 +47,4 @@
   background: var(--link-color-hover);
   color: var(--button-hover-bg);
 }
+

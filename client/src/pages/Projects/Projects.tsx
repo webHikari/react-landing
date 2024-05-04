@@ -1,22 +1,24 @@
 import Sidebar from "@widgets/Sidebar/Sidebar";
-import styles from "./ui/Dashboard.module.css";
+import styles from "./ui/Projects.module.css";
 
 import { SetAuthFunction } from "@app/providers/model/Provider.props";
 
-interface DashboardProps {
+interface ProjectsProps {
     setAuth: SetAuthFunction
-    name: any
+    name: string
 }
 
-const Dashboard: React.FC<DashboardProps> = ({ setAuth, name }) => {
-
+const Projects: React.FC<ProjectsProps> = ({ setAuth, name }) => {
     return (
         <div className={styles.Container}>
             <Sidebar setAuth={setAuth} name={name} />
-            <div className={styles.Main}></div>
+            <div className={styles.Main}>
+                <div className={styles.Project}>
+                </div>
+            </div>
             {/* <div className={styles.Secondary}></div> */}
         </div>
     );
 }
 
-export default Dashboard
+export default Projects

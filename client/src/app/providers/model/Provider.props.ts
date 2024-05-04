@@ -1,0 +1,1 @@
+export type SetAuthFunction = (isAuthenticated: boolean) => void;

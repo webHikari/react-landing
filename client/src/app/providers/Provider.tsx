@@ -8,15 +8,17 @@ import { useState, useEffect } from "react";
 // Pages importation
 import Login from "@pages/Login/Login";
 import Register from "@pages/Register/Register";
-import Main from "@pages/Main/Main";
-import Error404 from "@pages/Error404/Error404";
 import Tutorial from "@pages/Tutorial/Tutorial";
 import Dashboard from "@pages/Dashboard/Dashboard";
+import Projects from "@pages/Projects/Projects";
+
+import { SetAuthFunction } from "./model/Provider.props";
+
+import getData from "@features/GetData/GetData";
 
 export default function Provider() {
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
 
-    type SetAuthFunction = (isAuthenticated: boolean) => void;
     const setAuth: SetAuthFunction = (boolean: boolean) => {
         setIsAuthenticated(boolean);
     };
@@ -39,6 +41,21 @@ export default function Provider() {
             console.log(error);
         }
     };
+
+    const [name, setName] = useState("");
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const parseRes = await getData();
+                setName(parseRes.login);
+            } catch (err: any) {
+                console.error(err.message);
+            }
+        };
+
+        fetchData();
+    }, []);
 
     useEffect(() => {
         isAuth();
@@ -73,7 +90,17 @@ export default function Provider() {
                         !isAuthenticated ? (
                             <Navigate to="/login" />
                         ) : (
-                            <Dashboard setAuth={setAuth} />
+                            <Dashboard setAuth={setAuth} name={name}/>
+                        )
+                    }
+                />
+                <Route
+                    path="/projects"
+                    element={
+                        !isAuthenticated ? (
+                            <Navigate to="/login" />
+                        ) : (
+                            <Projects setAuth={setAuth} name={name} />
                         )
                     }
                 />
@@ -84,7 +111,7 @@ export default function Provider() {
                         !isAuthenticated ? (
                             <Navigate to="/login" />
                         ) : (
-                            <Dashboard setAuth={setAuth} />
+                            <Dashboard setAuth={setAuth} name={name} />
                         )
                     }
                 />
