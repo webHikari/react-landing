@@ -21,7 +21,26 @@
 
 .Project {
     position: relative;
-    width: 200px;
-    height: 200px;
+    border-radius: 10px;
+    border: 1px solid var(--thirdary-color);
+    min-width: 200px;
+    width: fit-content;
+    min-height: 100px;
     background: var(--projects-section);
+    position: relative;
+    padding: 4px 4px 4px 20px;
+
+    display: flex;
+    flex-direction: column;
 }
+
+.Project::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    top: 10px; left: 8px;
+    height: calc(100% - 20px);
+    border-radius: 200px;
+    background: var(--green);
+}
+
