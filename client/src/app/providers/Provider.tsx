@@ -11,6 +11,8 @@ import Register from "@pages/Register/Register";
 import Tutorial from "@pages/Tutorial/Tutorial";
 import Dashboard from "@pages/Dashboard/Dashboard";
 import Projects from "@pages/Projects/Projects";
+import ProjectsCreate from "@pages/ProjectsCreate/ProjectsCreate"
+
 
 import { SetAuthFunction } from "./model/Provider.props";
 
@@ -101,6 +103,16 @@ export default function Provider() {
                             <Navigate to="/login" />
                         ) : (
                             <Projects setAuth={setAuth} name={name} />
+                        )
+                    }
+                />
+                <Route 
+                    path="/projects/create"
+                    element={
+                        !isAuthenticated ? (
+                            <Navigate to="/login" />
+                        ) : (
+                            <ProjectsCreate setAuth={setAuth} name={name}/>
                         )
                     }
                 />

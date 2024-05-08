@@ -5,10 +5,10 @@ import { SetAuthFunction } from "@app/providers/model/Provider.props";
 
 interface DashboardProps {
     setAuth: SetAuthFunction
-    name: any
+    name: string
 }
 
-const Dashboard: React.FC<DashboardProps> = ({ setAuth, name }) => {
+const Dashboard = ({ setAuth, name }: DashboardProps) => {
 
     return (
         <div className={styles.Container}>

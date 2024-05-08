@@ -3,7 +3,8 @@
     width: 100%;
 }
 
-.Input {
+.Select {
+    display: flex;
     border: 1px solid #3e3e3e;
     outline: none;
     background: var(--link-color-active);
@@ -31,6 +32,6 @@
     color: var(--green);
 }
 
-.ActiveInput {
+.ActiveSelect {
     border: 1px solid var(--green);
 }

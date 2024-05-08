@@ -2,9 +2,9 @@ import React from "react";
 import styles from "./ui/AuthForm.module.css";
 
 const WidgetContainer: React.FC<{ children: React.ReactNode }> = ({
-  children,
+    children,
 }) => {
-  return <form className={styles.Container}>{children}</form>;
+    return <form className={styles.Container}>{children}</form>;
 };
 
 export default WidgetContainer;

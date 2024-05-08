@@ -1,0 +1,155 @@
+Date : 2024-05-08 00:11:00
+Directory : /Users/pavel/Documents/react-landing
+Total : 65 files,  30885 codes, 558 comments, 262 blanks, all 31705 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| JavaScript         |         12 |     24,197 |        481 |         57 |     24,735 |
+| JSON               |          7 |      5,540 |          0 |          6 |      5,546 |
+| TypeScript JSX     |         18 |        594 |         73 |        115 |        782 |
+| CSS                |         10 |        356 |          0 |         59 |        415 |
+| TypeScript         |         13 |        122 |          2 |         12 |        136 |
+| JSON with Comments |          1 |         31 |          2 |          3 |         36 |
+| Markdown           |          1 |         22 |          0 |          9 |         31 |
+| HTML               |          1 |         13 |          0 |          1 |         14 |
+| SQL                |          1 |          9 |          0 |          0 |          9 |
+| XML                |          1 |          1 |          0 |          0 |          1 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++---------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                              | files      | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                 |         65 |     30,885 |        558 |        262 |     31,705 |
+| client                                                                                            |         55 |     28,064 |        541 |        218 |     28,823 |
+| client (Files)                                                                                    |          8 |      3,001 |          3 |         18 |      3,022 |
+| client/.vite                                                                                      |          6 |     24,007 |        464 |         15 |     24,486 |
+| client/.vite/deps                                                                                 |          6 |     24,007 |        464 |         15 |     24,486 |
+| client/public                                                                                     |          1 |          1 |          0 |          0 |          1 |
+| client/src                                                                                        |         40 |      1,055 |         74 |        185 |      1,314 |
+| client/src (Files)                                                                                |          1 |          0 |          1 |          1 |          2 |
+| client/src/app                                                                                    |          5 |        226 |          1 |         27 |        254 |
+| client/src/app (Files)                                                                            |          1 |          9 |          0 |          3 |         12 |
+| client/src/app/layouts                                                                            |          1 |        104 |          0 |         12 |        116 |
+| client/src/app/providers                                                                          |          3 |        113 |          1 |         12 |        126 |
+| client/src/app/providers (Files)                                                                  |          1 |        109 |          1 |         12 |        122 |
+| client/src/app/providers/model                                                                    |          2 |          4 |          0 |          0 |          4 |
+| client/src/features                                                                               |          4 |         77 |          0 |          7 |         84 |
+| client/src/features/GetData                                                                       |          1 |         13 |          0 |          2 |         15 |
+| client/src/features/Login                                                                         |          1 |         31 |          0 |          2 |         33 |
+| client/src/features/Logout                                                                        |          1 |          4 |          0 |          1 |          5 |
+| client/src/features/Registration                                                                  |          1 |         29 |          0 |          2 |         31 |
+| client/src/pages                                                                                  |         10 |        166 |          2 |         38 |        206 |
+| client/src/pages/Dashboard                                                                        |          2 |         34 |          1 |          9 |         44 |
+| client/src/pages/Dashboard (Files)                                                                |          1 |         16 |          1 |          6 |         23 |
+| client/src/pages/Dashboard/ui                                                                     |          1 |         18 |          0 |          3 |         21 |
+| client/src/pages/Error404                                                                         |          1 |          9 |          0 |          3 |         12 |
+| client/src/pages/Login                                                                            |          1 |         10 |          0 |          2 |         12 |
+| client/src/pages/Main                                                                             |          2 |         28 |          0 |          9 |         37 |
+| client/src/pages/Main (Files)                                                                     |          1 |         14 |          0 |          4 |         18 |
+| client/src/pages/Main/ui                                                                          |          1 |         14 |          0 |          5 |         19 |
+| client/src/pages/Projects                                                                         |          2 |         66 |          1 |         11 |         78 |
+| client/src/pages/Projects (Files)                                                                 |          1 |         26 |          1 |          4 |         31 |
+| client/src/pages/Projects/ui                                                                      |          1 |         40 |          0 |          7 |         47 |
+| client/src/pages/Register                                                                         |          1 |         10 |          0 |          2 |         12 |
+| client/src/pages/Tutorial                                                                         |          1 |          9 |          0 |          2 |         11 |
+| client/src/shared                                                                                 |         14 |        248 |         68 |         68 |        384 |
+| client/src/shared/AuthForm                                                                        |          3 |         27 |          0 |          7 |         34 |
+| client/src/shared/AuthForm (Files)                                                                |          2 |          8 |          0 |          4 |         12 |
+| client/src/shared/AuthForm/ui                                                                     |          1 |         19 |          0 |          3 |         22 |
+| client/src/shared/Button                                                                          |          3 |         57 |          0 |         13 |         70 |
+| client/src/shared/Input                                                                           |          3 |         86 |          0 |         15 |        101 |
+| client/src/shared/WidgetContainer                                                                 |          2 |         17 |          0 |          3 |         20 |
+| client/src/shared/api                                                                             |          3 |         61 |         68 |         30 |        159 |
+| client/src/shared/api (Files)                                                                     |          1 |         50 |         68 |         29 |        147 |
+| client/src/shared/api/model                                                                       |          2 |         11 |          0 |          1 |         12 |
+| client/src/widgets                                                                                |          6 |        338 |          2 |         44 |        384 |
+| client/src/widgets/Header                                                                         |          2 |         46 |          2 |          8 |         56 |
+| client/src/widgets/Header (Files)                                                                 |          1 |          5 |          2 |          2 |          9 |
+| client/src/widgets/Header/ui                                                                      |          1 |         41 |          0 |          6 |         47 |
+| client/src/widgets/LoginForm                                                                      |          1 |         61 |          0 |          9 |         70 |
+| client/src/widgets/RegisterForm                                                                   |          1 |         82 |          0 |         11 |         93 |
+| client/src/widgets/Sidebar                                                                        |          2 |        149 |          0 |         16 |        165 |
+| client/src/widgets/Sidebar (Files)                                                                |          1 |        108 |          0 |          6 |        114 |
+| client/src/widgets/Sidebar/ui                                                                     |          1 |         41 |          0 |         10 |         51 |
+| server                                                                                            |         10 |      2,821 |         17 |         44 |      2,882 |
+| server (Files)                                                                                    |          4 |      2,634 |          5 |          9 |      2,648 |
+| server/database                                                                                   |          1 |         16 |          1 |          3 |         20 |
+| server/middleware                                                                                 |          2 |         29 |          0 |          8 |         37 |
+| server/routes                                                                                     |          2 |        133 |         11 |         22 |        166 |
+| server/utils                                                                                      |          1 |          9 |          0 |          2 |         11 |
++---------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++---------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                                                          | language           | code       | comment    | blank      | total      |
++---------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| /Users/pavel/Documents/react-landing/client/.eslintrc.cjs                                         | JavaScript         |         18 |          0 |          1 |         19 |
+| /Users/pavel/Documents/react-landing/client/.vite/deps/_metadata.json                             | JSON               |         31 |          0 |          0 |         31 |
+| /Users/pavel/Documents/react-landing/client/.vite/deps/chunk-XFZ2DVVZ.js                          | JavaScript         |      1,811 |         93 |          4 |      1,908 |
+| /Users/pavel/Documents/react-landing/client/.vite/deps/package.json                               | JSON               |          3 |          0 |          1 |          4 |
+| /Users/pavel/Documents/react-landing/client/.vite/deps/react-dom_client.js                        | JavaScript         |     21,287 |        347 |          6 |     21,640 |
+| /Users/pavel/Documents/react-landing/client/.vite/deps/react.js                                   | JavaScript         |          4 |          1 |          1 |          6 |
+| /Users/pavel/Documents/react-landing/client/.vite/deps/react_jsx-dev-runtime.js                   | JavaScript         |        871 |         23 |          3 |        897 |
+| /Users/pavel/Documents/react-landing/client/README.md                                             | Markdown           |         22 |          0 |          9 |         31 |
+| /Users/pavel/Documents/react-landing/client/index.html                                            | HTML               |         13 |          0 |          1 |         14 |
+| /Users/pavel/Documents/react-landing/client/package-lock.json                                     | JSON               |      2,857 |          0 |          1 |      2,858 |
+| /Users/pavel/Documents/react-landing/client/package.json                                          | JSON               |         32 |          0 |          1 |         33 |
+| /Users/pavel/Documents/react-landing/client/public/vite.svg                                       | XML                |          1 |          0 |          0 |          1 |
+| /Users/pavel/Documents/react-landing/client/src/app/appEntry.tsx                                  | TypeScript JSX     |          9 |          0 |          3 |         12 |
+| /Users/pavel/Documents/react-landing/client/src/app/layouts/index.css                             | CSS                |        104 |          0 |         12 |        116 |
+| /Users/pavel/Documents/react-landing/client/src/app/providers/Provider.tsx                        | TypeScript JSX     |        109 |          1 |         12 |        122 |
+| /Users/pavel/Documents/react-landing/client/src/app/providers/model/GetData.props.ts              | TypeScript         |          3 |          0 |          0 |          3 |
+| /Users/pavel/Documents/react-landing/client/src/app/providers/model/Provider.props.ts             | TypeScript         |          1 |          0 |          0 |          1 |
+| /Users/pavel/Documents/react-landing/client/src/features/GetData/GetData.ts                       | TypeScript         |         13 |          0 |          2 |         15 |
+| /Users/pavel/Documents/react-landing/client/src/features/Login/Login.ts                           | TypeScript         |         31 |          0 |          2 |         33 |
+| /Users/pavel/Documents/react-landing/client/src/features/Logout/Logout.ts                         | TypeScript         |          4 |          0 |          1 |          5 |
+| /Users/pavel/Documents/react-landing/client/src/features/Registration/Registration.ts             | TypeScript         |         29 |          0 |          2 |         31 |
+| /Users/pavel/Documents/react-landing/client/src/pages/Dashboard/Dashboard.tsx                     | TypeScript JSX     |         16 |          1 |          6 |         23 |
+| /Users/pavel/Documents/react-landing/client/src/pages/Dashboard/ui/Dashboard.module.css           | CSS                |         18 |          0 |          3 |         21 |
+| /Users/pavel/Documents/react-landing/client/src/pages/Error404/Error404.tsx                       | TypeScript JSX     |          9 |          0 |          3 |         12 |
+| /Users/pavel/Documents/react-landing/client/src/pages/Login/Login.tsx                             | TypeScript JSX     |         10 |          0 |          2 |         12 |
+| /Users/pavel/Documents/react-landing/client/src/pages/Main/Main.tsx                               | TypeScript JSX     |         14 |          0 |          4 |         18 |
+| /Users/pavel/Documents/react-landing/client/src/pages/Main/ui/Main.module.css                     | CSS                |         14 |          0 |          5 |         19 |
+| /Users/pavel/Documents/react-landing/client/src/pages/Projects/Projects.tsx                       | TypeScript JSX     |         26 |          1 |          4 |         31 |
+| /Users/pavel/Documents/react-landing/client/src/pages/Projects/ui/Projects.module.css             | CSS                |         40 |          0 |          7 |         47 |
+| /Users/pavel/Documents/react-landing/client/src/pages/Register/Register.tsx                       | TypeScript JSX     |         10 |          0 |          2 |         12 |
+| /Users/pavel/Documents/react-landing/client/src/pages/Tutorial/Tutorial.tsx                       | TypeScript JSX     |          9 |          0 |          2 |         11 |
+| /Users/pavel/Documents/react-landing/client/src/shared/AuthForm/AuthForm.props.ts                 | TypeScript         |          0 |          0 |          1 |          1 |
+| /Users/pavel/Documents/react-landing/client/src/shared/AuthForm/AuthForm.tsx                      | TypeScript JSX     |          8 |          0 |          3 |         11 |
+| /Users/pavel/Documents/react-landing/client/src/shared/AuthForm/ui/AuthForm.module.css            | CSS                |         19 |          0 |          3 |         22 |
+| /Users/pavel/Documents/react-landing/client/src/shared/Button/Button.module.css                   | CSS                |         37 |          0 |          7 |         44 |
+| /Users/pavel/Documents/react-landing/client/src/shared/Button/Button.props.ts                     | TypeScript         |          5 |          0 |          1 |          6 |
+| /Users/pavel/Documents/react-landing/client/src/shared/Button/Button.tsx                          | TypeScript JSX     |         15 |          0 |          5 |         20 |
+| /Users/pavel/Documents/react-landing/client/src/shared/Input/Input.module.css                     | CSS                |         31 |          0 |          6 |         37 |
+| /Users/pavel/Documents/react-landing/client/src/shared/Input/Input.props.ts                       | TypeScript         |          8 |          0 |          0 |          8 |
+| /Users/pavel/Documents/react-landing/client/src/shared/Input/Input.tsx                            | TypeScript JSX     |         47 |          0 |          9 |         56 |
+| /Users/pavel/Documents/react-landing/client/src/shared/WidgetContainer/WidgetContainer.module.css | CSS                |         11 |          0 |          0 |         11 |
+| /Users/pavel/Documents/react-landing/client/src/shared/WidgetContainer/WidgetContainer.tsx        | TypeScript JSX     |          6 |          0 |          3 |          9 |
+| /Users/pavel/Documents/react-landing/client/src/shared/api/ApiCall.tsx                            | TypeScript JSX     |         50 |         68 |         29 |        147 |
+| /Users/pavel/Documents/react-landing/client/src/shared/api/model/ApiRequest.props.ts              | TypeScript         |          5 |          0 |          1 |          6 |
+| /Users/pavel/Documents/react-landing/client/src/shared/api/model/ApiResult.props.ts               | TypeScript         |          6 |          0 |          0 |          6 |
+| /Users/pavel/Documents/react-landing/client/src/vite-env.d.ts                                     | TypeScript         |          0 |          1 |          1 |          2 |
+| /Users/pavel/Documents/react-landing/client/src/widgets/Header/Header.tsx                         | TypeScript JSX     |          5 |          2 |          2 |          9 |
+| /Users/pavel/Documents/react-landing/client/src/widgets/Header/ui/Header.module.css               | CSS                |         41 |          0 |          6 |         47 |
+| /Users/pavel/Documents/react-landing/client/src/widgets/LoginForm/LoginForm.tsx                   | TypeScript JSX     |         61 |          0 |          9 |         70 |
+| /Users/pavel/Documents/react-landing/client/src/widgets/RegisterForm/RegisterForm.tsx             | TypeScript JSX     |         82 |          0 |         11 |         93 |
+| /Users/pavel/Documents/react-landing/client/src/widgets/Sidebar/Sidebar.tsx                       | TypeScript JSX     |        108 |          0 |          6 |        114 |
+| /Users/pavel/Documents/react-landing/client/src/widgets/Sidebar/ui/Sidebar.module.css             | CSS                |         41 |          0 |         10 |         51 |
+| /Users/pavel/Documents/react-landing/client/tsconfig.json                                         | JSON with Comments |         31 |          2 |          3 |         36 |
+| /Users/pavel/Documents/react-landing/client/tsconfig.node.json                                    | JSON               |         11 |          0 |          1 |         12 |
+| /Users/pavel/Documents/react-landing/client/vite.config.ts                                        | TypeScript         |         17 |          1 |          1 |         19 |
+| /Users/pavel/Documents/react-landing/server/database/db.js                                        | JavaScript         |         16 |          1 |          3 |         20 |
+| /Users/pavel/Documents/react-landing/server/index.js                                              | JavaScript         |         19 |          5 |          7 |         31 |
+| /Users/pavel/Documents/react-landing/server/mcu.db                                                | SQL                |          9 |          0 |          0 |          9 |
+| /Users/pavel/Documents/react-landing/server/middleware/authorization.js                           | JavaScript         |         16 |          0 |          5 |         21 |
+| /Users/pavel/Documents/react-landing/server/middleware/validInfo.js                               | JavaScript         |         13 |          0 |          3 |         16 |
+| /Users/pavel/Documents/react-landing/server/package-lock.json                                     | JSON               |      2,584 |          0 |          1 |      2,585 |
+| /Users/pavel/Documents/react-landing/server/package.json                                          | JSON               |         22 |          0 |          1 |         23 |
+| /Users/pavel/Documents/react-landing/server/routes/dashboard.js                                   | JavaScript         |         45 |          2 |          6 |         53 |
+| /Users/pavel/Documents/react-landing/server/routes/jwtAuth.js                                     | JavaScript         |         88 |          9 |         16 |        113 |
+| /Users/pavel/Documents/react-landing/server/utils/jwtGenerator.js                                 | JavaScript         |          9 |          0 |          2 |         11 |
+| Total                                                                                             |                    |     30,885 |        558 |        262 |     31,705 |
++---------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+

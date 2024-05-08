@@ -1,7 +1,7 @@
 import { ButtonProps } from "./Button.props";
 import styles from "./Button.module.css";
 
-const Button: React.FC<ButtonProps> = ({ value, styleType, onClick }) => {
+const Button = ({ value, styleType, onClick, children }: ButtonProps) => {
     const buttonClassName = styleType ? styles[styleType] : styles.Button1;
     const buttonText = value ? value : "Submit";
 
@@ -11,7 +11,7 @@ const Button: React.FC<ButtonProps> = ({ value, styleType, onClick }) => {
 
     return (
         <button onClick={handleClick} className={buttonClassName}>
-            {buttonText}
+            { children ? children : buttonText}
         </button>
     );
 };
