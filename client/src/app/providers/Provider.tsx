@@ -15,6 +15,10 @@ import Projects from "@pages/Projects/Projects";
 import ProjectsCreate from "@pages/ProjectsCreate/ProjectsCreate";
 import ProjectsView from "@pages/ProjectsView/ProjectsView";
 
+// Clients pages
+import Clients from "@pages/Clients/Clients"
+import ClientsCreate from "@pages/ClientsCreate/ClientsCreate"
+
 import Tutorial from "@pages/Tutorial/Tutorial";
 import Dashboard from "@pages/Dashboard/Dashboard";
 
@@ -127,6 +131,26 @@ export default function Provider() {
                             <Navigate to="/login" />
                         ) : (
                             <ProjectsView setAuth={setAuth} name={name} />
+                        )
+                    }
+                />
+                <Route
+                    path="/clients"
+                    element={
+                        !isAuthenticated ? (
+                            <Navigate to="/login" />
+                        ) : (
+                            <Clients setAuth={setAuth} name={name} />
+                        )
+                    }
+                />
+                <Route
+                    path="/clients/create"
+                    element={
+                        !isAuthenticated ? (
+                            <Navigate to="/login" />
+                        ) : (
+                            <ClientsCreate setAuth={setAuth} name={name} />
                         )
                     }
                 />

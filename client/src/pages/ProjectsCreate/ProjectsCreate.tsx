@@ -14,7 +14,7 @@ interface ProjectsCreateProps {
     name: string;
 }
 
-const Dashboard = ({ setAuth, name }: ProjectsCreateProps) => {
+const ProjectsCreate = ({ setAuth, name }: ProjectsCreateProps) => {
     return (
         <div className={styles.Container}>
             <Sidebar setAuth={setAuth} name={name} />
@@ -36,4 +36,4 @@ const Dashboard = ({ setAuth, name }: ProjectsCreateProps) => {
     );
 };
 
-export default Dashboard;
+export default ProjectsCreate;

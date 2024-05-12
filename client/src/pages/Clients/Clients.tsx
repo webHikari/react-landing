@@ -1,40 +1,37 @@
 import Sidebar from "@widgets/Sidebar/Sidebar";
-import styles from "./ui/ProjectsView.module.css";
+import styles from "./ui/Clients.module.css";
 
 import { SetAuthFunction } from "@app/providers/model/Provider.props";
-import Button from "@shared/Button/Button";
-
 import { Link } from "react-router-dom";
 
-import { FaArrowLeft } from "react-icons/fa";
-
-import { useParams } from "react-router-dom";
+import Button from "@shared/Button/Button";
+import { FaPlus } from "react-icons/fa";
 
 interface ProjectsCreateProps {
     setAuth: SetAuthFunction;
     name: string;
 }
 
-const ProjectsView = ({ setAuth, name }: ProjectsCreateProps) => {
-    let { projectId } = useParams();
-
+const Clients = ({ setAuth, name }: ProjectsCreateProps) => {
     return (
         <div className={styles.Container}>
             <Sidebar setAuth={setAuth} name={name} />
             <div className={styles.Main}>
                 <div className={styles.Header}>
-                    <Link to="/projects">
+                    <Link to="/clients/create">
                         <Button styleType="Button3">
-                            <FaArrowLeft />
-                            Вернуться
+                            <FaPlus />
+                            Добавить клиента
                         </Button>
                     </Link>
                 </div>
-                <div className={styles.ProjectInfo}>{projectId}</div>
+                <div className={styles.ClientsInfo}>
+
+                </div>
             </div>
             <div className={styles.Secondary}></div>
         </div>
     );
 };
 
-export default ProjectsView;
+export default Clients;

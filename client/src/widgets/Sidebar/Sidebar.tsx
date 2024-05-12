@@ -36,6 +36,15 @@ const Sidebar: React.FC<SidebarProps> = ({ name, setAuth }) => {
                     Проекты
                 </NavLink>
                 <NavLink
+                    to="/clients"
+                    className={({ isActive }) =>
+                        isActive ? styles.Active : styles.Default
+                    }
+                >
+                    <BiGridAlt />
+                    Клиенты
+                </NavLink>
+                <NavLink
                     to="/instructions"
                     className={({ isActive }) =>
                         isActive ? styles.Active : styles.Default
@@ -111,4 +120,4 @@ const Sidebar: React.FC<SidebarProps> = ({ name, setAuth }) => {
     );
 };
 
-export default Sidebar
+export default Sidebar;
