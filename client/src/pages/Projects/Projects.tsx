@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 import Sidebar from "@widgets/Sidebar/Sidebar";
 import styles from "./ui/Projects.module.css";
 
@@ -12,6 +14,12 @@ interface ProjectsProps {
 }
 
 const Projects = ({ setAuth, name }: ProjectsProps) => {
+    const navigate = useNavigate();
+
+    const handleProjectClick = () => {
+        navigate("/projects/view/projectid12");
+    };
+
     return (
         <div className={styles.Container}>
             <Sidebar setAuth={setAuth} name={name} />
@@ -25,7 +33,10 @@ const Projects = ({ setAuth, name }: ProjectsProps) => {
                     </Link>
                 </div>
                 <div className={styles.Grid}>
-                    <div className={styles.Project}>
+                    <div
+                        className={styles.Project}
+                        onClick={handleProjectClick}
+                    >
                         <h4>Проект #321</h4>
                         <p>Название: Скрепыши для Магниты</p>
                         <p>Клиент: ООО «Великолукский Мясокомбинат»</p>

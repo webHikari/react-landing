@@ -5,14 +5,18 @@ import {
     Navigate,
 } from "react-router-dom";
 import { useState, useEffect } from "react";
-// Pages importation
+
+// Auth pages
 import Login from "@pages/Login/Login";
 import Register from "@pages/Register/Register";
+
+// Project pages
+import Projects from "@pages/Projects/Projects";
+import ProjectsCreate from "@pages/ProjectsCreate/ProjectsCreate";
+import ProjectsView from "@pages/ProjectsView/ProjectsView";
+
 import Tutorial from "@pages/Tutorial/Tutorial";
 import Dashboard from "@pages/Dashboard/Dashboard";
-import Projects from "@pages/Projects/Projects";
-import ProjectsCreate from "@pages/ProjectsCreate/ProjectsCreate"
-
 
 import { SetAuthFunction } from "./model/Provider.props";
 
@@ -92,7 +96,7 @@ export default function Provider() {
                         !isAuthenticated ? (
                             <Navigate to="/login" />
                         ) : (
-                            <Dashboard setAuth={setAuth} name={name}/>
+                            <Dashboard setAuth={setAuth} name={name} />
                         )
                     }
                 />
@@ -106,13 +110,23 @@ export default function Provider() {
                         )
                     }
                 />
-                <Route 
+                <Route
                     path="/projects/create"
                     element={
                         !isAuthenticated ? (
                             <Navigate to="/login" />
                         ) : (
-                            <ProjectsCreate setAuth={setAuth} name={name}/>
+                            <ProjectsCreate setAuth={setAuth} name={name} />
+                        )
+                    }
+                />
+                <Route
+                    path="/projects/view/:projectId"
+                    element={
+                        !isAuthenticated ? (
+                            <Navigate to="/login" />
+                        ) : (
+                            <ProjectsView setAuth={setAuth} name={name} />
                         )
                     }
                 />

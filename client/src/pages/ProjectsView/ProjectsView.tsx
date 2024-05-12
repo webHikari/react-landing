@@ -1,13 +1,14 @@
 import Sidebar from "@widgets/Sidebar/Sidebar";
-import styles from "./ui/ProjectsCreate.module.css";
+import styles from "./ui/ProjectsView.module.css";
 
 import { SetAuthFunction } from "@app/providers/model/Provider.props";
-
-import ProjectsForm from "@widgets/ProjectsForm/ProjectsForm";
+import Button from "@shared/Button/Button";
 
 import { Link } from "react-router-dom";
-import Button from "@shared/Button/Button";
+
 import { FaArrowLeft } from "react-icons/fa";
+
+import { useParams } from "react-router-dom";
 
 interface ProjectsCreateProps {
     setAuth: SetAuthFunction;
@@ -15,6 +16,8 @@ interface ProjectsCreateProps {
 }
 
 const Dashboard = ({ setAuth, name }: ProjectsCreateProps) => {
+    let { projectId } = useParams();
+
     return (
         <div className={styles.Container}>
             <Sidebar setAuth={setAuth} name={name} />
@@ -27,9 +30,7 @@ const Dashboard = ({ setAuth, name }: ProjectsCreateProps) => {
                         </Button>
                     </Link>
                 </div>
-                <div className={styles.FormContainer}>
-                    <ProjectsForm />
-                </div>
+                <div className={styles.ProjectInfo}>{projectId}</div>
             </div>
             <div className={styles.Secondary}></div>
         </div>

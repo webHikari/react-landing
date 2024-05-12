@@ -2,13 +2,15 @@ import styles from "./Select.module.css";
 import { useState } from "react";
 import { SelectProps } from "./Select.props";
 
-const Select = ({ options, labelText }: SelectProps) => {
+const Select = ({ options, labelText, onChange }: SelectProps) => {
     const [isActive, setIsActive] = useState(false);
     const [selectedValue, setSelectedValue] = useState<string>("");
 
     const handleOptionSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        setSelectedValue(e.target.value);
+        const value = e.target.value;
+        setSelectedValue(value);
         setIsActive(true);
+        onChange(value); 
     };
 
     const handleBlur = () => {

@@ -10,7 +10,9 @@ const ProjectsForm = () => {
 
     const [projectName, setProjectName] = useState("");
     const [projectId, setProjectId] = useState("");
-    const [client, setClient] = useState(""); // Добавлено состояние для клиента
+    const [comment, setComment] = useState("");
+    const [client, setClient] = useState("");
+    const [status, setStatus] = useState("");
 
     const handleProjectNameChange = (value: string) => {
         setProjectName(value);
@@ -20,25 +22,44 @@ const ProjectsForm = () => {
         setProjectId(value);
     };
 
+    const handleCommentChange = (value: string) => {
+        setComment(value)
+    }
+
     const handleSubmit = async (
         e: React.MouseEvent<HTMLButtonElement, MouseEvent>
     ) => {
         e.preventDefault();
-        console.log({ client }, { projectName }, { projectId });
+        console.log({ status }, { client }, { projectName }, { projectId });
     };
 
-    const options = [
+    const clients = [
         { value: "option1", label: "Опция 1" },
         { value: "option2", label: "Опция 2" },
         { value: "option3", label: "Опция 3" },
     ];
 
-    const handleSelectChange = (value: string) => {
-        setClient(value);
-        console.log("Выбранное значение:", value);
-        console.log("Состояние client:", client); // Добавлено для проверки обновления состояния
+    const statuses = [
+        { value: "New", label: "Новый" },
+        { value: "Closed", label: "Закрыт" },
+        { value: "Coutn", label: "Расчет" },
+    ];
+
+    const handleClientChange = (value: string) => {
+        setClient((prevClient) => {
+            console.log("Предыдущее состояние client:", prevClient);
+            console.log("Новое состояние client:", value);
+            return value;
+        });
     };
-    
+
+    const handleStatusChange = (value: string) => {
+        setStatus((prevStatus) => {
+            console.log("Предыдущее состояние client:", prevStatus);
+            console.log("Новое состояние client:", value);
+            return value;
+        });
+    };
 
     return (
         <div className={styles.FormContainer}>
@@ -67,19 +88,24 @@ const ProjectsForm = () => {
                     </div>
                     <div className={styles.Child}>
                         <Select
-                            options={options}
-                            onChange={handleSelectChange}
-                            labelText="Выбирите чето"
+                            options={clients}
+                            onChange={handleClientChange}
+                            labelText="Клиент"
                         />
-                        <Input
-                            styleType="Input1"
-                            placeholderValue="Название"
-                            type="text"
-                            value={projectName}
-                            onChange={handleProjectNameChange}
-                            required
+                        <Select
+                            options={statuses}
+                            onChange={handleStatusChange}
+                            labelText="Статус"
                         />
                     </div>
+                    <Input
+                        styleType="Input1"
+                        placeholderValue="Комментарий"
+                        type="text"
+                        value={comment}
+                        onChange={handleCommentChange}
+                        required
+                    />
                     <Button
                         styleType="Button1"
                         onClick={(e) => handleSubmit(e)}
