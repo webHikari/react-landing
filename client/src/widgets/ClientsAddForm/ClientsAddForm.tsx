@@ -1,64 +1,46 @@
 import { useState } from "react";
 import Input from "@shared/Input/Input";
 import Button from "@shared/Button/Button";
-import Select from "@shared/Select/Select";
+import Checkbox from "@shared/Checkbox/Checkbox";
 
 import styles from "./ui/ClientsAddForm.module.css";
 
 const ClientsAddForm = () => {
     const [isLoading, setIsLoading] = useState(false);
 
-    const [projectName, setProjectName] = useState("");
-    const [projectId, setProjectId] = useState("");
-    const [comment, setComment] = useState("");
-    const [client, setClient] = useState("");
-    const [status, setStatus] = useState("");
+    const [clientName, setClientName] = useState("");
+    const [clientAddress, setClientAddress] = useState("");
+    const [isClient, setIsClient] = useState(false);
+    const [isContractor, setIsContractor] = useState(false);
 
-    const handleProjectNameChange = (value: string) => {
-        setProjectName(value);
+    const handleClientNameChange = (value: string) => {
+        setClientName(value);
     };
 
-    const handleProjectIdChange = (value: string) => {
-        setProjectId(value);
+    const handleClientAddressChange = (value: string) => {
+        setClientAddress(value);
     };
 
-    const handleCommentChange = (value: string) => {
-        setComment(value)
-    }
+    const handleIsClientClick = () => {
+        setIsClient(!isClient);
+        console.log(isClient);
+    };
+
+    const handleIsContractorClick = () => {
+        setIsContractor(!isContractor);
+        console.log(isContractor);
+    };
 
     const handleSubmit = async (
         e: React.MouseEvent<HTMLButtonElement, MouseEvent>
     ) => {
         e.preventDefault();
-        console.log({ status }, { client }, { projectName }, { projectId });
-    };
-
-    const clients = [
-        { value: "option1", label: "Опция 1" },
-        { value: "option2", label: "Опция 2" },
-        { value: "option3", label: "Опция 3" },
-    ];
-
-    const statuses = [
-        { value: "New", label: "Новый" },
-        { value: "Closed", label: "Закрыт" },
-        { value: "Coutn", label: "Расчет" },
-    ];
-
-    const handleClientChange = (value: string) => {
-        setClient((prevClient) => {
-            console.log("Предыдущее состояние client:", prevClient);
-            console.log("Новое состояние client:", value);
-            return value;
-        });
-    };
-
-    const handleStatusChange = (value: string) => {
-        setStatus((prevStatus) => {
-            console.log("Предыдущее состояние client:", prevStatus);
-            console.log("Новое состояние client:", value);
-            return value;
-        });
+        console.log(
+            { isContractor },
+            { isClient },
+            { clientName },
+            { clientAddress }
+        );
     };
 
     return (
@@ -71,41 +53,31 @@ const ClientsAddForm = () => {
                     <div className={styles.Child}>
                         <Input
                             styleType="Input1"
-                            placeholderValue="Номер"
+                            placeholderValue="Название"
                             type="text"
-                            value={projectId}
-                            onChange={handleProjectIdChange}
+                            value={clientName}
+                            onChange={handleClientNameChange}
                             required
                         />
                         <Input
                             styleType="Input1"
-                            placeholderValue="Название"
+                            placeholderValue="Адрес"
                             type="text"
-                            value={projectName}
-                            onChange={handleProjectNameChange}
+                            value={clientAddress}
+                            onChange={handleClientAddressChange}
                             required
                         />
                     </div>
                     <div className={styles.Child}>
-                        <Select
-                            options={clients}
-                            onChange={handleClientChange}
-                            labelText="Клиент"
+                        <Checkbox
+                            value="Клиент"
+                            onClick={handleIsClientClick}
                         />
-                        <Select
-                            options={statuses}
-                            onChange={handleStatusChange}
-                            labelText="Статус"
+                        <Checkbox
+                            value="Подрядчик"
+                            onClick={handleIsContractorClick}
                         />
                     </div>
-                    <Input
-                        styleType="Input1"
-                        placeholderValue="Комментарий"
-                        type="text"
-                        value={comment}
-                        onChange={handleCommentChange}
-                        required
-                    />
                     <Button
                         styleType="Button1"
                         onClick={(e) => handleSubmit(e)}

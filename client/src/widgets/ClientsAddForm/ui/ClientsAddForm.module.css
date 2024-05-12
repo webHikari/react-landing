@@ -11,7 +11,6 @@
 
 .Form {
     display: flex;
-    width: fit-content;
     flex-direction: column;
     gap: 16px;
 }
