@@ -5,6 +5,8 @@ import Checkbox from "@shared/Checkbox/Checkbox";
 
 import styles from "./ui/ClientsAddForm.module.css";
 
+import CreateClient from "@features/CreateClient/CreateClient";
+
 const ClientsAddForm = () => {
     const [isLoading, setIsLoading] = useState(false);
 
@@ -35,11 +37,13 @@ const ClientsAddForm = () => {
         e: React.MouseEvent<HTMLButtonElement, MouseEvent>
     ) => {
         e.preventDefault();
-        console.log(
-            { isContractor },
-            { isClient },
-            { clientName },
-            { clientAddress }
+
+        CreateClient(
+            { setIsLoading },
+            clientName,
+            clientAddress,
+            isContractor,
+            isClient
         );
     };
 

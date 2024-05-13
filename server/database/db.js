@@ -42,26 +42,22 @@ db.serialize(() => {
 
 // Создание таблицы clients
 db.serialize(() => {
-  db.run(
-      `CREATE TABLE IF NOT EXISTS clients (
+    db.run(
+        `CREATE TABLE IF NOT EXISTS clients (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   clientName TEXT NOT NULL,
   clientAddress TEXT NOT NULL,
   isClient BOOLEAN NOT NULL,
-  isContractor BOOLEAN NOT NULL,
-  isRecruitor BOOLEAN NOT NULL,
-  isLogist BOOLEAN NOT NULL
+  isContractor BOOLEAN NOT NULL
 )`,
-      (err) => {
-          if (err) {
-              console.error("Error creating users table:", err);
-              return;
-          }
-          console.log("Users table created successfully");
-      }
-  );
+        (err) => {
+            if (err) {
+                console.error("Error creating users table:", err);
+                return;
+            }
+            console.log("Users table created successfully");
+        }
+    );
 });
-
-
 
 db.close();

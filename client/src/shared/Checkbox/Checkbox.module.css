@@ -1,9 +1,10 @@
 .Disabled {
     background: transparent;
-    border: 2px solid var(--button-bg);
+    border: 1px solid var(--button-bg);
     color: var(--text-color);
 }
 
 .Active {
     background: var(--button-bg);
+    border: 1px solid var(--button-bg);
 }
