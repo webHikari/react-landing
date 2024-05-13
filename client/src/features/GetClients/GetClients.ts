@@ -6,7 +6,7 @@ const GetClients = async () => {
         });
 
         const parseRes = await response.json();
-        return parseRes
+        return parseRes.clients
     } catch (err: any) {
         console.error(err.message);
     }

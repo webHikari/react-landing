@@ -18,20 +18,20 @@ const db = new sqlite3.Database(
 router.get("/", authorization, async (req, res) => {
     try {
         const clients = await new Promise((resolve, reject) => {
-            db.run("SELECT * FROM clients", (err, row) => {
+            db.all("SELECT * FROM clients", (err, rows) => {
                 if (err) reject(err);
-                else resolve(row);
+                else resolve(rows);
             });
         });
 
-        if (clients) {
+        if (clients.length > 0) {
             res.status(200).json({ clients });
         } else {
-            res.status(403).json({ message: "Server error" });
+            res.status(404).json({ message: "No clients found" });
         }
     } catch (err) {
         console.log(err.message);
-        res.status(403).json({ message: "Server error" });
+        res.status(500).json({ message: "Server error" });
     }
 });
 
