@@ -1,13 +1,11 @@
-interface ClientProps {
-    clientName: string;
-    clientAddress: string;
-}
+import { ClientProps } from "./Client.props";
+import styles from "./Client.module.css";
 
 const Client = ({ clientName, clientAddress }: ClientProps) => {
     return (
-        <div className="client">
-            <p>{clientName}</p>
-            <p>{clientAddress}</p>
+        <div className={styles.Client}>
+            <div className={styles.Name}>{clientName}</div>
+            <div className={styles.Address}>{clientAddress}</div>
         </div>
     );
 };

@@ -1,0 +1,37 @@
+.Client {
+    display: flex;
+    padding: 16px 20px;
+    border-radius: 16px;
+    width: 100%;
+    border: 1px solid var(--thirdary-color);
+    background: var(--projects-section);
+    transition: .3s border ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.Client::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--link-color-active-bg);
+    left: 8px;
+    top: 8px;
+    box-shadow: 0 0 3px 0 var(--link-color-active-bg);
+}
+
+.Client:hover {
+    border: 1px solid var(--link-color-active-bg);
+    box-shadow: 0 0 5px -1px var(--link-color-active-bg);
+
+}
+
+.Name {
+    width: 30%;
+}
+
+.Address {
+    width: 70%;
+}

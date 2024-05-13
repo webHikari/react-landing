@@ -8,18 +8,15 @@ import { FaPlus } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import Button from "@shared/Button/Button";
 
+import Project from "@entities/Project/Project"
+
 interface ProjectsProps {
     setAuth: SetAuthFunction;
     name: string;
 }
 
 const Projects = ({ setAuth, name }: ProjectsProps) => {
-    const navigate = useNavigate();
-
-    const handleProjectClick = () => {
-        navigate("/projects/view/projectid12");
-    };
-
+    
     return (
         <div className={styles.Container}>
             <Sidebar setAuth={setAuth} name={name} />
@@ -33,63 +30,12 @@ const Projects = ({ setAuth, name }: ProjectsProps) => {
                     </Link>
                 </div>
                 <div className={styles.Grid}>
-                    <div
-                        className={styles.Project}
-                        onClick={handleProjectClick}
-                    >
-                        <h4>Проект #321</h4>
-                        <p>Название: Скрепыши для Магниты</p>
-                        <p>Клиент: ООО «Великолукский Мясокомбинат»</p>
-                        <p>Объём: 6 000 000 шт</p>
-                        <p>Собрано: 712 500 шт</p>
-                        <p>Отгружено: 0</p>
-                        <p>Остаток: 6 000 000 шт</p>
-                    </div>
-                    <div className={styles.Project}>
-                        <h4>Проект #321</h4>
-                        <p>Название: Скрепыши для Магниты</p>
-                        <p>Клиент: ООО «Великолукский Мясокомбинат»</p>
-                        <p>Объём: 6 000 000 шт</p>
-                        <p>Собрано: 712 500 шт</p>
-                        <p>Отгружено: 0</p>
-                        <p>Остаток: 6 000 000 шт</p>
-                    </div>
-                    <div className={styles.Project}>
-                        <h4>Проект #321</h4>
-                        <p>Название: Скрепыши для Магниты</p>
-                        <p>Клиент: ООО «Великолукский Мясокомбинат»</p>
-                        <p>Объём: 6 000 000 шт</p>
-                        <p>Собрано: 712 500 шт</p>
-                        <p>Отгружено: 0</p>
-                        <p>Остаток: 6 000 000 шт</p>
-                    </div>
-                    <div className={styles.Project}>
-                        <h4>Проект #321</h4>
-                        <p>Название: Скрепыши для Магниты</p>
-                        <p>Клиент: ООО «Великолукский Мясокомбинат»</p>
-                        <p>Объём: 6 000 000 шт</p>
-                        <p>Собрано: 712 500 шт</p>
-                        <p>Отгружено: 0</p>
-                        <p>Остаток: 6 000 000 шт</p>
-                    </div>
-                    <div className={styles.Project}>
-                        <h4>Проект #321</h4>
-                        <p>Название: Скрепыши для Магниты</p>
-                        <p>Клиент: ООО «Великолукский Мясокомбинат»</p>
-                        <p>Объём: 6 000 000 шт</p>
-                        <p>Собрано: 712 500 шт</p>
-                        <p>Отгружено: 0</p>
-                        <p>Остаток: 6 000 000 шт</p>
-                    </div>
-                    <div className={styles.Project}>
-                        <h4>Проект #321</h4>
-                        <p>Название: Скрепыши для Магниты</p>
-                        <p>Клиент: ООО «Великолукский Мясокомбинат»</p>
-                        <p>Объём: 6 000 000 шт</p>
-                        <p>Собрано: 712 500 шт</p>
-                        <p>Отгружено: 0</p>
-                        <p>Остаток: 6 000 000 шт</p>
-                    </div>
+                    <Project />
+                    <Project />
+                    <Project />
+                    <Project />
+                    <Project />
+                    <Project />
                 </div>
             </div>
             <div className={styles.Secondary}></div>
