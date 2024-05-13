@@ -50,6 +50,7 @@ const Clients = ({ setAuth, name }: ProjectsCreateProps) => {
                         <Client
                             clientName={client.clientName}
                             clientAddress={client.clientAddress}
+                            clientId={client.id}
                         />
                     ))}
                 </div>
