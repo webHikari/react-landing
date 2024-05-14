@@ -1,15 +1,15 @@
-const GetClients = async () => {
+const GetProjects = async () => {
     try {
-        const response = await fetch("http://localhost:3000/clients", {
+        const response = await fetch("http://localhost:3000/projects", {
             method: "GET",
             headers: { token: localStorage.token },
         });
 
         const parseRes = await response.json();
-        return parseRes.clients
+        return parseRes.projects
     } catch (err: any) {
         console.error(err.message);
     }
 };
 
-export default GetClients
+export default GetProjects

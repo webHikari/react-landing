@@ -20,6 +20,7 @@ db.serialize(() => {
 });
 
 // Создание таблицы projects
+
 db.serialize(() => {
     db.run(
         `CREATE TABLE IF NOT EXISTS projects (
@@ -27,6 +28,7 @@ db.serialize(() => {
     projectCount TEXT NOT NULL,
     projectName TEXT NOT NULL,
     projectClient TEXT NOT NULL,
+    clientName TEXT NOT NULL,
     projectStatus TEXT NOT NULL,
     projectComment TEXT NOT NULL
   )`,

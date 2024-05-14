@@ -45,15 +45,33 @@ router.post("/create", authorization, async (req, res) => {
             projectComment,
         } = req.body;
 
+        const clientName = await new Promise((resolve, reject) => {
+            db.get(
+                "SELECT clientName FROM clients WHERE id = ?",
+                [projectClient],
+                (err, row) => {
+                    if (err) reject(err);
+                    else {
+                        if (row && row.clientName) {
+                            resolve(row.clientName);
+                        } else {
+                            resolve(null); 
+                        }
+                    }
+                }
+            );
+        });
+
         await new Promise((resolve, reject) => {
             db.run(
-                "INSERT INTO projects (projectCount, projectName, projectClient, projectStatus, projectComment) VALUES (?, ?, ?, ?, ?)",
+                "INSERT INTO projects (projectCount, projectName, projectClient, projectStatus, projectComment, clientName) VALUES (?, ?, ?, ?, ?, ?)",
                 [
                     projectCount,
                     projectName,
                     projectClient,
                     projectStatus,
                     projectComment,
+                    clientName,
                 ],
                 (err) => {
                     if (err) reject(err);

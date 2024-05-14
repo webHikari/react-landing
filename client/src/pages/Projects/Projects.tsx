@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 import Sidebar from "@widgets/Sidebar/Sidebar";
 import styles from "./ui/Projects.module.css";
@@ -8,15 +9,32 @@ import { FaPlus } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import Button from "@shared/Button/Button";
 
-import Project from "@entities/Project/Project"
+import Project from "@entities/Project/Project";
+import GetProjects from "@features/GetProjects/GetProjects";
 
 interface ProjectsProps {
     setAuth: SetAuthFunction;
     name: string;
 }
 
+interface Project {
+    projectName: string;
+    clientName: string;
+    projectCount: string;
+}
+
 const Projects = ({ setAuth, name }: ProjectsProps) => {
-    
+    const [projects, setProjects] = useState<Project[]>([]);
+
+    useEffect(() => {
+        const fetchClients = async () => {
+            const projectsData = await GetProjects();
+            setProjects(projectsData);
+            console.log(projects);
+        };
+        fetchClients();
+    }, []);
+
     return (
         <div className={styles.Container}>
             <Sidebar setAuth={setAuth} name={name} />
@@ -30,12 +48,13 @@ const Projects = ({ setAuth, name }: ProjectsProps) => {
                     </Link>
                 </div>
                 <div className={styles.Grid}>
-                    <Project />
-                    <Project />
-                    <Project />
-                    <Project />
-                    <Project />
-                    <Project />
+                    {projects ? projects.map((project) => (
+                        <Project
+                            projectName={project.projectName}
+                            projectCount={project.projectCount}
+                            clientName={project.clientName}
+                        />
+                    )) : null}
                 </div>
             </div>
             <div className={styles.Secondary}></div>
