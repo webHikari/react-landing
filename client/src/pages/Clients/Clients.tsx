@@ -11,7 +11,7 @@ import { FaPlus } from "react-icons/fa";
 import GetClients from "@features/GetClients/GetClients";
 import Client from "@entities/Client/Client";
 
-interface ProjectsCreateProps {
+interface ClientsProps {
     setAuth: SetAuthFunction;
     name: string;
 }
@@ -22,7 +22,7 @@ interface Client {
     clientAddress: string;
 }
 
-const Clients = ({ setAuth, name }: ProjectsCreateProps) => {
+const Clients = ({ setAuth, name }: ClientsProps) => {
     const [clients, setClients] = useState<Client[]>([]);
 
     useEffect(() => {

@@ -1,11 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Input from "@shared/Input/Input";
 import Button from "@shared/Button/Button";
 import Select from "@shared/Select/Select";
 
 import styles from "./ui/ProjectsForm.module.css";
 
+import CreateProject from "@features/CreateProject/CreateProject"
+import GetClients from "@features/GetClients/GetClients";
+
+
+interface Client {
+    id: number;
+    clientName: string;
+}
+
 const ProjectsForm = () => {
+    const [clients, setClients] = useState<Client[]>([]);
+    
+    useEffect(() => {
+        const fetchClients = async () => {
+            const clientsData = await GetClients();
+            setClients(clientsData);
+            console.log(clients)
+        };
+        fetchClients();
+    }, []);
+
     const [isLoading, setIsLoading] = useState(false);
 
     const [projectName, setProjectName] = useState("");
@@ -30,14 +50,32 @@ const ProjectsForm = () => {
         e: React.MouseEvent<HTMLButtonElement, MouseEvent>
     ) => {
         e.preventDefault();
-        console.log({ status }, { client }, { projectName }, { projectId });
+        CreateProject(
+            { setIsLoading },
+            projectId,
+            projectName,
+            client,
+            status,
+            comment
+        );
     };
 
-    const clients = [
-        { value: "option1", label: "Опция 1" },
-        { value: "option2", label: "Опция 2" },
-        { value: "option3", label: "Опция 3" },
-    ];
+    const [clientOptions, setClientOptions] = useState([]);
+
+    useEffect(() => {
+        const fetchClients = async () => {
+            const clientsData = await GetClients();
+            setClients(clientsData);
+    
+            // Формируем новый массив clientOptions на основе данных с сервера
+            const options = clientsData.map((client: any) => ({
+                value: client.id,
+                label: client.clientName,
+            }));
+            setClientOptions(options);
+        };
+        fetchClients();
+    }, []);
 
     const statuses = [
         { value: "New", label: "Новый" },
@@ -88,7 +126,7 @@ const ProjectsForm = () => {
                     </div>
                     <div className={styles.Child}>
                         <Select
-                            options={clients}
+                            options={clientOptions}
                             onChange={handleClientChange}
                             labelText="Клиент"
                         />

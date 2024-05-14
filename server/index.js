@@ -24,6 +24,7 @@ app.use(cors());
 app.use("/auth", require("./routes/jwtAuth"));
 app.use("/dashboard", require("./routes/dashboard"));
 app.use("/clients", require("./routes/clients"));
+app.use("/projects", require("./routes/projects"));
 
 app.listen(PORT, () => {
     console.log(`Server dancing on ${PORT}`);

@@ -9,12 +9,12 @@ import ClientsAddForm from "@widgets/ClientsAddForm/ClientsAddForm";
 
 import { FaArrowLeft } from "react-icons/fa";
 
-interface ProjectsCreateProps {
+interface ClientsCreateProps {
     setAuth: SetAuthFunction;
     name: string;
 }
 
-const ClientsCreate = ({ setAuth, name }: ProjectsCreateProps) => {
+const ClientsCreate = ({ setAuth, name }: ClientsCreateProps) => {
     return (
         <div className={styles.Container}>
             <Sidebar setAuth={setAuth} name={name} />
