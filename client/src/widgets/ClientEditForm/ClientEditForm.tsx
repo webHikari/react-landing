@@ -5,8 +5,8 @@ import Checkbox from "@shared/Checkbox/Checkbox";
 
 import styles from "./ui/ClientEditForm.module.css";
 
-import EditClient from "@features/EditClient/EditClient";
-import GetOneClient from "@features/GetOneClient/GetOneClient";
+import EditClient from "@/features/Clients/EditClient/EditClient";
+import GetOneClient from "@/features/Clients/GetOneClient/GetOneClient";
 
 const ClientsEditForm = ({ clientId }: { clientId: string }) => {
     const [isLoading, setIsLoading] = useState(false);

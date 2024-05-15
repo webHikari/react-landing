@@ -4,7 +4,7 @@ import styles from "./ui/Sidebar.module.css";
 import { BiGridAlt } from "react-icons/bi";
 
 import Button from "@shared/Button/Button";
-import Logout from "@features/Logout/Logout";
+import Logout from "@/features/Auth/Logout/Logout";
 
 import { SetAuthFunction } from "@app/providers/model/Provider.props";
 

@@ -3,7 +3,7 @@ import AuthForm from "@shared/AuthForm/AuthForm";
 import Input from "@shared/Input/Input";
 import Button from "@shared/Button/Button";
 
-import Login from "@features/Login/Login"
+import Login from "@/features/Auth/Login/Login"
 
 export default function RegisterForm({ setAuth }: any) {
     const [email, setEmail] = useState("");

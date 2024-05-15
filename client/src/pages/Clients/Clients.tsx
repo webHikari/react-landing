@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import Button from "@shared/Button/Button";
 import { FaPlus } from "react-icons/fa";
 
-import GetClients from "@features/GetClients/GetClients";
+import GetClients from "@/features/Clients/GetClients/GetClients";
 import Client from "@entities/Client/Client";
 
 interface ClientsProps {

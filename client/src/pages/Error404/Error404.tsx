@@ -1,7 +1,6 @@
 import Header from "@widgets/Header/Header";
 
-
-export default function Login() {
+export default function Error404() {
     return (
         <>
             <Header />

@@ -1,0 +1,36 @@
+.Container {
+    width: 100%;
+    display: flex;
+}
+
+.Main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.BookingsInfo {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.Header {
+    display: flex;
+    padding: 16px 16px 0 16px;
+    width: fit-content;
+}
+
+.Secondary {
+    padding: 16px;
+    min-width: 300px;
+    max-width: 100px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    background: var(--app-container);
+    border-left: 1px solid var(--thirdary-color);
+}
+
+

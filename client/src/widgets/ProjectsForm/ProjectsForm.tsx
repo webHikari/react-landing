@@ -5,9 +5,8 @@ import Select from "@shared/Select/Select";
 
 import styles from "./ui/ProjectsForm.module.css";
 
-import CreateProject from "@features/CreateProject/CreateProject"
-import GetClients from "@features/GetClients/GetClients";
-
+import CreateProject from "@/features/Projects/CreateProject/CreateProject";
+import GetClients from "@/features/Clients/GetClients/GetClients";
 
 interface Client {
     id: number;
@@ -16,12 +15,12 @@ interface Client {
 
 const ProjectsForm = () => {
     const [clients, setClients] = useState<Client[]>([]);
-    
+
     useEffect(() => {
         const fetchClients = async () => {
             const clientsData = await GetClients();
             setClients(clientsData);
-            console.log(clients)
+            console.log(clients);
         };
         fetchClients();
     }, []);
@@ -43,8 +42,8 @@ const ProjectsForm = () => {
     };
 
     const handleCommentChange = (value: string) => {
-        setComment(value)
-    }
+        setComment(value);
+    };
 
     const handleSubmit = async (
         e: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -66,7 +65,7 @@ const ProjectsForm = () => {
         const fetchClients = async () => {
             const clientsData = await GetClients();
             setClients(clientsData);
-    
+
             // Формируем новый массив clientOptions на основе данных с сервера
             const options = clientsData.map((client: any) => ({
                 value: client.id,

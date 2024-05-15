@@ -20,12 +20,33 @@ import Clients from "@pages/Clients/Clients"
 import ClientsCreate from "@pages/ClientsCreate/ClientsCreate"
 import ClientsEdit from "@pages/ClientsEdit/ClientsEdit"
 
+// Instructions pages
+import Instructions from "@pages/Instructions/Instructions";
+
+// Acts pages
+import Acts from "@pages/Acts/Acts";
+
+// Waybills pages
+import Waybills from "@pages/Waybills/Waybills";
+
+// Shifts pages
+import Shifts from "@pages/Shifts/Shifts";
+
+// Bookings pages
+import Bookings from "@pages/Bookings/Bookings";
+
+// Products pages
+import Products from "@pages/Products/Products"
+
+// Minions pages
+import Minions from "@pages/Minions/Minions"
+
 import Tutorial from "@pages/Tutorial/Tutorial";
 import Dashboard from "@pages/Dashboard/Dashboard";
 
 import { SetAuthFunction } from "./model/Provider.props";
 
-import getData from "@features/GetData/GetData";
+import getData from "@/features/Dashboard/GetData/GetData";
 
 export default function Provider() {
     const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
@@ -64,7 +85,6 @@ export default function Provider() {
                 console.error(err.message);
             }
         };
-
         fetchData();
     }, []);
 
@@ -162,6 +182,76 @@ export default function Provider() {
                             <Navigate to="/login" />
                         ) : (
                             <ClientsEdit setAuth={setAuth} name={name} />
+                        )
+                    }
+                />
+                <Route
+                    path="/instructions"
+                    element={
+                        !isAuthenticated ? (
+                            <Navigate to="/login" />
+                        ) : (
+                            <Instructions setAuth={setAuth} name={name}/>
+                        )
+                    }
+                />
+                <Route
+                    path="/acts"
+                    element={
+                        !isAuthenticated ? (
+                            <Navigate to="/login" />
+                        ) : (
+                            <Acts setAuth={setAuth} name={name}/>
+                        )
+                    }
+                />
+                <Route
+                    path="/waybills"
+                    element={
+                        !isAuthenticated ? (
+                            <Navigate to="/login" />
+                        ) : (
+                            <Waybills setAuth={setAuth} name={name}/>
+                        )
+                    }
+                />
+                <Route
+                    path="/shifts"
+                    element={
+                        !isAuthenticated ? (
+                            <Navigate to="/login" />
+                        ) : (
+                            <Shifts setAuth={setAuth} name={name}/>
+                        )
+                    }
+                />
+                <Route
+                    path="/bookings"
+                    element={
+                        !isAuthenticated ? (
+                            <Navigate to="/login" />
+                        ) : (
+                            <Bookings setAuth={setAuth} name={name}/>
+                        )
+                    }
+                />
+                <Route
+                    path="/products"
+                    element={
+                        !isAuthenticated ? (
+                            <Navigate to="/login" />
+                        ) : (
+                            <Products setAuth={setAuth} name={name}/>
+                        )
+                    }
+                />
+                <Route
+                    path="/minions"
+                    element={
+                        !isAuthenticated ? (
+                            <Navigate to="/login" />
+                        ) : (
+                            <Minions setAuth={setAuth} name={name}/>
                         )
                     }
                 />

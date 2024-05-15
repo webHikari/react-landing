@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import Button from "@shared/Button/Button";
 
 import Project from "@entities/Project/Project";
-import GetProjects from "@features/GetProjects/GetProjects";
+import GetProjects from "@/features/Projects/GetProjects/GetProjects";
 
 interface ProjectsProps {
     setAuth: SetAuthFunction;
