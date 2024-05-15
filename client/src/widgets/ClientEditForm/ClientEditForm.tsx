@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Input from "@shared/Input/Input";
 import Button from "@shared/Button/Button";
@@ -5,8 +6,8 @@ import Checkbox from "@shared/Checkbox/Checkbox";
 
 import styles from "./ui/ClientEditForm.module.css";
 
-import EditClient from "@/features/Clients/EditClient/EditClient";
-import GetOneClient from "@/features/Clients/GetOneClient/GetOneClient";
+import EditClient from "@features/Clients/EditClient/EditClient";
+import GetOneClient from "@features/Clients/GetOneClient/GetOneClient";
 
 const ClientsEditForm = ({ clientId }: { clientId: string }) => {
     const [isLoading, setIsLoading] = useState(false);
@@ -15,6 +16,8 @@ const ClientsEditForm = ({ clientId }: { clientId: string }) => {
     const [clientAddress, setClientAddress] = useState("");
     const [isClient, setIsClient] = useState(false);
     const [isContractor, setIsContractor] = useState(false);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchClient = async () => {
@@ -69,6 +72,7 @@ const ClientsEditForm = ({ clientId }: { clientId: string }) => {
             isContractor,
             isClient
         );
+        navigate("/clients");
     };
 
     return (

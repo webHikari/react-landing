@@ -8,10 +8,9 @@
     display: flex;
     flex-direction: column;
     width: fit-content;
-    width: 100%;
 }
 
-.ClientsInfo {
+.ClientInfo {
     padding: 16px;
 }
 

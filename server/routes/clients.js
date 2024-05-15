@@ -79,4 +79,39 @@ router.post("/create", authorization, async (req, res) => {
     }
 });
 
+router.post("/edit", authorization, async (req, res) => {
+    try {
+        const { clientId, clientName, clientAddress, isClient, isContractor } =
+            req.body;
+
+        await new Promise((resolve, reject) => {
+            const query = `
+                UPDATE clients
+                SET clientName = ?, clientAddress = ?, isClient = ?, isContractor = ?
+                WHERE id = ?
+            `;
+            const values = [
+                clientName,
+                clientAddress,
+                isClient,
+                isContractor,
+                clientId,
+            ];
+
+            db.run(query, values, (err) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve();
+                }
+            });
+        });
+
+        res.status(200).json({ message: "Client updated successfully" });
+    } catch (err) {
+        console.log(err.message);
+        res.status(403).json({ message: "Server Error" });
+    }
+});
+
 module.exports = router;
