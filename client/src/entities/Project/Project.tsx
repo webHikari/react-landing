@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { ProjectProps } from "./Project.props.ts";
 import styles from "./Project.module.css";
 
-const Project = ({ projectCount, projectName, clientName, onClick }: ProjectProps) => {
+const Project = ({ projectId, projectCount, projectName, clientName, onClick }: ProjectProps) => {
     const navigate = useNavigate()
 
     const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
         onClick?.(event);
-        navigate("/projects/view/projectid12");
+        navigate("/projects/view/" + projectId);
     };
 
     return (

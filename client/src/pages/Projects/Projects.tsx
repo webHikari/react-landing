@@ -20,6 +20,7 @@ interface Project {
     projectName: string;
     clientName: string;
     projectCount: string;
+    id: number;
 }
 
 const Projects = ({ setAuth, name }: ProjectsProps) => {
@@ -49,6 +50,7 @@ const Projects = ({ setAuth, name }: ProjectsProps) => {
                 <div className={styles.Grid}>
                     {projects ? projects.map((project) => (
                         <Project
+                            projectId={project.id}
                             projectName={project.projectName}
                             projectCount={project.projectCount}
                             clientName={project.clientName}

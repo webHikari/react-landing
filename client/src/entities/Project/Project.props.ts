@@ -3,4 +3,5 @@ export interface ProjectProps {
     projectCount: string;
     clientName: string;
     projectName: string;
+    projectId: number;
 }

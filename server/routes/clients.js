@@ -35,6 +35,28 @@ router.get("/", authorization, async (req, res) => {
     }
 });
 
+router.get("/:id", authorization, async (req, res) => {
+    try {
+        const id = req.params.id;
+
+        const client = await new Promise((resolve, reject) => {
+            db.get("SELECT * FROM clients WHERE id = ?", [id], (err, row) => {
+                if (err) reject(err);
+                else resolve(row);
+            });
+        });
+
+        if (client) {
+            res.status(200).json({ client });
+        } else {
+            res.status(404).json({ message: "Client not found" });
+        }
+    } catch (err) {
+        console.log(err.message);
+        res.status(500).json({ message: "Server error" });
+    }
+});
+
 router.post("/create", authorization, async (req, res) => {
     try {
         const { clientName, clientAddress, isClient, isContractor } = req.body;

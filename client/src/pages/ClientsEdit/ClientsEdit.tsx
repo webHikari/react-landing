@@ -5,18 +5,18 @@ import { SetAuthFunction } from "@app/providers/model/Provider.props";
 import Button from "@shared/Button/Button";
 
 import { Link } from "react-router-dom";
-
 import { FaArrowLeft } from "react-icons/fa";
 
 import { useParams } from "react-router-dom";
+import ClientsEditForm from "@widgets/ClientEditForm/ClientEditForm";
 
-interface ProjectsCreateProps {
+interface ClientsEditProps {
     setAuth: SetAuthFunction;
     name: string;
 }
 
-const ClientsEdit = ({ setAuth, name }: ProjectsCreateProps) => {
-    let { clientId } = useParams();
+const ClientsEdit = ({ setAuth, name }: ClientsEditProps) => {
+    const { clientId }: any = useParams();
 
     return (
         <div className={styles.Container}>
@@ -30,7 +30,9 @@ const ClientsEdit = ({ setAuth, name }: ProjectsCreateProps) => {
                         </Button>
                     </Link>
                 </div>
-                <div className={styles.ClientInfo}>{clientId}</div>
+                <div className={styles.ClientInfo}>
+                    <ClientsEditForm clientId={clientId}/>
+                </div>
             </div>
             <div className={styles.Secondary}></div>
         </div>
