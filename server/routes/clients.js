@@ -17,17 +17,17 @@ const db = new sqlite3.Database(
 
 router.get("/", authorization, async (req, res) => {
     try {
-        const rates = await new Promise((resolve, reject) => {
-            db.all("SELECT * FROM rates", (err, rows) => {
+        const clients = await new Promise((resolve, reject) => {
+            db.all("SELECT * FROM clients", (err, rows) => {
                 if (err) reject(err);
                 else resolve(rows);
             });
         });
 
-        if (rates.length > 0) {
-            res.status(200).json({ rates });
+        if (clients.length > 0) {
+            res.status(200).json({ clients });
         } else {
-            res.status(404).json({ message: "No rates found" });
+            res.status(404).json({ message: "No clients found" });
         }
     } catch (err) {
         console.log(err.message);
@@ -39,17 +39,17 @@ router.get("/:id", authorization, async (req, res) => {
     try {
         const id = req.params.id;
 
-        const rate = await new Promise((resolve, reject) => {
-            db.get("SELECT * FROM rates WHERE id = ?", [id], (err, row) => {
+        const client = await new Promise((resolve, reject) => {
+            db.get("SELECT * FROM clients WHERE id = ?", [id], (err, row) => {
                 if (err) reject(err);
                 else resolve(row);
             });
         });
 
-        if (rate) {
-            res.status(200).json({ rate });
+        if (client) {
+            res.status(200).json({ client });
         } else {
-            res.status(404).json({ message: "Rate not found" });
+            res.status(404).json({ message: "Client not found" });
         }
     } catch (err) {
         console.log(err.message);
@@ -59,12 +59,12 @@ router.get("/:id", authorization, async (req, res) => {
 
 router.post("/create", authorization, async (req, res) => {
     try {
-        const { rateValue, rateStandart, rateComment } = req.body;
+        const { clientName, clientAddress, isClient, isContractor } = req.body;
 
         await new Promise((resolve, reject) => {
             db.run(
-                "INSERT INTO rates (rateValue, rateStandart, rateComment) VALUES (?, ?, ?)",
-                [rateValue, rateStandart, rateComment],
+                "INSERT INTO clients (clientName, clientAddress, isClient, isContractor) VALUES (?, ?, ?, ?)",
+                [clientName, clientAddress, isClient, isContractor],
                 (err) => {
                     if (err) reject(err);
                     else resolve();
@@ -72,7 +72,42 @@ router.post("/create", authorization, async (req, res) => {
             );
         });
 
-        res.status(200).json({ message: "Rate created" });
+        res.status(200).json({ message: "Client created" });
+    } catch (err) {
+        console.log(err.message);
+        res.status(403).json({ message: "Server Error" });
+    }
+});
+
+router.post("/edit", authorization, async (req, res) => {
+    try {
+        const { clientId, clientName, clientAddress, isClient, isContractor } =
+            req.body;
+
+        await new Promise((resolve, reject) => {
+            const query = `
+                UPDATE clients
+                SET clientName = ?, clientAddress = ?, isClient = ?, isContractor = ?
+                WHERE id = ?
+            `;
+            const values = [
+                clientName,
+                clientAddress,
+                isClient,
+                isContractor,
+                clientId,
+            ];
+
+            db.run(query, values, (err) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve();
+                }
+            });
+        });
+
+        res.status(200).json({ message: "Client updated successfully" });
     } catch (err) {
         console.log(err.message);
         res.status(403).json({ message: "Server Error" });
