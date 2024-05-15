@@ -62,4 +62,23 @@ db.serialize(() => {
     );
 });
 
+// Создание таблицы rates
+db.serialize(() => {
+    db.run(
+        `CREATE TABLE IF NOT EXISTS rates (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            rateValue FLOAT NOT NULL,
+            rateStandart INTEGER NOT NULL,
+            rateComment TEXT NULL
+        )`,
+        (err) => {
+            if (err) {
+                console.error("Error creatins users table: ", err);
+                return;
+            }
+            console.log("Users table created successfully");
+        }
+    );
+});
+
 db.close();

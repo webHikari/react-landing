@@ -1,0 +1,19 @@
+.Container {
+    position: relative;
+    width: 100%;
+}
+
+.Textarea {
+    border: 1px solid #3e3e3e;
+    outline: none;
+    background: var(--link-color-active);
+    padding: 8px 12px;
+    color: var(--link-color);
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.ActiveTextarea {
+    border: 1px solid var(--green);
+}

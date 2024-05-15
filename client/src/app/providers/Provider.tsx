@@ -41,6 +41,10 @@ import Products from "@pages/Products/Products"
 // Minions pages
 import Minions from "@pages/Minions/Minions"
 
+// Rates pages
+import Rates from "@pages/Rates/Rates"
+import RatesCreate from "@pages/RatesCreate/RatesCreate"
+
 import Tutorial from "@pages/Tutorial/Tutorial";
 import Dashboard from "@pages/Dashboard/Dashboard";
 
@@ -252,6 +256,26 @@ export default function Provider() {
                             <Navigate to="/login" />
                         ) : (
                             <Minions setAuth={setAuth} name={name}/>
+                        )
+                    }
+                />
+                <Route
+                    path="/rates"
+                    element={
+                        !isAuthenticated ? (
+                            <Navigate to="/login" />
+                        ) : (
+                            <Rates setAuth={setAuth} name={name}/>
+                        )
+                    }
+                />
+                <Route
+                    path="/rates/create"
+                    element={
+                        !isAuthenticated ? (
+                            <Navigate to="/login" />
+                        ) : (
+                            <RatesCreate setAuth={setAuth} name={name}/>
                         )
                     }
                 />

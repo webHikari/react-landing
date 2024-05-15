@@ -1,34 +1,33 @@
 import Sidebar from "@widgets/Sidebar/Sidebar";
-import styles from "./ui/ProjectsCreate.module.css";
+import styles from "./ui/Rates.module.css";
 
 import { SetAuthFunction } from "@app/providers/model/Provider.props";
-
-import ProjectsForm from "@widgets/ProjectsForm/ProjectsForm";
-
+import { FaPlus } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import Button from "@shared/Button/Button";
-import { FaArrowLeft } from "react-icons/fa";
 
-interface ProjectsCreateProps {
+
+interface RatesProps {
     setAuth: SetAuthFunction;
     name: string;
 }
 
-const ProjectsCreate = ({ setAuth, name }: ProjectsCreateProps) => {
+const Rates = ({ setAuth, name }: RatesProps) => {
+
     return (
         <div className={styles.Container}>
             <Sidebar setAuth={setAuth} name={name} />
             <div className={styles.Main}>
                 <div className={styles.Header}>
-                    <Link to="/projects">
-                        <Button styleType="Button3">
-                            <FaArrowLeft />
-                            Вернуться
+                    <Link to="/rates/create">
+                        <Button styleType="Button3" value="Создать проект">
+                            <FaPlus />
+                            Создать ставку
                         </Button>
                     </Link>
                 </div>
-                <div className={styles.FormContainer}>
-                    <ProjectsForm />
+                <div className={styles.RatesInfo}>
+
                 </div>
             </div>
             <div className={styles.Secondary}></div>
@@ -36,4 +35,4 @@ const ProjectsCreate = ({ setAuth, name }: ProjectsCreateProps) => {
     );
 };
 
-export default ProjectsCreate;
+export default Rates;

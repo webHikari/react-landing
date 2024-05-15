@@ -107,6 +107,15 @@ const Sidebar: React.FC<SidebarProps> = ({ name, setAuth }) => {
                     <BiGridAlt />
                     Вахтеры
                 </NavLink>
+                <NavLink
+                    to="/rates"
+                    className={({ isActive }) =>
+                        isActive ? styles.Active : styles.Default
+                    }
+                >
+                    <BiGridAlt />
+                    Ставки
+                </NavLink>
             </div>
             <div>
                 <p>{name}</p>
