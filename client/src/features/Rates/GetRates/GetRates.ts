@@ -1,4 +1,4 @@
-const GetClients = async () => {
+const GetRates = async () => {
     try {
         const response = await fetch("http://localhost:3000/rates", {
             method: "GET",
@@ -6,10 +6,10 @@ const GetClients = async () => {
         });
 
         const parseRes = await response.json();
-        return parseRes.clients
+        return parseRes.rates
     } catch (err: any) {
         console.error(err.message);
     }
 };
 
-export default GetClients
+export default GetRates

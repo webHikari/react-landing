@@ -1,0 +1,21 @@
+.Rate {
+    position: relative;
+    border-radius: 10px;
+    border: 1px solid var(--thirdary-color);
+    width: 350px;
+    height: 200px;
+    background: var(--projects-section);
+    padding: 4px 4px 4px 20px;
+    cursor: pointer;
+}
+
+.Rate::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    top: 10px; left: 8px;
+    height: calc(100% - 20px);
+    border-radius: 200px;
+    background: var(--green);
+}
+

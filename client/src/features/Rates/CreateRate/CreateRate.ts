@@ -7,7 +7,7 @@ export default async function CreateClient(
     setIsLoading(true);
     try {
         console.log("Loading...");
-        const response = await fetch("http://localhost:3000/clients/create", {
+        const response = await fetch("http://localhost:3000/rates/create", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

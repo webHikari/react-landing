@@ -1,11 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Input from "@shared/Input/Input";
 import Button from "@shared/Button/Button";
 import Textarea from "@shared/Textarea/Textarea";
 
 import styles from "./ui/RatesForm.module.css";
-import CreateRate from "@features/Rates/CreateRate/CreateRate"
-
+import CreateRate from "@features/Rates/CreateRate/CreateRate";
 
 const RatesForm = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -13,6 +13,8 @@ const RatesForm = () => {
     const [ratesValue, setRatesValue] = useState("");
     const [ratesStandart, setRatesStandart] = useState("");
     const [comment, setComment] = useState("");
+
+    const navigate = useNavigate();
 
     const handleRatesValueChange = (value: string) => {
         setRatesValue(value);
@@ -30,12 +32,8 @@ const RatesForm = () => {
         e: React.MouseEvent<HTMLButtonElement, MouseEvent>
     ) => {
         e.preventDefault();
-        CreateRate(
-            {setIsLoading},
-            ratesValue,
-            ratesStandart,
-            comment
-        )
+        CreateRate({ setIsLoading }, ratesValue, ratesStandart, comment);
+        navigate("/rates");
     };
 
     return (

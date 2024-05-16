@@ -20,7 +20,7 @@ const RatesCreate = ({ setAuth, name }: RatesCreateProps) => {
             <Sidebar setAuth={setAuth} name={name} />
             <div className={styles.Main}>
                 <div className={styles.Header}>
-                    <Link to="/projects">
+                    <Link to="/rates">
                         <Button styleType="Button3">
                             <FaArrowLeft />
                             Вернуться

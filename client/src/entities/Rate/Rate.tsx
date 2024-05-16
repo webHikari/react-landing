@@ -1,9 +1,9 @@
 import { useNavigate } from "react-router-dom";
 
 import { RateProps } from "./Rate.props.ts";
-import styles from "./Project.module.css";
+import styles from "./Rate.module.css";
 
-const Project = ({ rateId, rateValue, rateStandart, rateComment, onClick }: RateProps) => {
+const Rate = ({ rateId, rateValue, rateStandart, rateComment, onClick }: RateProps) => {
     const navigate = useNavigate()
 
     const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -20,4 +20,4 @@ const Project = ({ rateId, rateValue, rateStandart, rateComment, onClick }: Rate
     );
 };
 
-export default Project;
+export default Rate;

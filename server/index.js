@@ -25,6 +25,7 @@ app.use("/auth", require("./routes/jwtAuth"));
 app.use("/dashboard", require("./routes/dashboard"));
 app.use("/clients", require("./routes/clients"));
 app.use("/projects", require("./routes/projects"));
+app.use("/rates", require("./routes/rates"));
 
 app.listen(PORT, () => {
     console.log(`Server dancing on ${PORT}`);

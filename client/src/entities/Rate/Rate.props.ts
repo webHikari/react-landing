@@ -1,7 +1,7 @@
 export interface RateProps {
     onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
-    rateValue: number;
+    rateValue: string;
     rateStandart: number;
-    rateComment: string;
+    rateComment?: string;
     rateId: number;
 }
