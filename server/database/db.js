@@ -81,4 +81,63 @@ db.serialize(() => {
     );
 });
 
+// Создание таблицы products (АРТИКУЛЫ)
+db.serialize(() => {
+    db.run(
+        `CREATE TABLE IF NOT EXISTS products (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            productCount TEXT NOT NULL,
+            productName TEXT NULL
+        )`,
+        (err) => {
+            if (err) {
+                console.error("Error creatins users table: ", err);
+                return;
+            }
+            console.log("Users table created successfully");
+        }
+    );
+});
+
+// Создание таблицы components
+// db.serialize(() => {
+//     db.run(
+//         `CREATE TABLE IF NOT EXISTS components (
+//             id INTEGER PRIMARY KEY AUTOINCREMENT,
+//             componentName TEXT NOT NULL,
+//             componentValue INTEGER NOT NULL,
+//             componentInstruction INTEGER NOT NULL
+//         )`,
+//         (err) => {
+//             if (err) {
+//                 console.error("Error creatins users table: ", err);
+//                 return;
+//             }
+//             console.log("Users table created successfully");
+//         }
+//     );
+// });
+
+// Создание таблицы instructions
+// db.serialize(() => {
+//     db.run(
+//         `CREATE TABLE IF NOT EXISTS instructions (
+//             id INTEGER PRIMARY KEY AUTOINCREMENT,
+//             instructionDate TEXT NOT NULL,
+//             instructionName TEXT NOT NULL,
+//             instructionProductsValue INTEGER NOT NULL,
+//             instructionProject INTEGER NOT NULL,
+//             instructionArticle INTEGER NOT NULL,
+//             instructionFile TEXT NOT NULL,
+//             instructionBet FLOAT NOT NULL
+//         )`,
+//         (err) => {
+//             if (err) {
+//                 console.error("Error creatins users table: ", err);
+//                 return;
+//             }
+//             console.log("Users table created successfully");
+//         }
+//     );
+// });
 db.close();

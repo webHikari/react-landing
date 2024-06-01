@@ -27,7 +27,7 @@ router.get("/", authorization, async (req, res) => {
         if (projects.length > 0) {
             res.status(200).json({ projects });
         } else {
-            res.status(404).json({ message: "No projects found" });
+            res.status(403).json({ message: "No projects found" });
         }
     } catch (err) {
         console.log(err.message);

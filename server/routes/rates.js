@@ -27,7 +27,7 @@ router.get("/", authorization, async (req, res) => {
         if (rates.length > 0) {
             res.status(200).json({ rates });
         } else {
-            res.status(404).json({ message: "No rates found" });
+            res.status(403).json({ message: "No rates found" });
         }
     } catch (err) {
         console.log(err.message);
@@ -49,7 +49,7 @@ router.get("/:id", authorization, async (req, res) => {
         if (rate) {
             res.status(200).json({ rate });
         } else {
-            res.status(404).json({ message: "Rate not found" });
+            res.status(403).json({ message: "Rate not found" });
         }
     } catch (err) {
         console.log(err.message);

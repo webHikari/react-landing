@@ -17,17 +17,17 @@ const db = new sqlite3.Database(
 
 router.get("/", authorization, async (req, res) => {
     try {
-        const clients = await new Promise((resolve, reject) => {
-            db.all("SELECT * FROM clients", (err, rows) => {
+        const products = await new Promise((resolve, reject) => {
+            db.all("SELECT * FROM products", (err, rows) => {
                 if (err) reject(err);
                 else resolve(rows);
             });
         });
 
-        if (clients.length > 0) {
-            res.status(200).json({ clients });
+        if (products.length > 0) {
+            res.status(200).json({ products });
         } else {
-            res.status(403).json({ message: "No clients found" });
+            res.status(403).json({ message: "No products found" });
         }
     } catch (err) {
         console.log(err.message);
@@ -39,17 +39,17 @@ router.get("/:id", authorization, async (req, res) => {
     try {
         const id = req.params.id;
 
-        const client = await new Promise((resolve, reject) => {
-            db.get("SELECT * FROM clients WHERE id = ?", [id], (err, row) => {
+        const product = await new Promise((resolve, reject) => {
+            db.get("SELECT * FROM products WHERE id = ?", [id], (err, row) => {
                 if (err) reject(err);
                 else resolve(row);
             });
         });
 
-        if (client) {
-            res.status(200).json({ client });
+        if (product) {
+            res.status(200).json({ product });
         } else {
-            res.status(403).json({ message: "Client not found" });
+            res.status(403).json({ message: "Product not found" });
         }
     } catch (err) {
         console.log(err.message);
@@ -59,12 +59,12 @@ router.get("/:id", authorization, async (req, res) => {
 
 router.post("/create", authorization, async (req, res) => {
     try {
-        const { clientName, clientAddress, isClient, isContractor } = req.body;
+        const { productCount, productName } = req.body;
 
         await new Promise((resolve, reject) => {
             db.run(
-                "INSERT INTO clients (clientName, clientAddress, isClient, isContractor) VALUES (?, ?, ?, ?)",
-                [clientName, clientAddress, isClient, isContractor],
+                "INSERT INTO products (productCount, productName) VALUES (?, ?)",
+                [productCount, productName],
                 (err) => {
                     if (err) reject(err);
                     else resolve();
@@ -72,7 +72,7 @@ router.post("/create", authorization, async (req, res) => {
             );
         });
 
-        res.status(200).json({ message: "Client created" });
+        res.status(200).json({ message: "Product created" });
     } catch (err) {
         console.log(err.message);
         res.status(403).json({ message: "Server Error" });
@@ -81,21 +81,19 @@ router.post("/create", authorization, async (req, res) => {
 
 router.post("/edit", authorization, async (req, res) => {
     try {
-        const { clientId, clientName, clientAddress, isClient, isContractor } =
+        const { productId, productCount, productName } =
             req.body;
 
         await new Promise((resolve, reject) => {
             const query = `
-                UPDATE clients
-                SET clientName = ?, clientAddress = ?, isClient = ?, isContractor = ?
+                UPDATE products
+                SET productCount = ?, productName = ?
                 WHERE id = ?
             `;
             const values = [
-                clientName,
-                clientAddress,
-                isClient,
-                isContractor,
-                clientId,
+                productCount,
+                productName,
+                productId,
             ];
 
             db.run(query, values, (err) => {
@@ -107,7 +105,7 @@ router.post("/edit", authorization, async (req, res) => {
             });
         });
 
-        res.status(200).json({ message: "Client updated successfully" });
+        res.status(200).json({ message: "Product updated successfully" });
     } catch (err) {
         console.log(err.message);
         res.status(403).json({ message: "Server Error" });

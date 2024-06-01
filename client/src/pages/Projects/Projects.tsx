@@ -50,6 +50,7 @@ const Projects = ({ setAuth, name }: ProjectsProps) => {
                 <div className={styles.Grid}>
                     {projects ? projects.map((project) => (
                         <Project
+                            key={project.id}
                             projectId={project.id}
                             projectName={project.projectName}
                             projectCount={project.projectCount}

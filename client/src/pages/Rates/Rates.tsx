@@ -47,7 +47,7 @@ const Rates = ({ setAuth, name }: RatesProps) => {
                     </Link>
                 </div>
                 <div className={styles.RatesInfo}>
-                    {rates.map((rate) => (
+                    {rates ? rates.map((rate) => (
                         <Rate
                             rateValue={rate.rateValue}
                             rateStandart={rate.rateStandart}
@@ -56,7 +56,7 @@ const Rates = ({ setAuth, name }: RatesProps) => {
                                 rate.rateComment ? rate.rateComment : undefined
                             }
                         />
-                    ))}
+                    )) : null}
                 </div>
             </div>
             <div className={styles.Secondary}></div>

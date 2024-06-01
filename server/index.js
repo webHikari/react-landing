@@ -26,6 +26,7 @@ app.use("/dashboard", require("./routes/dashboard"));
 app.use("/clients", require("./routes/clients"));
 app.use("/projects", require("./routes/projects"));
 app.use("/rates", require("./routes/rates"));
+app.use("/products", require("./routes/products"));
 
 app.listen(PORT, () => {
     console.log(`Server dancing on ${PORT}`);

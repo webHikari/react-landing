@@ -4,13 +4,16 @@
 }
 
 .Main {
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
 
 .Grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    /* display: grid;
+    grid-template-columns: repeat(2, 1fr); */
+    display: flex;
+    flex-wrap: wrap;
     gap: 16px; 
     padding: 16px;
     width: fit-content;

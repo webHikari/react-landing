@@ -76,10 +76,12 @@ const ClientsAddForm = () => {
                         <Checkbox
                             value="Клиент"
                             onClick={handleIsClientClick}
+                            checked={isClient}
                         />
                         <Checkbox
                             value="Подрядчик"
                             onClick={handleIsContractorClick}
+                            checked={isContractor}
                         />
                     </div>
                     <Button
