@@ -37,6 +37,7 @@ import Bookings from "@pages/Bookings/Bookings";
 
 // Products pages
 import Products from "@pages/Products/Products"
+import ProductsCreate from "@pages/ProductsCreate/ProductsCreate";
 
 // Minions pages
 import Minions from "@pages/Minions/Minions"
@@ -246,6 +247,16 @@ export default function Provider() {
                             <Navigate to="/login" />
                         ) : (
                             <Products setAuth={setAuth} name={name}/>
+                        )
+                    }
+                />
+                <Route
+                    path="/products/create"
+                    element={
+                        !isAuthenticated ? (
+                            <Navigate to="/login" />
+                        ) : (
+                            <ProductsCreate setAuth={setAuth} name={name}/>
                         )
                     }
                 />

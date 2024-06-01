@@ -1,0 +1,26 @@
+.FormContainer {
+    background: var(--link-color-active);
+    padding: 16px;
+    border-radius: 16px;
+}
+
+.FormContainer h1 {
+    font-size: 1.5em;
+    margin-bottom: 16px;
+}
+
+.Form {
+    display: flex;
+    width: fit-content;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.Form input {
+    width: 400px;
+}
+
+.Child {
+    display: flex;
+    gap: 16px;
+}

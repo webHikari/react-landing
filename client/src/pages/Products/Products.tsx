@@ -38,7 +38,7 @@ const Products = ({ setAuth, name }: ProductsProps) => {
             <Sidebar setAuth={setAuth} name={name} />
             <div className={styles.Main}>
                 <div className={styles.Header}>
-                    <Link to="/instructions/create">
+                    <Link to="/products/create">
                         <Button styleType="Button3" value="Создать проект">
                             <FaPlus />
                             Создать артикул
