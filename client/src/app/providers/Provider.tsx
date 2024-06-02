@@ -22,6 +22,7 @@ import ClientsEdit from "@pages/ClientsEdit/ClientsEdit"
 
 // Instructions pages
 import Instructions from "@pages/Instructions/Instructions";
+import InstructionsCreate from "@pages/InstructionsCreate/InstructionsCreate";
 
 // Acts pages
 import Acts from "@pages/Acts/Acts";
@@ -197,6 +198,16 @@ export default function Provider() {
                             <Navigate to="/login" />
                         ) : (
                             <Instructions setAuth={setAuth} name={name}/>
+                        )
+                    }
+                />
+                <Route
+                    path="/instructions/create"
+                    element={
+                        !isAuthenticated ? (
+                            <Navigate to="/login" />
+                        ) : (
+                            <InstructionsCreate setAuth={setAuth} name={name}/>
                         )
                     }
                 />
