@@ -1,17 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Input from "@shared/Input/Input";
 import Button from "@shared/Button/Button";
-import Checkbox from "@shared/Checkbox/Checkbox";
+// import Checkbox from "@shared/Checkbox/Checkbox";
+import Select from "react-select"
+
+import GetProjects from "@features/Projects/GetProjects/GetProjects";
 
 import styles from "./ui/InstructionAddForm.module.css";
 
+interface Project {
+    projectName: string;
+    clientName: string;
+    projectCount: string;
+    id: number;
+}
+
 const InstructionAddForm = () => {
     const [isLoading, setIsLoading] = useState(false);
+    const [options, setOptions] = useState<{ value: string; label: string }[]>([]);
 
     const [clientName, setClientName] = useState("");
     const [clientAddress, setClientAddress] = useState("");
-    const [isClient, setIsClient] = useState(false);
-    const [isContractor, setIsContractor] = useState(false);
+    const [selectedOption, setSelectedOption] = useState(null);
 
     const handleClientNameChange = (value: string) => {
         setClientName(value);
@@ -21,15 +31,23 @@ const InstructionAddForm = () => {
         setClientAddress(value);
     };
 
-    const handleIsClientClick = () => {
-        setIsClient(!isClient);
-        console.log(isClient);
+    const handleOptionChange = (option: any) => {
+        setSelectedOption(option);
+        console.log(selectedOption)
     };
 
-    const handleIsContractorClick = () => {
-        setIsContractor(!isContractor);
-        console.log(isContractor);
-    };
+    useEffect(() => {
+        const fetchProjects = async () => {
+            const projectsData = await GetProjects();
+            const projects = projectsData.map((project: Project) => ({
+                value: project.id,
+                label: project.projectCount,
+            }));
+            setOptions(projects);
+        };
+        fetchProjects();
+    }, []);
+
 
     const handleSubmit = async (
         e: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -71,15 +89,31 @@ const InstructionAddForm = () => {
                         />
                     </div>
                     <div className={styles.Child}>
-                        <Checkbox
-                            value="Клиент"
-                            onClick={handleIsClientClick}
-                            checked={isClient}
-                        />
-                        <Checkbox
-                            value="Подрядчик"
-                            onClick={handleIsContractorClick}
-                            checked={isContractor}
+                        <Select
+                            className={styles.Select}
+                            defaultValue={options[0]}
+                            onChange={handleOptionChange}
+                            options={options}
+                            placeholder="Выберите проект"
+                            theme={(theme) => ({
+                                ...theme,
+                                borderRadius: 4,
+                                colors: {
+                                    ...theme.colors,
+                                    // Background
+                                    neutral0: '#1f1f1f',
+                                    // Default border
+                                    neutral20: '#3e3e3e',
+                                    // Hover-select-color
+                                    neutral30: '#34c471',
+                                    // Default color
+                                    neutral80: '#34c471',
+                                    // Hover-option-color
+                                    primary25: '#34c47180',
+                                    // Focus-select-color
+                                    primary: '#34c471',
+                                },
+                            })}
                         />
                     </div>
                     <Button

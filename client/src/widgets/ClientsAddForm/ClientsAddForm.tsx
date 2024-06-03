@@ -5,7 +5,7 @@ import Checkbox from "@shared/Checkbox/Checkbox";
 
 import styles from "./ui/ClientsAddForm.module.css";
 
-import CreateClient from "@/features/Clients/CreateClient/CreateClient";
+import CreateClient from "@features/Clients/CreateClient/CreateClient";
 
 const ClientsAddForm = () => {
     const [isLoading, setIsLoading] = useState(false);
