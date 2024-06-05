@@ -1,7 +1,14 @@
 import { NavLink } from "react-router-dom";
 
 import styles from "./ui/Sidebar.module.css";
+import { BiHomeAlt2 } from "react-icons/bi";
 import { BiGridAlt } from "react-icons/bi";
+import { BiFolder } from "react-icons/bi";
+import { BiUser } from "react-icons/bi";
+import { BiFileBlank } from "react-icons/bi";
+import { BiMoneyWithdraw } from "react-icons/bi";
+import { GrUserWorker } from "react-icons/gr";
+import { IoBarcodeOutline } from "react-icons/io5";
 
 import Button from "@shared/Button/Button";
 import Logout from "@/features/Auth/Logout/Logout";
@@ -23,16 +30,16 @@ const Sidebar: React.FC<SidebarProps> = ({ name, setAuth }) => {
                         isActive ? styles.Active : styles.Default
                     }
                 >
-                    <BiGridAlt />
+                    <BiHomeAlt2 />
                     Главная
-                </NavLink>{" "}
+                </NavLink>
                 <NavLink
                     to="/projects"
                     className={({ isActive }) =>
                         isActive ? styles.Active : styles.Default
                     }
                 >
-                    <BiGridAlt />
+                    <BiFolder />
                     Проекты
                 </NavLink>
                 <NavLink
@@ -41,7 +48,7 @@ const Sidebar: React.FC<SidebarProps> = ({ name, setAuth }) => {
                         isActive ? styles.Active : styles.Default
                     }
                 >
-                    <BiGridAlt />
+                    <BiUser />
                     Клиенты
                 </NavLink>
                 <NavLink
@@ -50,7 +57,7 @@ const Sidebar: React.FC<SidebarProps> = ({ name, setAuth }) => {
                         isActive ? styles.Active : styles.Default
                     }
                 >
-                    <BiGridAlt />
+                    <BiFileBlank />
                     Инструкции
                 </NavLink>
                 <NavLink
@@ -95,7 +102,7 @@ const Sidebar: React.FC<SidebarProps> = ({ name, setAuth }) => {
                         isActive ? styles.Active : styles.Default
                     }
                 >
-                    <BiGridAlt />
+                    <IoBarcodeOutline />
                     Артикулы
                 </NavLink>
                 <NavLink
@@ -104,7 +111,7 @@ const Sidebar: React.FC<SidebarProps> = ({ name, setAuth }) => {
                         isActive ? styles.Active : styles.Default
                     }
                 >
-                    <BiGridAlt />
+                    <GrUserWorker />
                     Вахтеры
                 </NavLink>
                 <NavLink
@@ -113,7 +120,7 @@ const Sidebar: React.FC<SidebarProps> = ({ name, setAuth }) => {
                         isActive ? styles.Active : styles.Default
                     }
                 >
-                    <BiGridAlt />
+                    <BiMoneyWithdraw />
                     Ставки
                 </NavLink>
             </div>
