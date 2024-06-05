@@ -1,48 +1,36 @@
 import { useState, useEffect } from "react";
 import Input from "@shared/Input/Input";
 import Button from "@shared/Button/Button";
-// import Checkbox from "@shared/Checkbox/Checkbox";
 import Select from "react-select";
 
 import GetProjects from "@features/Projects/GetProjects/GetProjects";
 import GetProducts from "@features/Products/GetProducts/GetProducts";
 import GetRates from "@features/Rates/GetRates/GetRates";
+import CreateInstruction from "@features/Instructions/CreateInstruction/CreateInstruction";
 
 import styles from "./ui/InstructionAddForm.module.css";
 
-interface Project {
-    projectName: string;
-    clientName: string;
-    projectCount: string;
-    id: number;
-}
-
-interface Product {
-    id: number;
-    productCount: string;
-}
-
-interface Rate {
-    id: number;
-    rateValue: string;
-}
-
-interface Option {
-    value: string;
-    label: string;
-}
+import Project from "./model/Project.props";
+import Product from "./model/Product.props";
+import Rate from "./model/Rate.props";
+import Option from "./model/Option.props";
+import Component from "./model/Component.props";
 
 const InstructionAddForm = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [projectsOptions, setProjectsOptions] = useState<Option[]>([]);
     const [productsOptions, setProductsOptions] = useState<Option[]>([]);
     const [ratesOptions, setRatesOptions] = useState<Option[]>([]);
+    const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
 
     const [instructionCount, setInstructionCount] = useState("");
     const [instructionValue, setInstructionValue] = useState("");
     const [selectedProjectOption, setSelectedProjectOption] = useState(null);
     const [selectedProductOption, setSelectedProductOption] = useState(null);
     const [selectedRateOption, setSelectedRateOption] = useState(null);
+    const [components, setComponents] = useState<Component[]>([
+        { componentName: "", componentValue: "" },
+    ]);
 
     const handleInstructionCountChange = (value: string) => {
         setInstructionCount(value);
@@ -65,6 +53,35 @@ const InstructionAddForm = () => {
     const handleRateOptionChange = (option: any) => {
         setSelectedRateOption(option);
         console.log(selectedRateOption);
+    };
+
+    const handleDateChange = (value: string) => {
+        setDate(value);
+    };
+
+    const handleAddComponent = () => {
+        setComponents([
+            ...components,
+            { componentName: "", componentValue: "" },
+        ]);
+    };
+
+    const handleRemoveComponent = (index: number) => {
+        const newComponents = [...components];
+        newComponents.splice(index, 1);
+        setComponents(newComponents);
+    };
+
+    const handleComponentNameChange = (index: number, value: string) => {
+        const newComponents = [...components];
+        newComponents[index].componentName = value;
+        setComponents(newComponents);
+    };
+
+    const handleComponentValueChange = (index: number, value: string) => {
+        const newComponents = [...components];
+        newComponents[index].componentValue = value;
+        setComponents(newComponents);
     };
 
     useEffect(() => {
@@ -102,13 +119,16 @@ const InstructionAddForm = () => {
     ) => {
         e.preventDefault();
 
-        // CreateClient(
-        //     { setIsLoading },
-        //     clientName,
-        //     clientAddress,
-        //     isContractor,
-        //     isClient
-        // );
+        CreateInstruction(
+            { setIsLoading },
+            date,
+            instructionCount,
+            instructionValue,
+            selectedProjectOption,
+            selectedProductOption,
+            selectedRateOption,
+            components
+        );
     };
 
     return (
@@ -139,11 +159,10 @@ const InstructionAddForm = () => {
                         />
                         <Input
                             styleType="Input1"
-                            placeholderValue="Количество ГП"
-                            type="text"
-                            value={instructionValue}
-                            onChange={handleInstructionValueChange}
-                            required
+                            placeholderValue="Дата"
+                            type="date"
+                            value={date}
+                            onChange={handleDateChange}
                         />
                     </div>
                     <div className={styles.Child}>
@@ -236,9 +255,47 @@ const InstructionAddForm = () => {
                             })}
                         />
                     </div>
+                    {components.map((component, index) => (
+                        <div className={styles.Child} key={index}>
+                            <Input
+                                styleType="Input1"
+                                placeholderValue={`Компонент ${index + 1}`}
+                                type="text"
+                                value={component.componentName}
+                                onChange={(value) =>
+                                    handleComponentNameChange(index, value)
+                                }
+                                required
+                            />
+                            <Input
+                                styleType="Input1"
+                                placeholderValue="Количество"
+                                type="text"
+                                value={component.componentValue}
+                                onChange={(value) =>
+                                    handleComponentValueChange(index, value)
+                                }
+                                required
+                            />
+                            <button
+                                className={styles.DeleteButton}
+                                onClick={() => handleRemoveComponent(index)}
+                            >
+                                Удалить
+                            </button>
+                        </div>
+                    ))}
+                    <div className={styles.Child}>
+                        <Button
+                            styleType="Button1"
+                            onClick={handleAddComponent}
+                            value="Добавить компонент"
+                        />
+                    </div>
                     <Button
                         styleType="Button1"
                         onClick={(e) => handleSubmit(e)}
+                        value="Создать инструкцию"
                     />
                 </div>
             )}
