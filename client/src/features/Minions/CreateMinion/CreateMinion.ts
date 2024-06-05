@@ -4,10 +4,10 @@ export default async function CreateProduct(
     minionSurname: string,
     minionPatronymic: string,
     minionPhone: string,
-    minionWorkStatus: string,
-    minionAgent: string,
+    minionWorkStatus: any,
+    minionAgent: any,
     minionRate: string,
-    minionDayNightStatus: string,
+    minionDayNightStatus: boolean,
     minionComment: string
 ) {
     setIsLoading(true);
@@ -24,8 +24,8 @@ export default async function CreateProduct(
                 minionSurname: minionSurname,
                 minionPatronymic: minionPatronymic,
                 minionPhone: minionPhone,
-                minionWorkStatus: minionWorkStatus,
-                minionAgent: minionAgent,
+                minionWorkStatus: minionWorkStatus.value,
+                minionAgent: minionAgent.value,
                 minionRate: minionRate,
                 minionDayNightStatus: minionDayNightStatus,
                 minionComment: minionComment,

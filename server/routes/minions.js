@@ -24,7 +24,7 @@ router.get("/", authorization, async (req, res) => {
             });
         });
 
-        if (clients.length > 0) {
+        if (minions.length > 0) {
             res.status(200).json({ minions });
         } else {
             res.status(403).json({ message: "No minions found" });

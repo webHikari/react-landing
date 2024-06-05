@@ -1,6 +1,6 @@
 export interface MinionProps {
     onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
-    minionId: number;
+    minionId?: number;
     minionName: string;
     minionSurname: string;
     minionPatronymic: string;
@@ -8,6 +8,6 @@ export interface MinionProps {
     minionWorkStatus: string;
     minionAgent: string;
     minionRate: string;
-    minionDayNightStatus: string;
+    minionDayNightStatus: boolean;
     minionComment: string;
 }

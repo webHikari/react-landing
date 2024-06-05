@@ -1,6 +1,6 @@
 const GetMinions = async () => {
     try {
-        const response = await fetch("http://localhost:3000/products", {
+        const response = await fetch("http://localhost:3000/minions", {
             method: "GET",
             headers: { token: localStorage.token },
         });

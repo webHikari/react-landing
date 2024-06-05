@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 import { MinionProps } from "./Minion.props.ts";
-import styles from "./Product.module.css";
+import styles from "./Minion.module.css";
 
 const Minion = ({
     minionId,
@@ -26,7 +26,7 @@ const Minion = ({
     console.log(minionComment);
 
     return (
-        <div className={styles.Project} onClick={handleClick}>
+        <div className={styles.Minion} onClick={handleClick} key={minionId}>
             <h4>Вахтер {minionId}</h4>
             <p>Имя: {minionName}</p>
             <p>Фамилия: {minionSurname}</p>

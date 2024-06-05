@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Input from "@shared/Input/Input";
 import Button from "@shared/Button/Button";
 import Checkbox from "@shared/Checkbox/Checkbox";
@@ -7,7 +8,7 @@ import Select from "react-select";
 
 import styles from "./ui/MinionAddForm.module.css";
 
-// import CreateMinion from "@features/Minions/CreateMinion/CreateMinion";
+import CreateMinion from "@features/Minions/CreateMinion/CreateMinion";
 
 const MinionAddForm = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -86,13 +87,20 @@ const MinionAddForm = () => {
     ) => {
         e.preventDefault();
 
-        // CreateClient(
-        //     { setIsLoading },
-        //     clientName,
-        //     clientAddress,
-        //     isContractor,
-        //     isClient
-        // );
+        CreateMinion(
+            { setIsLoading },
+            minionName,
+            minionSurname,
+            minionPatronymic,
+            minionPhone,
+            selectedMinionWorkStatusOption,
+            selectedMinionAgentOption,
+            minionRate,
+            minionDayNightStatus,
+            minionComment
+        );
+        const navigate = useNavigate();
+        navigate("/minions");
     };
 
     return (
@@ -216,7 +224,7 @@ const MinionAddForm = () => {
                         />
                     </div>
                     <div className={styles.Child}>
-                        <Textarea 
+                        <Textarea
                             value={minionComment}
                             onChange={handleMinionCommentChange}
                             placeholderValue="Комментарий"
