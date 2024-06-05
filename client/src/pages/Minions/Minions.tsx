@@ -16,7 +16,7 @@ interface MinionsProps {
 }
 
 interface Minion {
-    minionId: number;
+    id: number;
     minionName: string;
     minionSurname: string;
     minionPatronymic: string;
@@ -55,7 +55,8 @@ const Minions = ({ setAuth, name }: MinionsProps) => {
                     {minions
                         ? minions.map((minion) => (
                               <Minion
-                                  key={minion.minionId}
+                                  key={minion.id}
+                                  minionId={minion.id}
                                   minionName={minion.minionName}
                                   minionSurname={minion.minionSurname}
                                   minionPatronymic={minion.minionPatronymic}
