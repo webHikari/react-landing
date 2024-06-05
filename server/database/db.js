@@ -37,7 +37,7 @@ db.serialize(() => {
                 console.error("Error creating users table:", err);
                 return;
             }
-            console.log("Users table created successfully");
+            console.log("Projects table created successfully");
         }
     );
 });
@@ -57,7 +57,7 @@ db.serialize(() => {
                 console.error("Error creating users table:", err);
                 return;
             }
-            console.log("Users table created successfully");
+            console.log("Clients table created successfully");
         }
     );
 });
@@ -76,7 +76,7 @@ db.serialize(() => {
                 console.error("Error creatins users table: ", err);
                 return;
             }
-            console.log("Users table created successfully");
+            console.log("Rates table created successfully");
         }
     );
 });
@@ -94,7 +94,7 @@ db.serialize(() => {
                 console.error("Error creatins users table: ", err);
                 return;
             }
-            console.log("Users table created successfully");
+            console.log("Products table created successfully");
         }
     );
 });
@@ -113,7 +113,7 @@ db.serialize(() => {
                 console.error("Error creatins users table: ", err);
                 return;
             }
-            console.log("Users table created successfully");
+            console.log("Components table created successfully");
         }
     );
 });
@@ -135,7 +135,46 @@ db.serialize(() => {
                 console.error("Error creatins users table: ", err);
                 return;
             }
-            console.log("Users table created successfully");
+            console.log("Instructions table created successfully");
+        }
+    );
+});
+
+// db.serialize(() => {
+//     db.run(
+//         `DROP TABLE minions`,
+//         (err) => {
+//             if (err) {
+//                 console.error("Error creatins users table: ", err);
+//                 return;
+//             }
+//             console.log("Minions table created successfully");
+//         }
+//     );
+// });
+
+
+// Создание таблицы minions
+db.serialize(() => {
+    db.run(
+        `CREATE TABLE IF NOT EXISTS minions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            minionName TEXT NOT NULL,
+            minionSurname TEXT NOT NULL,
+            minionPatronymic TEXT NULL,
+            minionPhone TEXT NULL,
+            minionDayNightStatus TEXT NOT NULL,
+            minionWorkStatus TEXT NOT NULL,
+            minionRate TEXT NOT NULL,
+            minionAgent TEXT NULL,
+            minionComment TEXT NULL
+        )`,
+        (err) => {
+            if (err) {
+                console.error("Error creatins users table: ", err);
+                return;
+            }
+            console.log("Minions table created successfully");
         }
     );
 });

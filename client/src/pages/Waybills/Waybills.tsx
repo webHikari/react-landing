@@ -19,10 +19,10 @@ const Waybills = ({ setAuth, name }: WaybillsProps) => {
             <Sidebar setAuth={setAuth} name={name} />
             <div className={styles.Main}>
                 <div className={styles.Header}>
-                    <Link to="/Waybills/create">
-                        <Button styleType="Button3" value="Создать проект">
+                    <Link to="/waybills/create">
+                        <Button styleType="Button3" value="Создать накладную">
                             <FaPlus />
-                            Создать смену
+                            Создать накладную
                         </Button>
                     </Link>
                 </div>

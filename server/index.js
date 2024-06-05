@@ -21,14 +21,14 @@ app.use(express.json());
 app.use(cors());
 
 // routes
-app
-    .use("/auth", require("./routes/jwtAuth"))
+app.use("/auth", require("./routes/jwtAuth"))
     .use("/dashboard", require("./routes/dashboard"))
     .use("/clients", require("./routes/clients"))
     .use("/projects", require("./routes/projects"))
     .use("/rates", require("./routes/rates"))
     .use("/products", require("./routes/products"))
-    .use("/instructions", require("./routes/instructions"));
+    .use("/instructions", require("./routes/instructions"))
+    .use("/minions", require("./routes/minions"));
 
 app.listen(PORT, () => {
     console.log(`Server dancing on ${PORT}`);

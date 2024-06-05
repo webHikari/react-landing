@@ -20,9 +20,9 @@ const Shifts = ({ setAuth, name }: ShiftsProps) => {
             <div className={styles.Main}>
                 <div className={styles.Header}>
                     <Link to="/Shifts/create">
-                        <Button styleType="Button3" value="Создать проект">
+                        <Button styleType="Button3" value="Создать смену">
                             <FaPlus />
-                            Создать накладную
+                            Создать смену
                         </Button>
                     </Link>
                 </div>
