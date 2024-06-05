@@ -42,6 +42,7 @@ import ProductsCreate from "@pages/ProductsCreate/ProductsCreate";
 
 // Minions pages
 import Minions from "@pages/Minions/Minions"
+import MinionsCreate from "@pages/MinionsCreate/MinionsCreate";
 
 // Rates pages
 import Rates from "@pages/Rates/Rates"
@@ -278,6 +279,16 @@ export default function Provider() {
                             <Navigate to="/login" />
                         ) : (
                             <Minions setAuth={setAuth} name={name}/>
+                        )
+                    }
+                />
+                <Route
+                    path="/minions/create"
+                    element={
+                        !isAuthenticated ? (
+                            <Navigate to="/login" />
+                        ) : (
+                            <MinionsCreate setAuth={setAuth} name={name}/>
                         )
                     }
                 />

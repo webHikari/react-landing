@@ -1,33 +1,34 @@
 import Sidebar from "@widgets/Sidebar/Sidebar";
-import styles from "./ui/Minions.module.css";
+import styles from "./ui/MinionsCreate.module.css";
 
 import { SetAuthFunction } from "@app/providers/model/Provider.props";
-import { FaPlus } from "react-icons/fa6";
+
 import { Link } from "react-router-dom";
 import Button from "@shared/Button/Button";
+import { FaArrowLeft } from "react-icons/fa";
 
+import MinionAddForm from "@widgets/MinionAddForm/MinionAddForm";
 
-interface MinionsProps {
+interface MinionsCreateProps {
     setAuth: SetAuthFunction;
     name: string;
 }
 
-const Minions = ({ setAuth, name }: MinionsProps) => {
-
+const MinionsCreate = ({ setAuth, name }: MinionsCreateProps) => {
     return (
         <div className={styles.Container}>
             <Sidebar setAuth={setAuth} name={name} />
             <div className={styles.Main}>
                 <div className={styles.Header}>
-                    <Link to="/minions/create">
-                        <Button styleType="Button3" value="Создать проект">
-                            <FaPlus />
-                            Создать вахтера
+                    <Link to="/minions">
+                        <Button styleType="Button3">
+                            <FaArrowLeft />
+                            Вернуться
                         </Button>
                     </Link>
                 </div>
-                <div className={styles.MinionsInfo}>
-
+                <div className={styles.FormContainer}>
+                    <MinionAddForm />
                 </div>
             </div>
             <div className={styles.Secondary}></div>
@@ -35,4 +36,4 @@ const Minions = ({ setAuth, name }: MinionsProps) => {
     );
 };
 
-export default Minions;
+export default MinionsCreate;
