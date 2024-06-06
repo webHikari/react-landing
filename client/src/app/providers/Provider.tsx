@@ -32,6 +32,7 @@ import Waybills from "@pages/Waybills/Waybills";
 
 // Shifts pages
 import Shifts from "@pages/Shifts/Shifts";
+import ShiftsCreate from "@pages/ShiftsCreate/ShiftsCreate"
 
 // Bookings pages
 import Bookings from "@pages/Bookings/Bookings";
@@ -239,6 +240,16 @@ export default function Provider() {
                             <Navigate to="/login" />
                         ) : (
                             <Shifts setAuth={setAuth} name={name}/>
+                        )
+                    }
+                />
+                <Route
+                    path="/shifts/create"
+                    element={
+                        !isAuthenticated ? (
+                            <Navigate to="/login" />
+                        ) : (
+                            <ShiftsCreate setAuth={setAuth} name={name}/>
                         )
                     }
                 />

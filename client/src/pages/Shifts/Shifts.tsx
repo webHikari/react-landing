@@ -41,7 +41,7 @@ const Shifts = ({ setAuth, name }: ShiftsProps) => {
             <Sidebar setAuth={setAuth} name={name} />
             <div className={styles.Main}>
                 <div className={styles.Header}>
-                    <Link to="/Shifts/create">
+                    <Link to="/shifts/create">
                         <Button styleType="Button3" value="Создать смену">
                             <FaPlus />
                             Создать смену
