@@ -28,7 +28,8 @@ app.use("/auth", require("./routes/jwtAuth"))
     .use("/rates", require("./routes/rates"))
     .use("/products", require("./routes/products"))
     .use("/instructions", require("./routes/instructions"))
-    .use("/minions", require("./routes/minions"));
+    .use("/minions", require("./routes/minions"))
+    .use("/shifts", require("./routes/shifts"));
 
 app.listen(PORT, () => {
     console.log(`Server dancing on ${PORT}`);

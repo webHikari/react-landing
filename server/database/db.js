@@ -153,7 +153,6 @@ db.serialize(() => {
 //     );
 // });
 
-
 // Создание таблицы minions
 db.serialize(() => {
     db.run(
@@ -175,6 +174,53 @@ db.serialize(() => {
                 return;
             }
             console.log("Minions table created successfully");
+        }
+    );
+});
+
+// Создание таблицы shifts
+db.serialize(() => {
+    db.run(
+        `CREATE TABLE IF NOT EXISTS shifts (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            shiftDate TEXT NOT NULL,
+            shiftMaster TEXT NOT NULL,
+            shiftInstruction INTEGER NOT NULL,
+            shiftBasement TEXT NOT NULL,
+            shiftDayNight BOOLEAN NOT NULL,
+            shiftDoneStatus BOOLEAN NOT NULL
+        )`,
+        (err) => {
+            if (err) {
+                console.error("Error creatins shifts table: ", err);
+                return;
+            }
+            console.log("Shifts table created successfully");
+        }
+    );
+});
+
+// Создание таблицы shiftsTabel
+db.serialize(() => {
+    db.run(
+        `CREATE TABLE IF NOT EXISTS shiftsTabel (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            shiftMinion INTEGER NOT NULL,
+            shiftId INTEGER NOT NULL,
+            shiftTabelInstruction INTEGER NOT NULL,
+            shiftTabelRate INTEGER NOT NULL,
+            shiftTabelStart TEXT NOT NULL,
+            shiftTabelEnd TEXT NOT NULL,
+            shiftTabelDinner TEXT NOT NULL,
+            shiftTabelValue INTEGER NOT NULL,
+            shiftTabelPayment TEXT NOT NULL
+        )`,
+        (err) => {
+            if (err) {
+                console.error("Error creatins shiftsTabel table: ", err);
+                return;
+            }
+            console.log("ShiftsTabel table created successfully");
         }
     );
 });
