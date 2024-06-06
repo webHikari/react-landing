@@ -9,6 +9,7 @@ import { BiFileBlank } from "react-icons/bi";
 import { BiMoneyWithdraw } from "react-icons/bi";
 import { GrUserWorker } from "react-icons/gr";
 import { IoBarcodeOutline } from "react-icons/io5";
+import { GrPlan } from "react-icons/gr";
 
 import Button from "@shared/Button/Button";
 import Logout from "@/features/Auth/Logout/Logout";
@@ -84,7 +85,7 @@ const Sidebar: React.FC<SidebarProps> = ({ name, setAuth }) => {
                         isActive ? styles.Active : styles.Default
                     }
                 >
-                    <BiGridAlt />
+                    <GrPlan />
                     Смены
                 </NavLink>
                 <NavLink

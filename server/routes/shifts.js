@@ -17,15 +17,15 @@ const db = new sqlite3.Database(
 
 router.get("/", authorization, async (req, res) => {
     try {
-        const clients = await new Promise((resolve, reject) => {
+        const shifts = await new Promise((resolve, reject) => {
             db.all("SELECT * FROM shifts", (err, rows) => {
                 if (err) reject(err);
                 else resolve(rows);
             });
         });
 
-        if (clients.length > 0) {
-            res.status(200).json({ clients });
+        if (shifts.length > 0) {
+            res.status(200).json({ shifts });
         } else {
             res.status(403).json({ message: "No shifts found" });
         }
