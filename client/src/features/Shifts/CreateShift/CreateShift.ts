@@ -1,12 +1,27 @@
+interface Option {
+    value: string;
+    label: string;
+}
+
+// interface Tabel {
+//     shiftMinion: number;
+//     shiftTabelInstruction: number;
+//     shiftTabelRate: number;
+//     shiftTabelStart: string;
+//     shiftTabelEnd: string;
+//     shiftTabelDinner: string;
+//     shiftTabelValue: number;
+//     shiftTabelPayment: string;
+// }
 interface Tabel {
-    shiftMinion: number;
-    shiftTabelInstruction: number;
-    shiftTabelRate: number;
-    shiftTabelStart: string;
-    shiftTabelEnd: string;
-    shiftTabelDinner: string;
-    shiftTabelValue: number;
-    shiftTabelPayment: string;
+    componentValue: string;
+    componentInstruction: Option;
+    componentMinion: Option;
+    componentRate: Option;
+    componentStartTime: Option;
+    componentEndTime: Option;
+    componentDinner: Option;
+    componentPayment: Option;
 }
 
 export default async function CreateShift(
@@ -35,7 +50,16 @@ export default async function CreateShift(
                 shiftBasement: shiftBasement,
                 shiftDoneStatus: shiftDoneStatus,
                 shiftDayNight: shiftDayNight,
-                tabel: tabel,
+                tabel: tabel.map((item) => ({
+                    shiftMinion: item.componentMinion?.value,
+                    shiftTabelInstruction: item.componentInstruction?.value,
+                    shiftTabelRate: item.componentRate?.value,
+                    shiftTabelStart: item.componentStartTime?.value,
+                    shiftTabelEnd: item.componentEndTime?.value,
+                    shiftTabelDinner: item.componentDinner?.value,
+                    shiftTabelValue: item.componentValue,
+                    shiftTabelPayment: item.componentPayment?.value,
+                })),
             }),
         });
 

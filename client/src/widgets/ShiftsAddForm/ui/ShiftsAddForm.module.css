@@ -20,6 +20,11 @@
     gap: 16px;
 }
 
+
 .Select {
     width: 100%;
+}
+
+.TimeSelect {
+    width: 150px;
 }
