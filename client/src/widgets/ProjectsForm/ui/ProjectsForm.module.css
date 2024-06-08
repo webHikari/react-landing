@@ -20,3 +20,7 @@
     display: flex;
     gap: 16px;
 }
+
+.Select {
+    width: 100%;
+}

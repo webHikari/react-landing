@@ -1,20 +1,26 @@
 import { useState, useEffect } from "react";
 import Input from "@shared/Input/Input";
 import Button from "@shared/Button/Button";
-import Select from "@shared/Select/Select";
+import Select from "react-select";
 
 import styles from "./ui/ProjectsForm.module.css";
 
 import CreateProject from "@/features/Projects/CreateProject/CreateProject";
 import GetClients from "@/features/Clients/GetClients/GetClients";
 
-interface Client {
-    id: number;
-    clientName: string;
-}
+import Option from "./model/Option.props"
+import Client from "./model/Client.props"
 
 const ProjectsForm = () => {
     const [clients, setClients] = useState<Client[]>([]);
+    const [selectedClientOption, setSelectedClientOption] = useState<Option>({
+        value: "",
+        label: "",
+    });
+    const [selectedStatusOption, setSelectedStatusOption] = useState<Option>({
+        value: "",
+        label: "",
+    });
 
     useEffect(() => {
         const fetchClients = async () => {
@@ -30,8 +36,6 @@ const ProjectsForm = () => {
     const [projectName, setProjectName] = useState("");
     const [projectId, setProjectId] = useState("");
     const [comment, setComment] = useState("");
-    const [client, setClient] = useState("");
-    const [status, setStatus] = useState("");
 
     const handleProjectNameChange = (value: string) => {
         setProjectName(value);
@@ -53,8 +57,8 @@ const ProjectsForm = () => {
             { setIsLoading },
             projectId,
             projectName,
-            client,
-            status,
+            selectedClientOption.value,
+            selectedStatusOption.value,
             comment
         );
     };
@@ -77,25 +81,17 @@ const ProjectsForm = () => {
     }, []);
 
     const statuses = [
-        { value: "New", label: "Новый" },
-        { value: "Closed", label: "Закрыт" },
-        { value: "Coutn", label: "Расчет" },
+        { value: "Новый", label: "Новый" },
+        { value: "Закрыт", label: "Закрыт" },
+        { value: "Расчет", label: "Расчет" },
     ];
 
-    const handleClientChange = (value: string) => {
-        setClient((prevClient) => {
-            console.log("Предыдущее состояние client:", prevClient);
-            console.log("Новое состояние client:", value);
-            return value;
-        });
+    const handleClientChange = (option: any) => {
+        setSelectedClientOption(option);
     };
 
-    const handleStatusChange = (value: string) => {
-        setStatus((prevStatus) => {
-            console.log("Предыдущее состояние client:", prevStatus);
-            console.log("Новое состояние client:", value);
-            return value;
-        });
+    const handleStatusChange = (option: any) => {
+        setSelectedStatusOption(option);
     };
 
     return (
@@ -125,14 +121,58 @@ const ProjectsForm = () => {
                     </div>
                     <div className={styles.Child}>
                         <Select
-                            options={clientOptions}
+                            className={styles.Select}
                             onChange={handleClientChange}
-                            labelText="Клиент"
+                            options={clientOptions}
+                            placeholder="Выберите клиента"
+                            theme={(theme) => ({
+                                ...theme,
+                                borderRadius: 4,
+                                colors: {
+                                    ...theme.colors,
+                                    // Background
+                                    neutral0: "#1f1f1f",
+                                    // Default border
+                                    neutral20: "#3e3e3e",
+                                    // Hover-select-color
+                                    neutral30: "#34c471",
+                                    // Picked color
+                                    neutral80: "#34c471",
+                                    // Placeholder color
+                                    neutral50: "#3e3e3e",
+                                    // Hover-option-color
+                                    primary25: "#34c47180",
+                                    // Focus-select-color
+                                    primary: "#34c471",
+                                },
+                            })}
                         />
                         <Select
+                            className={styles.Select}
                             options={statuses}
                             onChange={handleStatusChange}
-                            labelText="Статус"
+                            placeholder="Выберите статус"
+                            theme={(theme) => ({
+                                ...theme,
+                                borderRadius: 4,
+                                colors: {
+                                    ...theme.colors,
+                                    // Background
+                                    neutral0: "#1f1f1f",
+                                    // Default border
+                                    neutral20: "#3e3e3e",
+                                    // Hover-select-color
+                                    neutral30: "#34c471",
+                                    // Picked color
+                                    neutral80: "#34c471",
+                                    // Placeholder color
+                                    neutral50: "#3e3e3e",
+                                    // Hover-option-color
+                                    primary25: "#34c47180",
+                                    // Focus-select-color
+                                    primary: "#34c471",
+                                },
+                            })}
                         />
                     </div>
                     <Input
