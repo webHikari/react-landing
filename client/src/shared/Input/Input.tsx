@@ -9,7 +9,7 @@ const Input = ({
     value,
     onChange,
     required = false,
-    styleType = "Input1",
+    styleType,
 }: InputProps) => {
     const [isFocused, setIsFocused] = useState(type === "date");
     const [date, setDate] = useState(type === "date" ? new Date() : null);
@@ -42,7 +42,7 @@ const Input = ({
             <label
                 className={`${styles.Label} ${
                     isFocused || value !== "" ? styles.Active : ""
-                }`}
+                } ${styles[`Label${styleType}`]}`}
                 htmlFor={id}
             >
                 {placeholderValue}

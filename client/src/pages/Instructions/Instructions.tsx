@@ -64,7 +64,6 @@ const Instructions = ({ setAuth, name }: InstructionsProps) => {
                         : null}
                 </div>
             </div>
-            <div className={styles.Secondary}></div>
         </div>
     );
 };

@@ -13,6 +13,9 @@
 
 .ProjectInfo {
     padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 .Header {
@@ -21,14 +24,14 @@
     width: fit-content;
 }
 
-.Secondary {
-    padding: 16px;
-    min-width: 300px;
-    height: 100vh;
-    position: sticky;
-    top: 0;
-    background: var(--app-container);
-    border-left: 1px solid var(--thirdary-color);
+
+.Project {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
-
+.ProjectClient {
+    display: flex;
+    gap: 4px;
+}

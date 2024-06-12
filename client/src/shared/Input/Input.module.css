@@ -1,6 +1,7 @@
 .Container {
     position: relative;
     width: 100%;
+    background: transparent;
 }
 
 .Input {
@@ -14,9 +15,6 @@
     width: 100%;
 }
 
-.Input3 {
-    background: var(--link-color-active-bg);
-}
 
 .Label {
     position: absolute;
@@ -27,6 +25,7 @@
     color: #3e3e3e;
     background: var(--link-color-active);
     padding: 0 2px;
+    z-index: 1000;
 }
 
 .Active {
@@ -36,5 +35,15 @@
 }
 
 .ActiveInput {
-    border: 1px solid var(--green);
+    border: 1px solid var(--green) !important;
+}
+
+.InputInput3 {
+    color: var(--main-color);
+    background: transparent;
+    border: 1px solid var(--link-color-active);
+}
+
+.LabelInput3 {
+    background: var(--app-container);
 }

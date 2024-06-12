@@ -55,7 +55,7 @@ router.post("/create", authorization, async (req, res) => {
                         if (row && row.clientName) {
                             resolve(row.clientName);
                         } else {
-                            resolve(null); 
+                            resolve(null);
                         }
                     }
                 }
@@ -84,6 +84,39 @@ router.post("/create", authorization, async (req, res) => {
     } catch (err) {
         console.log(err.message);
         res.status(403).json({ message: "Server Error" });
+    }
+});
+
+router.get("/:id", authorization, async (req, res) => {
+    try {
+        const id = req.params.id;
+
+        const project = await new Promise((resolve, reject) => {
+            db.get("SELECT * FROM projects WHERE id = ?", [id], (err, row) => {
+                if (err) reject(err);
+                else resolve(row);
+            });
+        });
+
+        const instructions = await new Promise((resolve, reject) => {
+            db.all(
+                "SELECT * FROM instructions WHERE instructionProject = ?",
+                [id],
+                (err, row) => {
+                    if (err) reject(err);
+                    else resolve(row);
+                }
+            );
+        });
+
+        if (project) {
+            res.status(200).json({ project, instructions });
+        } else {
+            res.status(403).json({ message: "Project not found" });
+        }
+    } catch (err) {
+        console.log(err.message);
+        res.status(500).json({ message: "Server error" });
     }
 });
 

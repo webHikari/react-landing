@@ -12,10 +12,11 @@
     color: var(--button-hover-bg);
 }
 
-
 .TableHead {
     display: flex;
     gap: 16px;
+    height: 50px;
+    align-items: center;
 }
 
 .PaginationContainer {
@@ -25,17 +26,24 @@
 
 .PaginationButton {
     width: fit-content;
-    background: var(--link-color-active);
-    border: 1px solid var(--thirdary-color);
-    color: var(--link-color-active-bg);
+    color: var(--main-color);
+    background: transparent;
+    border: 1px solid var(--link-color-active);
+
     display: flex;
     justify-content: center;
     align-items: center;
     height: 38px;
 }
 
+.PaginationButton:hover {
+    border: 1px solid var(--thirdary-color);
+}
+
 .PaginationCounter {
     width: fit-content;
+    height: 50px;
+    margin-top: 6px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -65,8 +73,7 @@ tbody tr:hover td {
     border: 1px solid transparent;
 } */
 
-
-th svg{
+th svg {
     position: absolute;
     margin-top: 2px;
 }
@@ -79,4 +86,3 @@ th svg{
 tbody tr:nth-child(2n) {
     background: rgba(0, 0, 0, 0.05);
 }
-
