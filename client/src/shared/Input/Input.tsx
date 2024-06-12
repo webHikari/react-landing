@@ -36,7 +36,7 @@ const Input = ({
     return (
         <div
             className={`${styles.Container} ${
-                styles[`Container--${styleType}`]
+                styles[`Container${styleType}`]
             }`}
         >
             <label
@@ -58,7 +58,7 @@ const Input = ({
                 id={id}
                 className={`${styles.Input} ${
                     isFocused || value !== "" ? styles.ActiveInput : ""
-                } ${styles[`Input--${styleType}`]}`}
+                } ${styles[`Input${styleType}`]}`}
                 {...(required && { required: true })}
             />
         </div>

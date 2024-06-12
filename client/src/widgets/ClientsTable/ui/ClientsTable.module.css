@@ -4,6 +4,14 @@
     width: calc(100% - 32px);
 }
 
+.TableContainer a {
+    color: var(--link-color-active-bg);
+}
+
+.TableContainer a:hover {
+    color: var(--button-hover-bg);
+}
+
 .TableHead {
     display: flex;
     gap: 16px;

@@ -24,6 +24,7 @@ interface ProjectData {
     projectName: string;
     projectCount: string;
     clientName: string;
+    projectClient: number;
 }
 
 const ProjectsTable = ({ projects }: { projects: ProjectData[] }) => {
@@ -32,18 +33,13 @@ const ProjectsTable = ({ projects }: { projects: ProjectData[] }) => {
     const columns: Column<ProjectData>[] = React.useMemo(
         () => [
             {
-                Header: "ID",
-                accessor: "id",
+                Header: "Номер",
+                accessor: "projectCount",
                 sortType: "basic",
             },
             {
                 Header: "Название",
                 accessor: "projectName",
-                sortType: "basic",
-            },
-            {
-                Header: "Номер",
-                accessor: "projectCount",
                 sortType: "basic",
             },
             {
@@ -171,11 +167,23 @@ const ProjectsTable = ({ projects }: { projects: ProjectData[] }) => {
                         return (
                             <tr {...row.getRowProps()}>
                                 {row.cells.map((cell) => {
-                                    if (cell.column.id === "id") {
+                                    if (cell.column.id === "projectCount") {
                                         return (
                                             <td {...cell.getCellProps()}>
                                                 <Link
-                                                    to={`/projects/view/${cell.value}`}
+                                                    to={`/projects/view/${row.original.id}`}
+                                                >
+                                                    {cell.value}
+                                                </Link>
+                                            </td>
+                                        );
+                                    } else if (
+                                        cell.column.id === "clientName"
+                                    ) {
+                                        return (
+                                            <td {...cell.getCellProps()}>
+                                                <Link
+                                                    to={`/clients/view/${row.original.projectClient}`}
                                                 >
                                                     {cell.value}
                                                 </Link>

@@ -4,5 +4,5 @@ export interface InputProps {
     value?: string;
     onChange?: (value: string) => void;
     required?: boolean;
-    styleType?: "Input1" | "Input2" | "Input3";
+    styleType: "Input1" | "Input2" | "Input3";
 }

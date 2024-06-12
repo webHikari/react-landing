@@ -4,6 +4,15 @@
     width: calc(100% - 32px);
 }
 
+.TableContainer a {
+    color: var(--link-color-active-bg);
+}
+
+.TableContainer a:hover {
+    color: var(--button-hover-bg);
+}
+
+
 .TableHead {
     display: flex;
     gap: 16px;
@@ -16,9 +25,9 @@
 
 .PaginationButton {
     width: fit-content;
-    background: var(--thirdary-color);
-    border: 1px solid var(--link-color-active);
-    color: var(--main-color);
+    background: var(--link-color-active);
+    border: 1px solid var(--thirdary-color);
+    color: var(--link-color-active-bg);
     display: flex;
     justify-content: center;
     align-items: center;

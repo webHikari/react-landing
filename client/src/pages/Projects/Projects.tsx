@@ -19,6 +19,7 @@ interface Project {
     clientName: string;
     projectCount: string;
     id: number;
+    projectClient: number;
 }
 
 const Projects = ({ setAuth, name }: ProjectsProps) => {
@@ -37,28 +38,7 @@ const Projects = ({ setAuth, name }: ProjectsProps) => {
         <div className={styles.Container}>
             <Sidebar setAuth={setAuth} name={name} />
             <div className={styles.Main}>
-                {/* <div className={styles.Header}>
-                    <Link to="/projects/create">
-                        <Button styleType="Button3" value="Создать проект">
-                            <FaPlus />
-                            Создать проект
-                        </Button>
-                    </Link>
-                </div> */}
-                {/* <div className={styles.Grid}>
-                    {projects
-                        ? projects.map((project) => (
-                              <Project
-                                  key={project.id}
-                                  projectId={project.id}
-                                  projectName={project.projectName}
-                                  projectCount={project.projectCount}
-                                  clientName={project.clientName}
-                              />
-                          ))
-                        : null}
-                </div> */}
-                    <ProjectsTable projects={projects} />
+                <ProjectsTable projects={projects} />
             </div>
         </div>
     );

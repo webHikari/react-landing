@@ -31,11 +31,6 @@ const ProjectsTable = ({ clients }: { clients: ClientData[] }) => {
     const columns: Column<ClientData>[] = React.useMemo(
         () => [
             {
-                Header: "ID",
-                accessor: "id",
-                sortType: "basic",
-            },
-            {
                 Header: "Клиент",
                 accessor: "clientName",
                 sortType: "basic",
@@ -164,11 +159,25 @@ const ProjectsTable = ({ clients }: { clients: ClientData[] }) => {
                         prepareRow(row);
                         return (
                             <tr {...row.getRowProps()}>
-                                {row.cells.map((cell) => (
-                                    <td {...cell.getCellProps()}>
-                                        {cell.render("Cell")}
-                                    </td>
-                                ))}
+                                {row.cells.map((cell) => {
+                                    if (cell.column.id === "clientName") {
+                                        return (
+                                            <td {...cell.getCellProps()}>
+                                                <Link
+                                                    to={`/clients/view/${row.id}`}
+                                                >
+                                                    {cell.value}
+                                                </Link>
+                                            </td>
+                                        );
+                                    } else {
+                                        return (
+                                            <td {...cell.getCellProps()}>
+                                                {cell.render("Cell")}
+                                            </td>
+                                        );
+                                    }
+                                })}
                             </tr>
                         );
                     })}
