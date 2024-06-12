@@ -16,7 +16,7 @@
     flex-wrap: wrap;
     gap: 16px; 
     padding: 16px;
-    width: fit-content;
+    width: 100%;
     height: fit-content;
 }
 

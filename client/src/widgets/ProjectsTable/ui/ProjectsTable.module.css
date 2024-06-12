@@ -1,0 +1,73 @@
+.TableContainer {
+    overflow-x: auto;
+    margin: 16px;
+    width: calc(100% - 32px);
+}
+
+.TableHead {
+    display: flex;
+    gap: 16px;
+}
+
+.PaginationContainer {
+    display: flex;
+    gap: 8px;
+}
+
+.PaginationButton {
+    width: fit-content;
+    background: var(--thirdary-color);
+    border: 1px solid var(--link-color-active);
+    color: var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 38px;
+}
+
+.PaginationCounter {
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.TableContainer input {
+    width: 200px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th,
+td {
+    /* white-space: nowrap; */
+    padding: 0.5rem;
+    border: 1px solid var(--thirdary-color);
+    text-align: center;
+}
+/* 
+tbody tr:hover td {
+    background: var(--link-color-active-bg);
+    color: var(--app-container);
+    border: 1px solid transparent;
+} */
+
+
+th svg{
+    position: absolute;
+    margin-top: 2px;
+}
+
+.SortIcon {
+    width: 20px;
+    height: 20px;
+}
+
+tbody tr:nth-child(2n) {
+    background: rgba(0, 0, 0, 0.05);
+}
+

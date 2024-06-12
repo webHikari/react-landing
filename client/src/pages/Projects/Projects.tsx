@@ -4,12 +4,10 @@ import Sidebar from "@widgets/Sidebar/Sidebar";
 import styles from "./ui/Projects.module.css";
 
 import { SetAuthFunction } from "@app/providers/model/Provider.props";
-import { FaPlus } from "react-icons/fa6";
-import { Link } from "react-router-dom";
-import Button from "@shared/Button/Button";
 
 import Project from "@entities/Project/Project";
-import GetProjects from "@/features/Projects/GetProjects/GetProjects";
+import GetProjects from "@features/Projects/GetProjects/GetProjects";
+import ProjectsTable from "@widgets/ProjectsTable/ProjectsTable";
 
 interface ProjectsProps {
     setAuth: SetAuthFunction;
@@ -39,27 +37,29 @@ const Projects = ({ setAuth, name }: ProjectsProps) => {
         <div className={styles.Container}>
             <Sidebar setAuth={setAuth} name={name} />
             <div className={styles.Main}>
-                <div className={styles.Header}>
+                {/* <div className={styles.Header}>
                     <Link to="/projects/create">
                         <Button styleType="Button3" value="Создать проект">
                             <FaPlus />
                             Создать проект
                         </Button>
                     </Link>
-                </div>
-                <div className={styles.Grid}>
-                    {projects ? projects.map((project) => (
-                        <Project
-                            key={project.id}
-                            projectId={project.id}
-                            projectName={project.projectName}
-                            projectCount={project.projectCount}
-                            clientName={project.clientName}
-                        />
-                    )) : null}
-                </div>
+                </div> */}
+                {/* <div className={styles.Grid}>
+                    {projects
+                        ? projects.map((project) => (
+                              <Project
+                                  key={project.id}
+                                  projectId={project.id}
+                                  projectName={project.projectName}
+                                  projectCount={project.projectCount}
+                                  clientName={project.clientName}
+                              />
+                          ))
+                        : null}
+                </div> */}
+                    <ProjectsTable projects={projects} />
             </div>
-            <div className={styles.Secondary}></div>
         </div>
     );
 };
