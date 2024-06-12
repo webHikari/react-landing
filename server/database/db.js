@@ -140,19 +140,6 @@ db.serialize(() => {
     );
 });
 
-// db.serialize(() => {
-//     db.run(
-//         `DROP TABLE minions`,
-//         (err) => {
-//             if (err) {
-//                 console.error("Error creatins users table: ", err);
-//                 return;
-//             }
-//             console.log("Minions table created successfully");
-//         }
-//     );
-// });
-
 // Создание таблицы minions
 db.serialize(() => {
     db.run(

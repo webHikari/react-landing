@@ -13,23 +13,22 @@ import {
     FaChevronLeft,
     FaChevronRight,
 } from "react-icons/fa";
-import styles from "./ui/ProjectsTable.module.css";
+import styles from "./ui/ClientsTable.module.css";
 import Input from "@shared/Input/Input";
 import { FaPlus } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import Button from "@shared/Button/Button";
 
-interface ProjectData {
+interface ClientData {
     id: number;
-    projectName: string;
-    projectCount: string;
     clientName: string;
+    clientAddress: string;
 }
 
-const ProjectsTable = ({ projects }: { projects: ProjectData[] }) => {
+const ProjectsTable = ({ clients }: { clients: ClientData[] }) => {
     const [globalFilterValue, setGlobalFilterValue] = useState("");
 
-    const columns: Column<ProjectData>[] = React.useMemo(
+    const columns: Column<ClientData>[] = React.useMemo(
         () => [
             {
                 Header: "ID",
@@ -37,18 +36,13 @@ const ProjectsTable = ({ projects }: { projects: ProjectData[] }) => {
                 sortType: "basic",
             },
             {
-                Header: "Название",
-                accessor: "projectName",
-                sortType: "basic",
-            },
-            {
-                Header: "Номер",
-                accessor: "projectCount",
-                sortType: "basic",
-            },
-            {
                 Header: "Клиент",
                 accessor: "clientName",
+                sortType: "basic",
+            },
+            {
+                Header: "Адрес",
+                accessor: "clientAddress",
                 sortType: "basic",
             },
         ],
@@ -69,8 +63,8 @@ const ProjectsTable = ({ projects }: { projects: ProjectData[] }) => {
         prepareRow,
         setGlobalFilter,
         setSortBy,
-    } = useTable<ProjectData>(
-        { columns, data: projects },
+    } = useTable<ClientData>(
+        { columns, data: clients },
         useGlobalFilter,
         useSortBy,
         usePagination
@@ -91,10 +85,10 @@ const ProjectsTable = ({ projects }: { projects: ProjectData[] }) => {
     return (
         <div className={styles.TableContainer}>
             <div className={styles.TableHead}>
-                <Link to="/projects/create">
-                    <Button styleType="Button3" value="Создать проект">
+                <Link to="/clients/create">
+                    <Button styleType="Button3" value="Добавить клиента">
                         <FaPlus />
-                        Создать проект
+                        Добавить клиента
                     </Button>
                 </Link>
                 <div className={styles.SearchContainer}>
@@ -170,25 +164,11 @@ const ProjectsTable = ({ projects }: { projects: ProjectData[] }) => {
                         prepareRow(row);
                         return (
                             <tr {...row.getRowProps()}>
-                                {row.cells.map((cell) => {
-                                    if (cell.column.id === "id") {
-                                        return (
-                                            <td {...cell.getCellProps()}>
-                                                <Link
-                                                    to={`/projects/view/${cell.value}`}
-                                                >
-                                                    {cell.value}
-                                                </Link>
-                                            </td>
-                                        );
-                                    } else {
-                                        return (
-                                            <td {...cell.getCellProps()}>
-                                                {cell.render("Cell")}
-                                            </td>
-                                        );
-                                    }
-                                })}
+                                {row.cells.map((cell) => (
+                                    <td {...cell.getCellProps()}>
+                                        {cell.render("Cell")}
+                                    </td>
+                                ))}
                             </tr>
                         );
                     })}
