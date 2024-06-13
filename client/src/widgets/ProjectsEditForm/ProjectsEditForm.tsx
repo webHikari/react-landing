@@ -123,8 +123,8 @@ const ProjectsForm = () => {
         EditProject(
             { setIsLoading },
             _projectId || "",
-            projectName,
             projectId,
+            projectName,
             projectClient,
             clientName,
             projectStatus,

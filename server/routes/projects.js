@@ -139,8 +139,8 @@ router.post("/edit", authorization, async (req, res) => {
                 WHERE id = ?
             `;
             const values = [
-                projectName,
                 projectCount,
+                projectName,
                 projectClient,
                 clientName,
                 projectStatus,

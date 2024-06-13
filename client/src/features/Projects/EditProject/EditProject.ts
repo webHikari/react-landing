@@ -19,8 +19,10 @@ export default async function CreateClient(
             },
             body: JSON.stringify({
                 projectId: projectId,
-                projectCount: projectCount,
-                projectName: projectName,
+                // Ща будет кринж, приготовьтесь
+                projectCount: projectName,
+                projectName: projectCount,
+                // Блять простите пожалуйста
                 projectClient: projectClient,
                 clientName: clientName,
                 projectStatus: projectStatus,
