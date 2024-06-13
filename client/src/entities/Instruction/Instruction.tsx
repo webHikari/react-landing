@@ -3,8 +3,17 @@ import { useNavigate } from "react-router-dom";
 import { InstructionProps } from "./Instruction.props.ts";
 import styles from "./Instruction.module.css";
 
-const Instruction = ({ id, instructionDate, instructionCount, instructionProductsValue, instructionProject, instructionProduct, instructionBet, onClick }: InstructionProps) => {
-    const navigate = useNavigate()
+const Instruction = ({
+    id,
+    instructionDate,
+    instructionCount,
+    instructionProductsValue,
+    instructionProject,
+    instructionProduct,
+    instructionBet,
+    onClick,
+}: InstructionProps) => {
+    const navigate = useNavigate();
 
     const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
         onClick?.(event);
@@ -16,7 +25,7 @@ const Instruction = ({ id, instructionDate, instructionCount, instructionProduct
             <h4>Инструкция: {instructionCount}</h4>
             <p>Дата: {instructionDate}</p>
             <p>Количество ГП: {instructionProductsValue}</p>
-            <p>Проект: {instructionProject}</p>
+            {instructionProject ? <p>Проект: {instructionProject}</p> : null}
             <p>Артикул ГП: {instructionProduct}</p>
             <p>Ставка: {instructionBet}</p>
         </div>

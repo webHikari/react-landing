@@ -118,6 +118,16 @@ db.serialize(() => {
     );
 });
 
+// db.serialize(() => {
+//     db.run(`DROP TABLE instructions`, (err) => {
+//         if (err) {
+//             console.error("Error deleting instructions table: ", err);
+//             return;
+//         }
+//         console.log("Instructions table deleted successfully");
+//     });
+// });
+
 // Создание таблицы instructions
 db.serialize(() => {
     db.run(
@@ -127,12 +137,15 @@ db.serialize(() => {
             instructionCount TEXT NOT NULL,
             instructionProductsValue INTEGER NOT NULL,
             instructionProject INTEGER NOT NULL,
+            projectName TEXT NOT NULL,
             instructionProduct INTEGER NOT NULL,
-            instructionBet FLOAT NOT NULL
+            productName TEXT NOT NULL,
+            instructionBet INTEGER NOT NULL,
+            betValue FLOAT NOT NULL
         )`,
         (err) => {
             if (err) {
-                console.error("Error creatins users table: ", err);
+                console.error("Error creatins instructions table: ", err);
                 return;
             }
             console.log("Instructions table created successfully");

@@ -6,6 +6,6 @@ export interface InstructionProps {
     instructionCount: string;
     instructionProductsValue: number;
     instructionProduct: string;
-    instructionProject: string;
+    instructionProject?: string;
     instructionBet: number;
 }

@@ -18,7 +18,8 @@ const db = new sqlite3.Database(
 router.get("/", authorization, async (req, res) => {
     try {
         const instructions = await new Promise((resolve, reject) => {
-            db.all(`
+            db.all(
+                `
                 SELECT
                     i.id,
                     i.instructionDate,
@@ -31,10 +32,12 @@ router.get("/", authorization, async (req, res) => {
                 JOIN projects p ON i.instructionProject = p.id
                 JOIN products pr ON i.instructionProduct = pr.id
                 JOIN rates r ON i.instructionBet = r.id
-            `, (err, rows) => {
-                if (err) reject(err);
-                else resolve(rows);
-            });
+            `,
+                (err, rows) => {
+                    if (err) reject(err);
+                    else resolve(rows);
+                }
+            );
         });
 
         if (instructions.length > 0) {
@@ -48,25 +51,31 @@ router.get("/", authorization, async (req, res) => {
     }
 });
 
-
 router.get("/:id", authorization, async (req, res) => {
     try {
         const id = req.params.id;
 
         const instruction = await new Promise((resolve, reject) => {
-            db.get("SELECT * FROM instructions WHERE id = ?", [id], (err, row) => {
-                if (err) reject(err);
-                else resolve(row);
-            });
+            db.get(
+                "SELECT * FROM instructions WHERE id = ?",
+                [id],
+                (err, row) => {
+                    if (err) reject(err);
+                    else resolve(row);
+                }
+            );
         });
 
         const components = await new Promise((resolve, reject) => {
-            db.all("SELECT * FROM components WHERE componentInstruction = (?)", [id], (err, rows) => {
-                if (err) reject(err);
-                else resolve(rows);
-            });
+            db.all(
+                "SELECT * FROM components WHERE componentInstruction = (?)",
+                [id],
+                (err, rows) => {
+                    if (err) reject(err);
+                    else resolve(rows);
+                }
+            );
         });
-
 
         if (instruction) {
             res.status(200).json({ instruction, components });
@@ -81,13 +90,65 @@ router.get("/:id", authorization, async (req, res) => {
 
 router.post("/create", authorization, async (req, res) => {
     try {
-        const { instructionDate, instructionCount, instructionProductsValue, instructionProject, instructionProduct, instructionBet, components } = req.body;
+        const {
+            instructionDate,
+            instructionCount,
+            instructionProductsValue,
+            instructionProject,
+            instructionProduct,
+            instructionBet,
+            components,
+        } = req.body;
 
         let instructionId;
+
+        const projectName = await new Promise((resolve, reject) => {
+            db.get(
+                "SELECT projectName FROM projects WHERE id = ?",
+                [instructionProject],
+                (err, row) => {
+                    if (err) reject(err);
+                    else resolve(row);
+                }
+            );
+        });
+
+        const productCount = await new Promise((resolve, reject) => {
+            db.get(
+                "SELECT productCount FROM products WHERE id = ?",
+                [instructionProduct],
+                (err, row) => {
+                    if (err) reject(err);
+                    else resolve(row);
+                }
+            );
+        });
+
+        const betValue = await new Promise((resolve, reject) => {
+            db.get(
+                "SELECT rateValue FROM rates WHERE id = ?",
+                [instructionBet],
+                (err, row) => {
+                    if (err) reject(err);
+                    else resolve(row);
+                }
+            );
+        });
+
         await new Promise((resolve, reject) => {
             db.run(
-                "INSERT INTO instructions (instructionDate, instructionCount, instructionProductsValue, instructionProject, instructionProduct, instructionBet) VALUES (?, ?, ?, ?, ?, ?)",
-                [instructionDate, instructionCount, instructionProductsValue, instructionProject, instructionProduct, instructionBet],
+                "INSERT INTO instructions (instructionDate, instructionCount, instructionProductsValue, instructionProject, instructionProduct, instructionBet, projectName, productName, betValue) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                [
+                    instructionDate,
+                    instructionCount,
+                    instructionProductsValue,
+                    instructionProject,
+                    instructionProduct,
+                    instructionBet,
+                    projectName.projectName,
+                    productCount.productCount,
+                    betValue.rateValue,
+                ],
                 function (err) {
                     if (err) {
                         reject(err);
@@ -103,7 +164,11 @@ router.post("/create", authorization, async (req, res) => {
             await new Promise((resolve, reject) => {
                 db.run(
                     "INSERT INTO components (componentName, componentValue, componentInstruction) VALUES (?, ?, ?)",
-                    [component.componentName, component.componentValue, instructionId],
+                    [
+                        component.componentName,
+                        component.componentValue,
+                        instructionId,
+                    ],
                     (err) => {
                         if (err) {
                             reject(err);
@@ -121,7 +186,6 @@ router.post("/create", authorization, async (req, res) => {
         res.status(403).json({ message: "Server Error" });
     }
 });
-
 
 // router.post("/edit", authorization, async (req, res) => {
 //     try {

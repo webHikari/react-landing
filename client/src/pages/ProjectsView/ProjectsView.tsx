@@ -25,8 +25,11 @@ interface Instruction {
     instructionCount: string;
     instructionProductsValue: number;
     instructionProject: string;
+    projectName: string;
     instructionProduct: string;
+    productName: string;
     instructionBet: number;
+    betValue: number;
 }
 interface ProjectData {
     id: number;
@@ -95,13 +98,11 @@ const ProjectsView = ({ setAuth, name }: ProjectsCreateProps) => {
                                   instructionCount={
                                       instruction.instructionCount
                                   }
-                                  instructionProduct={
-                                      instruction.instructionProduct
-                                  }
-                                  instructionProject={
-                                      instruction.instructionProject
-                                  }
-                                  instructionBet={instruction.instructionBet}
+                                  instructionProduct={instruction.productName}
+                                  //   instructionProject={
+                                  //       instruction.projectName
+                                  //   }
+                                  instructionBet={instruction.betValue}
                                   instructionProductsValue={
                                       instruction.instructionProductsValue
                                   }
