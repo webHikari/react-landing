@@ -118,6 +118,7 @@ const ProjectsForm = () => {
     ) => {
         e.preventDefault();
         const projectClient = selectedClientOption.value.toString();
+        const clientName = selectedClientOption.label;
         const projectStatus = selectedStatusOption.value.toString();
         EditProject(
             { setIsLoading },
@@ -125,6 +126,7 @@ const ProjectsForm = () => {
             projectName,
             projectId,
             projectClient,
+            clientName,
             projectStatus,
             comment
         );

@@ -1,23 +1,23 @@
 .Container {
     width: 100%;
     display: flex;
-    justify-content: space-between;
 }
 
 .Main {
     display: flex;
     flex-direction: column;
-    width: fit-content;
+    width: 100%;
 }
 
 .FormContainer {
     padding: 16px;
+    width: fit-content;
 }
 
 .Header {
     display: flex;
     padding: 16px 16px 0 16px;
-    width: fit-content;
+    width: 100%;
 }
 
 .Secondary {

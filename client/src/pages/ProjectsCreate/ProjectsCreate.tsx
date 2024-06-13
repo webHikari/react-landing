@@ -31,7 +31,6 @@ const ProjectsCreate = ({ setAuth, name }: ProjectsCreateProps) => {
                     <ProjectsForm />
                 </div>
             </div>
-            <div className={styles.Secondary}></div>
         </div>
     );
 };

@@ -28,11 +28,10 @@ const ProjectsEdit = ({ setAuth, name }: ProjectsEditProps) => {
                         </Button>
                     </Link>
                 </div>
-                <div className={styles.ClientInfo}>
+                <div className={styles.FormContainer}>
                     <ProjectsEditForm />
                 </div>
             </div>
-            <div className={styles.Secondary}></div>
         </div>
     );
 };

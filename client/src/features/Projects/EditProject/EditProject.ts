@@ -4,6 +4,7 @@ export default async function CreateClient(
     projectCount: string,
     projectName: string,
     projectClient: string,
+    clientName: string,
     projectStatus: string,
     projectComment: string
 ) {
@@ -21,6 +22,7 @@ export default async function CreateClient(
                 projectCount: projectCount,
                 projectName: projectName,
                 projectClient: projectClient,
+                clientName: clientName,
                 projectStatus: projectStatus,
                 projectComment: projectComment,
             }),

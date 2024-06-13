@@ -123,29 +123,49 @@ router.get("/:id", authorization, async (req, res) => {
 router.post("/edit", authorization, async (req, res) => {
     try {
         const {
+            projectId,
             projectCount,
             projectName,
             projectClient,
+            clientName,
             projectStatus,
             projectComment,
         } = req.body;
 
         await new Promise((resolve, reject) => {
-            db.run(
-                "INSERT INTO clients (projectCount, projectName, projectClient, projectStatus, projectComment) VALUES (?, ?, ?, ?, ?)",
-                [
-                    projectCount,
-                    projectName,
-                    projectClient,
-                    projectStatus,
-                    projectComment,
-                ],
-                (err) => {
-                    if (err) reject(err);
-                    else resolve();
+            const query = `
+                UPDATE projects
+                SET projectName = ?, projectCount = ?, projectClient = ?, clientName = ?, projectStatus = ?, projectComment = ?
+                WHERE id = ?
+            `;
+            const values = [
+                projectName,
+                projectCount,
+                projectClient,
+                clientName,
+                projectStatus,
+                projectComment,
+                projectId,
+            ];
+
+            db.run(query, values, (err) => {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve();
                 }
-            );
+            });
         });
+
+        console.log(
+            projectId,
+            projectCount,
+            projectName,
+            projectClient,
+            clientName,
+            projectStatus,
+            projectComment
+        );
 
         res.status(200).json({ message: "Project edited" });
     } catch (err) {
