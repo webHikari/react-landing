@@ -14,6 +14,7 @@ import Register from "@pages/Register/Register";
 import Projects from "@pages/Projects/Projects";
 import ProjectsCreate from "@pages/ProjectsCreate/ProjectsCreate";
 import ProjectsView from "@pages/ProjectsView/ProjectsView";
+import ProjectsEdit from "@pages/ProjectsEdit/ProjectsEdit"
 
 // Clients pages
 import Clients from "@pages/Clients/Clients"
@@ -160,6 +161,16 @@ export default function Provider() {
                             <Navigate to="/login" />
                         ) : (
                             <ProjectsView setAuth={setAuth} name={name} />
+                        )
+                    }
+                />
+                <Route
+                    path="/projects/edit/:_projectId"
+                    element={
+                        !isAuthenticated ? (
+                            <Navigate to="/login" />
+                        ) : (
+                            <ProjectsEdit setAuth={setAuth} name={name} />
                         )
                     }
                 />

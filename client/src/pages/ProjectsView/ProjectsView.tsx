@@ -8,7 +8,7 @@ import Button from "@shared/Button/Button";
 
 import { Link } from "react-router-dom";
 
-import { FaArrowLeft } from "react-icons/fa";
+import { FaArrowLeft, FaEdit } from "react-icons/fa";
 
 import { useParams } from "react-router-dom";
 import Instruction from "@entities/Instruction/Instruction";
@@ -43,13 +43,13 @@ const ProjectsView = ({ setAuth, name }: ProjectsCreateProps) => {
     const [instructions, setInstructions] = useState<Instruction[]>([]);
 
     useEffect(() => {
-        const fetchClients = async () => {
+        const fetchProject = async () => {
             const projectsData = await GetOneProject(projectId);
             setProject(projectsData.project);
             setInstructions(projectsData.instructions);
             console.log(project);
         };
-        fetchClients();
+        fetchProject();
     }, []);
 
     return (
@@ -61,6 +61,12 @@ const ProjectsView = ({ setAuth, name }: ProjectsCreateProps) => {
                         <Button styleType="Button3">
                             <FaArrowLeft />
                             Вернуться
+                        </Button>
+                    </Link>
+                    <Link to={`/projects/edit/${projectId}`}>
+                        <Button styleType="Button3">
+                            <FaEdit />
+                            Редактировать
                         </Button>
                     </Link>
                 </div>
