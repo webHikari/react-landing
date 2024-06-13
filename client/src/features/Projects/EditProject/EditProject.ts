@@ -1,5 +1,6 @@
 export default async function CreateClient(
     { setIsLoading }: any,
+    projectId: string,
     projectCount: string,
     projectName: string,
     projectClient: string,
@@ -16,6 +17,7 @@ export default async function CreateClient(
                 token: localStorage.token,
             },
             body: JSON.stringify({
+                projectId: projectId,
                 projectCount: projectCount,
                 projectName: projectName,
                 projectClient: projectClient,

@@ -119,11 +119,11 @@ const ProjectsForm = () => {
         e.preventDefault();
         const projectClient = selectedClientOption.value.toString();
         const projectStatus = selectedStatusOption.value.toString();
-        const projectId = _projectId || "";
         EditProject(
             { setIsLoading },
-            projectId,
+            _projectId || "",
             projectName,
+            projectId,
             projectClient,
             projectStatus,
             comment
