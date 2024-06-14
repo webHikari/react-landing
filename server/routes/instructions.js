@@ -18,26 +18,10 @@ const db = new sqlite3.Database(
 router.get("/", authorization, async (req, res) => {
     try {
         const instructions = await new Promise((resolve, reject) => {
-            db.all(
-                `
-                SELECT
-                    i.id,
-                    i.instructionDate,
-                    i.instructionCount,
-                    i.instructionProductsValue,
-                    p.projectCount AS instructionProject,
-                    pr.productCount AS instructionProduct,
-                    r.rateValue AS instructionBet
-                FROM instructions i
-                JOIN projects p ON i.instructionProject = p.id
-                JOIN products pr ON i.instructionProduct = pr.id
-                JOIN rates r ON i.instructionBet = r.id
-            `,
-                (err, rows) => {
-                    if (err) reject(err);
-                    else resolve(rows);
-                }
-            );
+            db.all(`SELECT * FROM instructions`, (err, rows) => {
+                if (err) reject(err);
+                else resolve(rows);
+            });
         });
 
         if (instructions.length > 0) {
