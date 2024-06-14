@@ -84,7 +84,7 @@ const ProjectsView = ({ setAuth, name }: ProjectsCreateProps) => {
                             </p>
                             <div className={styles.ProjectClient}>
                                 <p className={styles.ProjectItem}>Клиент: </p>
-                                <Link to={`/clients/${project.projectClient}`}>
+                                <Link to={`/clients/edit/${project.projectClient}`}>
                                     {project.clientName}
                                 </Link>
                             </div>

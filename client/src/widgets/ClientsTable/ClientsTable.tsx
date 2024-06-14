@@ -164,7 +164,7 @@ const ProjectsTable = ({ clients }: { clients: ClientData[] }) => {
                                         return (
                                             <td {...cell.getCellProps()}>
                                                 <Link
-                                                    to={`/clients/view/${row.id}`}
+                                                    to={`/clients/edit/${row.id}`}
                                                 >
                                                     {cell.value}
                                                 </Link>

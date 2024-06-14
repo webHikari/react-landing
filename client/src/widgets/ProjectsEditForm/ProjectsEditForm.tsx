@@ -95,6 +95,7 @@ const ProjectsForm = () => {
                         value: _project.projectStatus,
                         label: _project.projectStatus,
                     });
+                    
                     setProjectName(_project.projectName);
                     setProjectId(_project.projectCount);
                     _project.projectComment

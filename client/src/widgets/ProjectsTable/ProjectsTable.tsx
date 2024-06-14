@@ -183,7 +183,7 @@ const ProjectsTable = ({ projects }: { projects: ProjectData[] }) => {
                                         return (
                                             <td {...cell.getCellProps()}>
                                                 <Link
-                                                    to={`/clients/view/${row.original.projectClient}`}
+                                                    to={`/clients/edit/${row.original.projectClient}`}
                                                 >
                                                     {cell.value}
                                                 </Link>
