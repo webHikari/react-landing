@@ -1,6 +1,6 @@
 export default async function CreateClient(
     { setIsLoading }: any,
-    clientId: string,
+    clientId: number,
     clientName: string,
     clientAddress: string,
     isContractor: boolean,

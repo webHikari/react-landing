@@ -9,7 +9,7 @@ import styles from "./ui/ClientEditForm.module.css";
 import EditClient from "@features/Clients/EditClient/EditClient";
 import GetOneClient from "@features/Clients/GetOneClient/GetOneClient";
 
-const ClientsEditForm = ({ clientId }: { clientId: string }) => {
+const ClientsEditForm = ({ clientId }: { clientId: number }) => {
     const [isLoading, setIsLoading] = useState(false);
 
     const [clientName, setClientName] = useState("");

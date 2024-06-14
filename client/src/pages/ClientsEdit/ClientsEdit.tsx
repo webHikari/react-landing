@@ -31,7 +31,7 @@ const ClientsEdit = ({ setAuth, name }: ClientsEditProps) => {
                     </Link>
                 </div>
                 <div className={styles.ClientInfo}>
-                    <ClientsEditForm clientId={clientId}/>
+                    <ClientsEditForm clientId={parseInt(clientId)}/>
                 </div>
             </div>
             <div className={styles.Secondary}></div>

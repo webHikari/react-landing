@@ -1,4 +1,4 @@
-const GetOneClient = async (id: string) => {
+const GetOneClient = async (id: number) => {
     try {
         const response = await fetch("http://localhost:3000/clients/" + id, {
             method: "GET",
