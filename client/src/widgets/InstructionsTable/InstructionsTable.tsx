@@ -213,6 +213,18 @@ const ProjectsTable = ({
                                                 </Link>
                                             </td>
                                         );
+                                    } else if (
+                                        cell.column.id === "instructionCount"
+                                    ) {
+                                        return (
+                                            <td {...cell.getCellProps()}>
+                                                <Link
+                                                    to={`/instructions/view/${row.original.id}`}
+                                                >
+                                                    {cell.value}
+                                                </Link>
+                                            </td>
+                                        );
                                     } else if (cell.column.id === "betValue") {
                                         return (
                                             <td {...cell.getCellProps()}>

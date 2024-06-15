@@ -84,11 +84,9 @@ router.post("/create", authorization, async (req, res) => {
             components,
         } = req.body;
 
-        let instructionId;
-
         const projectName = await new Promise((resolve, reject) => {
             db.get(
-                "SELECT projectName FROM projects WHERE id = ?",
+                "SELECT projectCount FROM projects WHERE id = ?",
                 [instructionProject],
                 (err, row) => {
                     if (err) reject(err);
@@ -118,6 +116,7 @@ router.post("/create", authorization, async (req, res) => {
                 }
             );
         });
+        let instructionId;
 
         await new Promise((resolve, reject) => {
             db.run(
@@ -129,7 +128,7 @@ router.post("/create", authorization, async (req, res) => {
                     instructionProject,
                     instructionProduct,
                     instructionBet,
-                    projectName.projectName,
+                    projectName.projectCount,
                     productCount.productCount,
                     betValue.rateValue,
                 ],
@@ -144,7 +143,7 @@ router.post("/create", authorization, async (req, res) => {
             );
         });
 
-        components.forEach(async (component) => {
+        for (const component of components) {
             await new Promise((resolve, reject) => {
                 db.run(
                     "INSERT INTO components (componentName, componentValue, componentInstruction) VALUES (?, ?, ?)",
@@ -162,7 +161,7 @@ router.post("/create", authorization, async (req, res) => {
                     }
                 );
             });
-        });
+        }
 
         res.status(200).json({ message: "Instruction created" });
     } catch (err) {
