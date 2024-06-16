@@ -14,17 +14,18 @@ import Register from "@pages/Register/Register";
 import Projects from "@pages/Projects/Projects";
 import ProjectsCreate from "@pages/ProjectsCreate/ProjectsCreate";
 import ProjectsView from "@pages/ProjectsView/ProjectsView";
-import ProjectsEdit from "@pages/ProjectsEdit/ProjectsEdit"
+import ProjectsEdit from "@pages/ProjectsEdit/ProjectsEdit";
 
 // Clients pages
-import Clients from "@pages/Clients/Clients"
-import ClientsCreate from "@pages/ClientsCreate/ClientsCreate"
-import ClientsEdit from "@pages/ClientsEdit/ClientsEdit"
+import Clients from "@pages/Clients/Clients";
+import ClientsCreate from "@pages/ClientsCreate/ClientsCreate";
+import ClientsEdit from "@pages/ClientsEdit/ClientsEdit";
 
 // Instructions pages
 import Instructions from "@pages/Instructions/Instructions";
 import InstructionsCreate from "@pages/InstructionsCreate/InstructionsCreate";
 import InstructionsView from "@pages/InstructionsView/InstructionsView";
+import InstructionsEdit from "@pages/InstructionsEdit/InstructionsEdit";
 
 // Acts pages
 import Acts from "@pages/Acts/Acts";
@@ -34,29 +35,29 @@ import Waybills from "@pages/Waybills/Waybills";
 
 // Shifts pages
 import Shifts from "@pages/Shifts/Shifts";
-import ShiftsCreate from "@pages/ShiftsCreate/ShiftsCreate"
+import ShiftsCreate from "@pages/ShiftsCreate/ShiftsCreate";
 
 // Bookings pages
 import Bookings from "@pages/Bookings/Bookings";
 
 // Products pages
-import Products from "@pages/Products/Products"
+import Products from "@pages/Products/Products";
 import ProductsCreate from "@pages/ProductsCreate/ProductsCreate";
 
 // Minions pages
-import Minions from "@pages/Minions/Minions"
+import Minions from "@pages/Minions/Minions";
 import MinionsCreate from "@pages/MinionsCreate/MinionsCreate";
 
 // Rates pages
-import Rates from "@pages/Rates/Rates"
-import RatesCreate from "@pages/RatesCreate/RatesCreate"
+import Rates from "@pages/Rates/Rates";
+import RatesCreate from "@pages/RatesCreate/RatesCreate";
 
 import Tutorial from "@pages/Tutorial/Tutorial";
 import Dashboard from "@pages/Dashboard/Dashboard";
 
 import { SetAuthFunction } from "./model/Provider.props";
 
-import getData from "@/features/Dashboard/GetData/GetData";
+import getData from "@features/Dashboard/GetData/GetData";
 
 export default function Provider() {
     const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
@@ -105,6 +106,16 @@ export default function Provider() {
     return (
         <Router>
             <Routes>
+                <Route
+                    path="/"
+                    element={
+                        !isAuthenticated ? (
+                            <Login setAuth={setAuth} />
+                        ) : (
+                            <Dashboard setAuth={setAuth} name={name} />
+                        )
+                    }
+                />
                 <Route
                     path="/login"
                     element={
@@ -211,7 +222,7 @@ export default function Provider() {
                         !isAuthenticated ? (
                             <Navigate to="/login" />
                         ) : (
-                            <Instructions setAuth={setAuth} name={name}/>
+                            <Instructions setAuth={setAuth} name={name} />
                         )
                     }
                 />
@@ -221,7 +232,7 @@ export default function Provider() {
                         !isAuthenticated ? (
                             <Navigate to="/login" />
                         ) : (
-                            <InstructionsCreate setAuth={setAuth} name={name}/>
+                            <InstructionsCreate setAuth={setAuth} name={name} />
                         )
                     }
                 />
@@ -231,7 +242,17 @@ export default function Provider() {
                         !isAuthenticated ? (
                             <Navigate to="/login" />
                         ) : (
-                            <InstructionsView setAuth={setAuth} name={name}/>
+                            <InstructionsView setAuth={setAuth} name={name} />
+                        )
+                    }
+                />
+                <Route
+                    path="/instructions/edit/:instructionId"
+                    element={
+                        !isAuthenticated ? (
+                            <Navigate to="/login" />
+                        ) : (
+                            <InstructionsEdit setAuth={setAuth} name={name} />
                         )
                     }
                 />
@@ -241,7 +262,7 @@ export default function Provider() {
                         !isAuthenticated ? (
                             <Navigate to="/login" />
                         ) : (
-                            <Acts setAuth={setAuth} name={name}/>
+                            <Acts setAuth={setAuth} name={name} />
                         )
                     }
                 />
@@ -251,7 +272,7 @@ export default function Provider() {
                         !isAuthenticated ? (
                             <Navigate to="/login" />
                         ) : (
-                            <Waybills setAuth={setAuth} name={name}/>
+                            <Waybills setAuth={setAuth} name={name} />
                         )
                     }
                 />
@@ -261,7 +282,7 @@ export default function Provider() {
                         !isAuthenticated ? (
                             <Navigate to="/login" />
                         ) : (
-                            <Shifts setAuth={setAuth} name={name}/>
+                            <Shifts setAuth={setAuth} name={name} />
                         )
                     }
                 />
@@ -271,7 +292,7 @@ export default function Provider() {
                         !isAuthenticated ? (
                             <Navigate to="/login" />
                         ) : (
-                            <ShiftsCreate setAuth={setAuth} name={name}/>
+                            <ShiftsCreate setAuth={setAuth} name={name} />
                         )
                     }
                 />
@@ -281,7 +302,7 @@ export default function Provider() {
                         !isAuthenticated ? (
                             <Navigate to="/login" />
                         ) : (
-                            <Bookings setAuth={setAuth} name={name}/>
+                            <Bookings setAuth={setAuth} name={name} />
                         )
                     }
                 />
@@ -291,7 +312,7 @@ export default function Provider() {
                         !isAuthenticated ? (
                             <Navigate to="/login" />
                         ) : (
-                            <Products setAuth={setAuth} name={name}/>
+                            <Products setAuth={setAuth} name={name} />
                         )
                     }
                 />
@@ -301,7 +322,7 @@ export default function Provider() {
                         !isAuthenticated ? (
                             <Navigate to="/login" />
                         ) : (
-                            <ProductsCreate setAuth={setAuth} name={name}/>
+                            <ProductsCreate setAuth={setAuth} name={name} />
                         )
                     }
                 />
@@ -311,7 +332,7 @@ export default function Provider() {
                         !isAuthenticated ? (
                             <Navigate to="/login" />
                         ) : (
-                            <Minions setAuth={setAuth} name={name}/>
+                            <Minions setAuth={setAuth} name={name} />
                         )
                     }
                 />
@@ -321,7 +342,7 @@ export default function Provider() {
                         !isAuthenticated ? (
                             <Navigate to="/login" />
                         ) : (
-                            <MinionsCreate setAuth={setAuth} name={name}/>
+                            <MinionsCreate setAuth={setAuth} name={name} />
                         )
                     }
                 />
@@ -331,7 +352,7 @@ export default function Provider() {
                         !isAuthenticated ? (
                             <Navigate to="/login" />
                         ) : (
-                            <Rates setAuth={setAuth} name={name}/>
+                            <Rates setAuth={setAuth} name={name} />
                         )
                     }
                 />
@@ -341,7 +362,7 @@ export default function Provider() {
                         !isAuthenticated ? (
                             <Navigate to="/login" />
                         ) : (
-                            <RatesCreate setAuth={setAuth} name={name}/>
+                            <RatesCreate setAuth={setAuth} name={name} />
                         )
                     }
                 />

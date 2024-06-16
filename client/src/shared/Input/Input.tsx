@@ -1,4 +1,4 @@
-import React, { useState, useId } from "react";
+import React, { useState, useId, useEffect } from "react";
 import styles from "./Input.module.css";
 
 import { InputProps } from "./Input.props";
@@ -22,6 +22,12 @@ const Input = ({
             onChange?.(e.target.value);
         }
     };
+    
+    useEffect(() => {
+        if (type === "date") {
+            setDate(value ? new Date(value) : null);
+        }
+    }, [value, type]);
 
     const handleFocus = () => {
         setIsFocused(true);
@@ -35,9 +41,7 @@ const Input = ({
 
     return (
         <div
-            className={`${styles.Container} ${
-                styles[`Container${styleType}`]
-            }`}
+            className={`${styles.Container} ${styles[`Container${styleType}`]}`}
         >
             <label
                 className={`${styles.Label} ${

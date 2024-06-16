@@ -85,7 +85,7 @@ const InstructionsView = ({ setAuth, name }: InstructionsViewProps) => {
                                 </Link>
                             </div>
                             <div className={styles.InstructionChild}>
-                                Кол-во ГП:{" "}
+                                Кол-во ГП:
                                 {instruction.instructionProductsValue}
                             </div>
                         </div>
@@ -93,10 +93,10 @@ const InstructionsView = ({ setAuth, name }: InstructionsViewProps) => {
                     {components
                         ? components.map((component) => {
                               return (
-                                  <>
-                                      {component.componentName}
-                                      {component.componentValue}
-                                  </>
+                                  <div className={styles.InstructionChild}>
+                                      <div>{component.componentName}</div>
+                                      <div>{component.componentValue}</div>
+                                  </div>
                               );
                           })
                         : null}
